@@ -1,0 +1,6 @@
+node_modules/
+/dist/
+
+# Editor directories and files
+.idea
+.vscode

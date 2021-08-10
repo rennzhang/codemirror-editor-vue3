@@ -1,0 +1,25 @@
+{
+  "name": "vue3-codemirror",
+  "description": "CodeMirror component for Vue3",
+  "main": "./dist/vue3-codemirror.js",
+  "author": {
+    "name": "zhangren",
+    "email": "906155099@qq.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue3-codemirror",
+    "vue3 codemirror",
+    "codemirror",
+    "vue3",
+    "log"
+  ],
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
