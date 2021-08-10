@@ -4,20 +4,22 @@
  * Github: https://github.com/surmon-china/vue-codemirror
  */
 
-import CodemirrorEditor from "./codeMirror/index.vue";
+import Codemirror from "./codeMirror/index.vue";
 
 export * from "./codeMirror/presetMode/log/utils.ts";
-
-export const install = (Vue, config) => {
-  if (config) {
-    if (config.options) {
-      CodemirrorEditor.props.globalOptions.default = () => config.options;
+export { Codemirror };
+export default {
+  Codemirror,
+  install: (app, config) => {
+    if (config) {
+      if (config.options) {
+        Codemirror.props.globalOptions.default = () => config.options;
+      }
+      if (config.events) {
+        Codemirror.props.globalEvents.default = () => config.events;
+      }
     }
-    if (config.events) {
-      CodemirrorEditor.props.globalEvents.default = () => config.events;
-    }
-  }
-  Vue.component(CodemirrorEditor.name, CodemirrorEditor);
+    app.component("Codemirror", Codemirror);
+    return app;
+  },
 };
-
-export default CodemirrorEditor;
