@@ -20,9 +20,9 @@
     "email": "906155099@qq.com"
   },
   "bugs": {
-    "url": "https://github.com/surmon-china/vue-codemirror/issues"
+    "url": "https://github.com/RennCheung/codemirror-editor-vue3"
   },
-  "homepage": "https://github.com/surmon-china/vue-codemirror#readme",
+  "homepage": "https://github.com/RennCheung/codemirror-editor-vue3",
   "unpkg": "dist/codemirror-editor-vue3.js",
   "jsnext:main": "dist/codemirror-editor-vue3.js",
   "jspm": {
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/surmon-china/vue-codemirror.git"
+    "url": "https://github.com/RennCheung/codemirror-editor-vue3"
   },
   "keywords": [
     "codemirror-editor-vue3",
