@@ -26,7 +26,7 @@
 
 <script>
 // lib
-import { ref, watch, nextTick, getCurrentInstance, onBeforeUnmount, defineAsyncComponent } from "vue"
+import { ref, watch, nextTick, getCurrentInstance, onBeforeUnmount,defineComponent } from "vue"
 // pollfill
 if (typeof Object.assign != 'function') {
   Object.defineProperty(Object, 'assign', {
@@ -54,7 +54,9 @@ if (typeof Object.assign != 'function') {
 // base
 import "codemirror/lib/codemirror.css";
 import 'codemirror/mode/css/css.js'
-
+import Default from './presetMode/default/index.vue'
+import Merge from './presetMode/Merge/index.vue'
+import FcLog from './presetMode/log/index.vue'
 // import 'codemirror/addon/lint/lint.css'
 // import 'codemirror/addon/scroll/simplescrollbars.css'
 
@@ -104,7 +106,7 @@ const cmEvts = [
   'update'
 ]
 // export
-export default {
+export default defineComponent({
   name: 'CodemirrorEditor',
   props: {
     code: String,
@@ -151,10 +153,14 @@ export default {
     ...componentsEvts,
     ...cmEvts
   ],
+
   components: {
-    Default: defineAsyncComponent(() => import("./presetMode/default/index.vue")),
-    Merge: defineAsyncComponent(() => import("./presetMode/Merge/index.vue")),
-    DtLog: defineAsyncComponent(() => import("./presetMode/log/index.vue"))
+    // Default: defineAsyncComponent(() => import("./presetMode/default/index.vue")),
+    // Merge: defineAsyncComponent(() => import("./presetMode/Merge/index.vue")),
+    // FcLog: defineAsyncComponent(() => import("./presetMode/log/index.vue"))
+    Default,
+    Merge,
+    FcLog
   },
   setup(props, ctx) {
     const cminstance = ref(null)
@@ -242,9 +248,8 @@ export default {
 
     /** @description  */
     const handlePresetModeName = () => {
-      console.log(props.options.mode);
       if (props.options.mode == 'fclog' || props.options.mode == "log") {
-        presetModeName.value = "DtLog"
+        presetModeName.value = "FcLg"
         return
       }
       if (props.merge) {
@@ -272,7 +277,7 @@ export default {
     }
   },
 
-}
+})
 function useEvents({ cminstance, ctx, internalInstance, content }) {
   /** @description 根据组件实例获取在该组件上监听的事件，用来确定需要 emit 的事件 */
   const getUseEvents = () => {

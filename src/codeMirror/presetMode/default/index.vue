@@ -10,7 +10,7 @@
 // lib
 import _CodeMirror from 'codemirror'
 const CodeMirror = window.CodeMirror || _CodeMirror
-import { ref, watch, onMounted, markRaw } from "vue"
+import { ref, watch, onMounted, markRaw, defineComponent } from "vue"
 // pollfill
 if (typeof Object.assign != 'function') {
   Object.defineProperty(Object, 'assign', {
@@ -36,11 +36,11 @@ if (typeof Object.assign != 'function') {
   })
 }
 // base
-import "codemirror/lib/codemirror.css";
-import 'codemirror/mode/css/css.js'
+// import "codemirror/lib/codemirror.css";
+// import 'codemirror/mode/css/css.js'
 
 // export
-export default {
+export default defineComponent({
   name: 'codemirror',
   props: {
     code: String,
@@ -95,7 +95,7 @@ export default {
     }
   },
 
-}
+})
 </script>
 <style lang="less">
 .codemirror-container {

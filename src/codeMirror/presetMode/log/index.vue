@@ -8,13 +8,13 @@
 <script>
 import _CodeMirror from 'codemirror'
 const CodeMirror = window.CodeMirror || _CodeMirror
-import { ref, watch, onMounted, markRaw, computed } from "vue";
+import { ref, watch, onMounted, markRaw, computed, defineComponent } from "vue";
 import { getLinkMark, getLogMark, } from "./utils.ts";
 
 import "./languages/fclog/index";
 import "./languages/simpleLog/index.js";
-import 'codemirror/addon/lint/lint.css'
-export default {
+// import 'codemirror/addon/lint/lint.css'
+export default defineComponent({
   name: "codemirror-fclog",
   props: {
     code: String,
@@ -92,7 +92,7 @@ export default {
       textarea,
     };
   },
-};
+});
 </script>
 
 <style>

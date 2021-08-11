@@ -6,7 +6,7 @@
 // lib
 import _CodeMirror from 'codemirror'
 const CodeMirror = window.CodeMirror || _CodeMirror
-import { ref, onMounted, markRaw } from "vue"
+import { ref, onMounted, markRaw, defineComponent } from "vue"
 
 
 // merge css
@@ -24,7 +24,7 @@ window.DIFF_DELETE = -1
 window.DIFF_INSERT = 1
 window.DIFF_EQUAL = 0
 
-export default {
+export default defineComponent({
   name: "mergemode",
   props: {
 
@@ -64,6 +64,6 @@ export default {
       initialize
     }
   },
-};
+});
 </script>
 

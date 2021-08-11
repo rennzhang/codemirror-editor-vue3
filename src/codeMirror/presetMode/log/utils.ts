@@ -107,7 +107,7 @@ export function getLogMark (value: any) {
     return result;
 }
 /**
- * dtlog日志构造器
+ * fclog日志构造器
  * @param {string} log 日志内容
  * @param {string} type 日志类型
  */

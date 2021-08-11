@@ -1,9 +1,3 @@
-/*
- * Vue-CodeMirror
- * Author: surmon@foxmail.com
- * Github: https://github.com/surmon-china/vue-codemirror
- */
-
 import Codemirror from "./codeMirror/index.vue";
 
 export * from "./codeMirror/presetMode/log/utils.ts";

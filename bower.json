@@ -1,14 +1,14 @@
 {
-  "name": "vue3-codemirror",
+  "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "main": "./dist/vue3-codemirror.js",
+  "main": "./dist/codemirror-editor-vue3.js",
   "author": {
     "name": "zhangren",
     "email": "906155099@qq.com"
   },
   "license": "MIT",
   "keywords": [
-    "vue3-codemirror",
+    "codemirror-editor-vue3",
     "vue3 codemirror",
     "codemirror",
     "vue3",
