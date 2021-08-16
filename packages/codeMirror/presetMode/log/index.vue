@@ -94,32 +94,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-.editor_custom_link {
-  cursor: pointer;
-  color: #1474f1;
-  text-decoration: underline;
-}
-.editor_custom_link:hover {
-  color: #04b4fa;
-}
-.c-editor--log__error {
-  color: #bb0606;
-  font-weight: bold;
-}
-.c-editor--log__info {
-  color: #333333;
-  font-weight: bold;
-}
-.c-editor--log__warning {
-  color: #ee9900;
-}
-.c-editor--log__success {
-  color: #669600;
-}
-.cm-header,
-.cm-strong {
-  font-weight: bold;
-}
-</style>

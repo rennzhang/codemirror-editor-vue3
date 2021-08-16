@@ -3,7 +3,7 @@
     class="codemirror-container"
     :class="{
       merge: $props.merge,
-      bordered: $props.border,
+      bordered: !$props.merge && $props.border,
       'width-auto': !$props.width || $props.width == '100%',
       'height-auto': !$props.height || $props.height == '100%',
     }"
@@ -25,8 +25,10 @@
 </template>
 
 <script>
+import _CodeMirror from 'codemirror'
+const CodeMirror = window.CodeMirror || _CodeMirror
 // lib
-import { ref, watch, nextTick, getCurrentInstance, onBeforeUnmount,defineComponent } from "vue"
+import { ref, watch, nextTick, getCurrentInstance, onBeforeUnmount, defineComponent } from "vue"
 // pollfill
 if (typeof Object.assign != 'function') {
   Object.defineProperty(Object, 'assign', {
@@ -52,29 +54,20 @@ if (typeof Object.assign != 'function') {
   })
 }
 // base
-import "codemirror/lib/codemirror.css";
-import 'codemirror/mode/css/css.js'
 import Default from './presetMode/default/index.vue'
 import Merge from './presetMode/Merge/index.vue'
 import FcLog from './presetMode/log/index.vue'
-// import 'codemirror/addon/lint/lint.css'
-// import 'codemirror/addon/scroll/simplescrollbars.css'
 
-// import 'codemirror/mode/properties/properties'
-// import 'codemirror/addon/edit/matchbrackets'
-// import 'codemirror/addon/scroll/simplescrollbars'
 const defaulOptions = {
   mode: "text", // 语言模式
   theme: "default", // 主题
   lineNumbers: true, // 显示行号
   smartIndent: true, // 智能缩进
   indentUnit: 2, // 智能缩进单位为4个空格长度
-  // 在行槽中添加行号显示器、折叠器、语法检测器`
-  gutters: ["CodeMirror-linenumbers"],
   foldGutter: true, // 启用行槽中的代码折叠
   matchBrackets: true, // 匹配结束符号，比如"]、}"
   autoCloseBrackets: true, // 自动闭合符号
-  // styleActiveLine: true, // 显示选中行的样式
+  styleActiveLine: true, // 显示选中行的样式
 }
 
 // component define events
@@ -134,8 +127,6 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     },
-
-
     border: {
       type: Boolean,
       default: false
@@ -147,6 +138,10 @@ export default defineComponent({
     height: {
       type: [String, Number],
       default: null
+    },
+    KeepCursorInEnd: {
+      type: Boolean,
+      default: false
     },
   },
   emits: [
@@ -214,7 +209,6 @@ export default defineComponent({
       // props.options = cminstance.value.getValue()
       presetRef.value.initialize()
       destroy()
-      //   initialize()
 
       // Restore values
       cminstance.value.doc.history = history
@@ -230,8 +224,7 @@ export default defineComponent({
 
       // prevents funky dynamic rendering
       resize()
-      refresh()
-      // reload()
+      // refresh()
       ctx.emit('ready', cminstance.value)
 
     };
@@ -249,7 +242,7 @@ export default defineComponent({
     /** @description  */
     const handlePresetModeName = () => {
       if (props.options.mode == 'fclog' || props.options.mode == "log") {
-        presetModeName.value = "FcLg"
+        presetModeName.value = "FcLog"
         return
       }
       if (props.merge) {
@@ -265,6 +258,7 @@ export default defineComponent({
       destroy()
     })
 
+
     return {
       presetModeName,
       cmOptions,
@@ -272,7 +266,7 @@ export default defineComponent({
       content,
       ready,
       resize,
-      instanceName: internalInstance?.parent?.type?.name,
+      instanceName: props.name || internalInstance?.parent?.type?.name + '-cm',
       presetRef,
     }
   },
@@ -296,7 +290,9 @@ function useEvents({ cminstance, ctx, internalInstance, content }) {
   /** @description listener events */
   const listenerEvents = () => {
     cminstance.value.on('change', cm => {
-      content.value = cm.getValue()
+      const currentVal = cm.getValue()
+      if (currentVal == content.value) return
+      content.value = currentVal
       ctx.emit('update:value', content.value)
       ctx.emit('change', content.value, cm)
     })
@@ -328,7 +324,6 @@ function useEvents({ cminstance, ctx, internalInstance, content }) {
   display: inline-block;
   height: 100%;
   width: fit-content;
-  text-align: left !important;
   font-size: 12px;
   &.bordered {
     border-radius: 4px;
@@ -345,17 +340,38 @@ function useEvents({ cminstance, ctx, internalInstance, content }) {
     }
   }
 }
-.codemirror-container * {
-  text-align: left;
-}
-.CodeMirror {
-  line-height: 18px;
-}
+
 .CodeMirror-lines .CodeMirror-placeholder.CodeMirror-line-like {
   color: #666;
 }
 .CodeMirror,
 .CodeMirror-merge-pane {
   font-family: consolas !important;
+}
+.editor_custom_link {
+  cursor: pointer;
+  color: #1474f1;
+  text-decoration: underline;
+}
+.editor_custom_link:hover {
+  color: #04b4fa;
+}
+.c-editor--log__error {
+  color: #bb0606;
+  font-weight: bold;
+}
+.c-editor--log__info {
+  color: #333333;
+  font-weight: bold;
+}
+.c-editor--log__warning {
+  color: #ee9900;
+}
+.c-editor--log__success {
+  color: #669600;
+}
+.cm-header,
+.cm-strong {
+  font-weight: bold;
 }
 </style>
