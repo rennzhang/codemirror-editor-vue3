@@ -1,0 +1,28 @@
+name: Codemirror-editor-vue3 docs to github actions
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - name: Install
+        run: npm ci && npm run-script docs:build
+      - name: Install SSH Client
+        uses: webfactory/ssh-agent@v0.2.0 # This step installs the ssh client into the workflow run. There's many options available for this on the action marketplace.
+
+      - name: Build and Deploy Repo
+        uses: JamesIves/github-pages-deploy-action@releases/v3-test
+        with:
+          BASE_BRANCH: main
+          BRANCH: gh-pages
+          FOLDER: docs/.vuepress/dist
+          SSH: true # SSH must be set to true so the deploy action knows which protocol to deploy with.
