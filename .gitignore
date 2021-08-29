@@ -1,6 +1,7 @@
 node_modules/
 /dist/
-
+/docs/.vitepress/dist
 # Editor directories and files
 .idea
 .vscode
+.DS_Store
