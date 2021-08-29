@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/",
+  base: "/codemirror-editor-vue3/",
   lang: "zh-cn",
   title: "codemirror-editor-vue3",
   description: "CodeMirror component for Vue3",
