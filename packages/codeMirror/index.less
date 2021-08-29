@@ -4,6 +4,7 @@
   height: 100%;
   width: fit-content;
   font-size: 12px;
+  overflow: hidden;
   &.bordered {
     border-radius: 4px;
     border: 1px solid #dddddd;
@@ -25,7 +26,12 @@
 }
 .CodeMirror,
 .CodeMirror-merge-pane {
+  height: 100%;
   font-family: consolas !important;
+}
+.CodeMirror-merge,
+.CodeMirror-merge-right .CodeMirror {
+  height: 100%;
 }
 .editor_custom_link {
   cursor: pointer;

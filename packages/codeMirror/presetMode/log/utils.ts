@@ -7,20 +7,20 @@ enum errorType {
 /**
  * Get Local time, format:  HH:mm:ss
  */
-export function getLocalTime (): string {
+export function getLocalTime(): string {
     const date = new Date();
-    const h =date.getHours()<10?'0'+date.getHours():date.getHours()
-    const m =date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()
-    const s =date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds()
+    const h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+    const m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+    const s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
     // Get local hours, minutes, secondes
     return `${h}:${m}:${s}`;
 }
 
-export function createLinkMark (attrs: any) {
+export function createLinkMark(attrs: any) {
     return `#link#${JSON.stringify(attrs)}#link#`
 }
 
-export function getLinkMark (value: any) {
+export function getLinkMark(value: any) {
     const linkRegexp = /#link#(.+)#link#/g;
     let result: any = [];
     let indexObj: any;
@@ -48,18 +48,16 @@ export function getLinkMark (value: any) {
  * @param {string} text 标记文本
  * @param {string} type 标记类型
  */
-export function createLogMark (text = '', type = 'info') {
+export function createLogMark(text = '', type = 'info') {
     return `#log<${type}>log#${text}#log<${type}>log#`
 }
 
-export function getLogMark (value: any) {
+export function getLogMark(value: any) {
     let result: any = [];
-    function match () {
+    function match() {
         const logRegexp = new RegExp(`#log<(\\w*)>log#((.|\r\n|\n)*?)#log<(\\w*)>log#`, 'g');
         let indexObj: any;
         indexObj = logRegexp.exec(value);
-        console.log(indexObj);
-        
         /**
          * 循环正则来匹配相应格式字段
          */
@@ -80,8 +78,6 @@ export function getLogMark (value: any) {
              */
             const node = document.createElement('span');
             let type = indexObj[1];
-            console.log(type);
-            
             node.className = `c-editor--log__${type}`
             /**
              * 当前index偏移量
@@ -111,11 +107,11 @@ export function getLogMark (value: any) {
  * @param {string} log 日志内容
  * @param {string} type 日志类型
  */
-export function createLog (log: string, type: errorType | string = '') {
+export function createLog(log: string, type: errorType | string = '') {
     let now = getLocalTime();
     return `[${now}] <${type}> ${log}`
 }
-export function createTitle (title = '',baseLength=20,symbol="=") {
+export function createTitle(title = '', baseLength = 20, symbol = "=") {
     const offsetLength = Math.floor(1.5 * title.length / 2);
     let arr = new Array(Math.max(baseLength - offsetLength, 5));
     const wraptext = arr.join(symbol);

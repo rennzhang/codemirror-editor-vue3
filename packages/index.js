@@ -1,7 +1,7 @@
 import Codemirror from "../packages/codeMirror/index.vue";
 
 export * from "../packages/codeMirror/presetMode/log/utils.ts";
-
+import "./codeMirror/index.less";
 export { Codemirror };
 Codemirror.install = (app, config) => {
   if (config) {

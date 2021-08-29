@@ -1,25 +1,25 @@
 /* */
 import "codemirror/addon/mode/simple.js";
-import * as codemirror from "codemirror";
-
+// import * as codemirror from "codemirror";
+import codemirror from "codemirror";
 const startRegex = [
   {
-    regex: /(\[.*?\])([ \t]*)(<error>)/,
-    token: ["tag", null, "error.strong"],
+    regex: /(\[.*?\])([ \t]*)(<error>[ \t])(.+)/,
+    token: ["tag", null, "error.strong", "error.strong"],
     sol: true,
-    next: "error",
+    // next: "error",
   },
   {
-    regex: /(\[.*?\])([ \t]*)(<info>)/,
-    token: ["tag", null, "bracket"],
+    regex: /(\[.*?\])([ \t]*)(<info>)(.+)(.?)/,
+    token: ["tag", null, "bracket", "bracket", "hr"],
     sol: true,
-    next: "info",
+    // next: "info",
   },
   {
-    regex: /(\[.*?\])([ \t]*)(<warning>)/,
-    token: ["tag", null, "comment"],
+    regex: /(\[.*?\])([ \t]*)(<warning>)(.+)(.?)/,
+    token: ["tag", null, "comment", "comment", "hr"],
     sol: true,
-    next: "warning",
+    // next: "warning",
   },
 ];
 
@@ -48,7 +48,7 @@ codemirror.defineSimpleMode("fclog", {
   warning: [
     ...startRegex,
     {
-      regex: /.*/,
+      regex: /.*\[/,
       token: "comment",
     },
   ],

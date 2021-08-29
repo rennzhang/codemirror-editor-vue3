@@ -7,8 +7,12 @@
       'width-auto': !$props.width || $props.width == '100%',
       'height-auto': !$props.height || $props.height == '100%',
     }"
+    :style="{
+      height: containerHeight + 'px',
+    }"
   >
     <component
+      style="height: 100%"
       :is="presetModeName"
       ref="presetRef"
       v-model:cminstance="cminstance"
@@ -27,7 +31,10 @@
 <script>
 import _CodeMirror from 'codemirror'
 const CodeMirror = window.CodeMirror || _CodeMirror
-// lib
+
+// base style
+import "codemirror/lib/codemirror.css";
+
 import { ref, watch, nextTick, getCurrentInstance, onBeforeUnmount, defineComponent } from "vue"
 // pollfill
 if (typeof Object.assign != 'function') {
@@ -74,6 +81,7 @@ const defaulOptions = {
 const componentsEvts = [
   "update:value",
   "change",
+  "input",
   "ready",
 ]
 
@@ -165,6 +173,8 @@ export default defineComponent({
     const internalInstance = getCurrentInstance()
     const presetRef = ref(null)
 
+    const containerWidth = ref(null)
+    const containerHeight = ref(null)
     const refresh = () => {
       nextTick(() => {
         cminstance.value.refresh()
@@ -172,7 +182,13 @@ export default defineComponent({
     }
 
     const resize = (width = props.width, height = props.height) => {
-      cminstance.value.setSize(width, height)
+      containerWidth.value = String(width).replace("px", "")
+      containerHeight.value = String(height).replace("px", "")
+      let cmHeight = containerHeight.value
+      if (props.merge) {
+        cmHeight -= 2
+      }
+      cminstance.value.setSize(containerWidth.value, cmHeight)
     }
 
     const unseenLineMarkers = () => {
@@ -226,7 +242,9 @@ export default defineComponent({
       resize()
       // refresh()
       ctx.emit('ready', cminstance.value)
-
+      watch([() => props.height, () => props.width], ([height, width]) => {
+        resize(height, width)
+      }, { deep: true })
     };
 
     watch(() => props.options, (val) => {
@@ -266,6 +284,8 @@ export default defineComponent({
       content,
       ready,
       resize,
+      containerWidth,
+      containerHeight,
       instanceName: props.name || internalInstance?.parent?.type?.name + '-cm',
       presetRef,
     }
@@ -294,6 +314,7 @@ function useEvents({ cminstance, ctx, internalInstance, content }) {
       if (currentVal == content.value) return
       content.value = currentVal
       ctx.emit('update:value', content.value)
+      ctx.emit('input', content.value)
       ctx.emit('change', content.value, cm)
     })
     // const internalInstance.vnode.props
@@ -318,60 +339,3 @@ function useEvents({ cminstance, ctx, internalInstance, content }) {
   }
 }
 </script>
-<style lang="less">
-.codemirror-container {
-  position: relative;
-  display: inline-block;
-  height: 100%;
-  width: fit-content;
-  font-size: 12px;
-  &.bordered {
-    border-radius: 4px;
-    border: 1px solid #dddddd;
-  }
-  &.width-auto {
-    width: 100%;
-  }
-  &.height-auto {
-    height: 100%;
-    .CodeMirror,
-    .cm-s-default {
-      height: 100% !important;
-    }
-  }
-}
-
-.CodeMirror-lines .CodeMirror-placeholder.CodeMirror-line-like {
-  color: #666;
-}
-.CodeMirror,
-.CodeMirror-merge-pane {
-  font-family: consolas !important;
-}
-.editor_custom_link {
-  cursor: pointer;
-  color: #1474f1;
-  text-decoration: underline;
-}
-.editor_custom_link:hover {
-  color: #04b4fa;
-}
-.c-editor--log__error {
-  color: #bb0606;
-  font-weight: bold;
-}
-.c-editor--log__info {
-  color: #333333;
-  font-weight: bold;
-}
-.c-editor--log__warning {
-  color: #ee9900;
-}
-.c-editor--log__success {
-  color: #669600;
-}
-.cm-header,
-.cm-strong {
-  font-weight: bold;
-}
-</style>

@@ -45,13 +45,10 @@ export default defineComponent({
   setup(props, { emit }) {
     const codemirror = ref(null)
     const mergeView = ref(null)
-    const height = String(props.height).replace('px', "") + 'px'
+    const height = String(props.height).replace('px', "")
     const initialize = () => {
       codemirror.value = markRaw(CodeMirror.MergeView(mergeView.value, props.options))
       emit("update:cminstance", markRaw(codemirror.value.edit))
-
-      document.querySelector('.CodeMirror-merge').style.height = height
-      document.querySelector('.CodeMirror-merge-right .CodeMirror').style.height = height
       emit('ready', codemirror)
 
     }
