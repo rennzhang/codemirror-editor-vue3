@@ -1,18 +1,24 @@
 
 <template>
-  <Codemirror
-    :merge="true"
-    v-model:value="code"
-    :options="cmOption"
-    border
-    placeholder="测试 placeholder"
-    :height="200"
-    @change="change"
-  />
+  <div class="container">
+    <Codemirror
+      v-model:value="code"
+      :options="cmOption"
+      border
+      placeholder="测试 placeholder"
+      :height="200"
+      @change="change"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-import Codemirror, { createTitle } from "../packages/index.js";
+import Codemirror, {
+  createTitle,
+  createLinkMark,
+  createLogMark,
+  createLog,
+} from "../packages/index.js";
 console.log(createTitle);
 
 // base style
@@ -40,9 +46,43 @@ export default defineComponent({
     Codemirror,
   },
   setup() {
-    const code = ref(`<head>
-    <title>vue-codemirror | Homepage | Surmon's projects</title>
-<meta data-n-head="ssr" charset="utf-8">`);
+    const code = ref(`完整日志下载地址：${createLinkMark({
+      href: "/logDownload",
+      download: "",
+      target: "_blank",
+    })}
+====================基本日志====================
+${createLogMark("2021-08-26 15:07:09: job is success", "info")}
+${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
+${createLogMark("2021-08-26 15:07:09: job is error", "error")}
+
+DataStreamMain start
+java.lang.NullPointerException
+at
+at java.util.Properties.load0(Properties.java:353)
+====================带有时间节点====================
+${createLog("info", "info")}
+${createLog(
+  `at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.`,
+  "error"
+)}
+${createLog("warning", "warning")}
+${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
+
+${createLogMark("2021-08-26 15:07:09: job is success", "info")}
+====================引擎日志==================== 
+
+DataStreamMain start
+java.lang.NullPointerException
+at
+at java.util.Properties.load0(Properties.java:353)
+at java.util.Properties.load(Properties.java:341)
+at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.
+at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEngine.
+at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
+at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
+at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
+ `);
     const orig2 = ref(`<head>
     <title>test title</title>
 <meta data-n-head="ssr" charset="utf-8">`);
@@ -60,8 +100,9 @@ export default defineComponent({
         origLeft: null,
         orig: orig2,
         connect: "align",
-        mode: "text/html",
+        mode: "log",
         lineNumbers: true,
+        lineWrapping: true,
         collapseIdentical: false,
         highlightDifferences: true,
       },
@@ -70,6 +111,8 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
+.container {
+}
 .example {
   display: flex;
   height: 100%;
