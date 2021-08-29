@@ -1,8 +1,8 @@
-import DefaultTheme from "vitepress/theme";
+import theme from "vitepress/dist/client/theme-default";
+import "./styles/index.css";
 import demoPreview from "../../components/demoPreview.vue";
-import "vite-plugin-vuedoc/style.css";
 export default {
-  ...DefaultTheme,
+  ...theme,
   enhanceApp({ app }) {
     app.component("demoPreview", demoPreview);
   },

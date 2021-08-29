@@ -1,0 +1,11 @@
+{
+  "hash": "2419da22",
+  "browserHash": "1287ce19",
+  "optimized": {
+    "vue": {
+      "file": "/Users/renzhang/Desktop/个人项目/test-vitepress/docs/node_modules/.vite/vue.js",
+      "src": "/Users/renzhang/Desktop/个人项目/test-vitepress/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "needsInterop": false
+    }
+  }
+}

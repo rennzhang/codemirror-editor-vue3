@@ -1,0 +1,40 @@
+@import "./var.css";
+@import "./code.css";
+@import "../iconfont/iconfont.css";
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.page > .container:first-child {
+  max-width: unset !important;
+  padding: 0 12.5rem 4rem 3rem !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .page > .container:first-child {
+    padding: 0 1.5rem 4rem !important;
+  }
+}
+
+.home-hero .image {
+  width: 200px;
+  height: 200px;
+}
+
+.nav-bar .logo {
+  height: 30px;
+  margin-right: 2px;
+}
+
+.custom-block.tip {
+  border-color: var(--c-brand-light);
+}
+
+.DocSearch {
+  --docsearch-primary-color: var(--c-brand) !important;
+}

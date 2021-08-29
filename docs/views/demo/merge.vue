@@ -1,5 +1,9 @@
 <template>
-  <demo-preview v-bind="{ ...$attrs, ...$props }" title="Merge Mode：">
+  <demo-preview
+    v-bind="{ ...$attrs, ...$props }"
+    title="Merge Mode："
+    name="merge-mode-demo"
+  >
     <Codemirror
       :merge="true"
       :options="cmOptions"
