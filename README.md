@@ -1,6 +1,6 @@
 ### 介绍
 
-  该插件基于 [Codemirror](http://codemirror.net/)，仅支持 vue3 中使用。
+  该插件基于 [Codemirror](http://codemirror.net/)，仅支持 vue3 中使用。除了 codemirror 所支持的模式，本插件还支持自定义日志模式。
 
 完整文档请查看[codemirror-editor-vue3-docs](https://renncheung.github.io/codemirror-editor-vue3/index.html)
 
@@ -74,9 +74,8 @@ for (; i < 9; i++) {
 ```
 
 ### 其他说明
-::: tip
 考虑插件需要引入以下基础样式（codemirror 官方样式），插件内部已经引入，不需要在使用时重复引入以下样式：
-:::
+
 ```js
 // base style
 import "codemirror/lib/codemirror.css";
