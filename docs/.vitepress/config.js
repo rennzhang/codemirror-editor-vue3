@@ -6,11 +6,9 @@ module.exports = {
   title: "codemirror-editor-vue3",
   description: "CodeMirror component for Vue3",
   themeConfig: {
-    repo: "vuejs/vitepress",
+    repo: "RennCheung/codemirror-editor-vue3",
     docsDir: "docs",
     lastUpdated: "最近更新时间",
-    // nav: [{ text: "Guide", link: "/", activeMatch: "^/$|^/guide/" }],
-
     sidebar: {
       "/": getGuideSidebar(),
     },
