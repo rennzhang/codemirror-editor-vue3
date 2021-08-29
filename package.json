@@ -25,7 +25,7 @@
     "name": "zhangren",
     "email": "906155099@qq.com"
   },
-  "homepage": "https://github.com/RennCheung/codemirror-editor-vue3",
+  "homepage": "https://renncheung.github.io/codemirror-editor-vue3/index.html",
   "unpkg": "dist/codemirror-editor-vue3.js",
   "jsnext:main": "dist/codemirror-editor-vue3.js",
   "jspm": {
