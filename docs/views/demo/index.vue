@@ -12,9 +12,6 @@
 
 <script setup>
 import { Codemirror } from "../../../packages/index.js";
-// base style
-// import "codemirror/lib/codemirror.css";
-// import "codemirror/mode/css/css.js";
 
 // language
 import "codemirror/mode/javascript/javascript.js";

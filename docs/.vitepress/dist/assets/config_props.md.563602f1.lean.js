@@ -1,1 +1,0 @@
-import{o as t,c as e,e as n}from"./app.8f5014a0.js";const a='{"title":"Props","description":"","frontmatter":{},"headers":[{"level":3,"title":"Props","slug":"props"},{"level":3,"title":"说明","slug":"说明"}],"relativePath":"config/props.md","lastUpdated":1629081624956}',s={},o=[n('',5)];s.render=function(n,a,s,l,d,c){return t(),e("div",null,o)};export{a as __pageData,s as default};

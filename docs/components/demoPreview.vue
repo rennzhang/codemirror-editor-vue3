@@ -1,6 +1,6 @@
 <template>
   <div class="demo-preview" :class="$props.name">
-    <div class="demo-preview-head">
+    <div class="demo-preview-head" v-if="$props.title">
       {{ $props.title }}
     </div>
     <div class="demo-preview-body">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Message from 'ant-design-vue/lib/message';
+// import Message from 'ant-design-vue/lib/message';
 import 'ant-design-vue/lib/message/style/index.css'; // 或者 ant-design-vue/lib/button/style/css 加载 css 文件
 import { ref, onMounted } from "vue"
 export default {
@@ -42,11 +42,10 @@ export default {
     const showCode = ref(true)
     const demoContent = ref(null)
     const codeContent = ref(null)
-    let height = ref(0)
     const tiggerShowCode = () => {
       showCode.value = !showCode.value
       if (showCode.value) {
-        viewDom.value.style.height = height.value + 'px'
+        viewDom.value.style.height = document.querySelector(`.language-vue.${props.name} pre`).clientHeight + 2 + 'px'
         viewDom.value.style.borderTop = "1px solid #ddd"
         return
       }
@@ -57,8 +56,11 @@ export default {
     const moveCodeContent = () => {
       demoContent.value = document.querySelector(`.demo-preview.${props.name}`)
       codeContent.value = document.querySelector(`.language-vue.${props.name}`)
-      let demoControl = document.querySelector(".demo-preview-control")
-      demoContent.value.insertBefore(codeContent.value, demoControl)
+      let demoControl = document.querySelector(`.demo-preview.${props.name} .demo-preview-control`)
+      if (!demoContent.value.contains(codeContent.value)) {
+        // demoContent.value?.insertBefore(codeContent.value, demoControl || '')
+        demoControl.parentNode?.insertBefore(codeContent.value, demoControl || '')
+      }
     }
 
     const copy = () => {
@@ -68,7 +70,7 @@ export default {
       var data = [new ClipboardItem({ [type]: blob })];
       navigator.clipboard.write(data).then(
         function (e) {
-          Message.success("复制成功！")
+          // Message.success("复制成功！")
           console.log(e);
           /* success */
         },
@@ -80,7 +82,6 @@ export default {
     }
     onMounted(() => {
       viewDom.value = document.querySelector(`.language-vue.${props.name}`)
-      height.value = viewDom.value.clientHeight
       moveCodeContent()
       tiggerShowCode()
     })
@@ -106,22 +107,22 @@ export default {
   margin-top: 0;
   border-radius: 0;
   transition: height 0.2s;
-  overflow: hidden;
+  box-sizing: border-box;
   margin: 0;
   border: 1px solid #ddd;
   border-bottom: 0;
-  // border-top: 0;
 }
 .demo-preview-head {
   border: 1px solid #ddd;
   padding: 10px;
+  border-bottom: 0;
+
   // background: #f7f7f7;
 }
 .demo-preview-body {
   padding: 20px;
   box-sizing: border-box;
   border: 1px solid #ddd;
-  border-top: 0;
   border-bottom: 0;
   .codemirror-container {
     box-shadow: 0px 0px 10px 5px #e8e8e8;

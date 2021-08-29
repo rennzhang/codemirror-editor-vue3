@@ -1,5 +1,7 @@
+const base =
+  process.env.NODE_ENV == "production" ? "/codemirror-editor-vue3/" : "/";
 module.exports = {
-  base: "/codemirror-editor-vue3/",
+  base,
   lang: "zh-cn",
   title: "codemirror-editor-vue3",
   description: "CodeMirror component for Vue3",
@@ -33,8 +35,16 @@ function getGuideSidebar() {
       text: "预置模式",
       children: [
         { text: "merge模式", link: "/merge/index" },
-        // { text: "log模式", link: "/log/index" },
+        { text: "log模式", link: "/log/index" },
       ],
+    },
+    {
+      text: "更多案例",
+      link: "/more/index",
+      // children: [
+      //   { text: "merge模式", link: "/merge/index" },
+      //   { text: "log模式", link: "/log/index" },
+      // ],
     },
   ];
 }

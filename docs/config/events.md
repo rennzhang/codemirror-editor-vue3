@@ -2,7 +2,8 @@
 
 | 事件名称        | 说明           | 回调参数  |
 | ------ |:------:| :--------|
-| `change` | codemirror实例发生改变，返回 value 和该实例（如：绑定值变化或 options 变化）| `(value: string instance: object) => void` |
+| `change` | codemirror实例发生改变，返回 value 和该实例（如：绑定值变化或 options 变化）| `(value: string, instance: object) => void` |
+| `input` | input | `(value: string) => void` |
 | `ready`  | codemirror实例创建完成，返回该实例      |   `(instance: object) => void` |
 
 ### Codemirror Events
