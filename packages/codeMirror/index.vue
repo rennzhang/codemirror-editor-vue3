@@ -168,7 +168,7 @@ export default defineComponent({
   setup(props, ctx) {
     const cminstance = ref(null)
     const content = ref("")
-    const presetModeName = ref()
+    const presetModeName = ref("Default")
     const cmOptions = ref(Object.assign({ ...defaulOptions }, props.globalOptions, props.options))
     const internalInstance = getCurrentInstance()
     const presetRef = ref(null)
