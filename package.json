@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "license": "MIT",
   "files": [
     "dist",
@@ -73,6 +73,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.14.0",
     "less": "^4.1.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-cpy": "^2.0.1",
     "rollup-plugin-esbuild": "^4.5.0",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",

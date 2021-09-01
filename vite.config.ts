@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import * as path from "path";
+import copy from 'rollup-plugin-cpy'
 const viteCfg = defineConfig({
   server: {
     host: "::",
@@ -46,6 +47,9 @@ const viteCfg = defineConfig({
   },
   plugins: [
     vue(),
+    copy([
+      { files: 'README.md', dest: './dist' }, //执行拷贝
+    ])
   ],
 });
 export default viteCfg;
