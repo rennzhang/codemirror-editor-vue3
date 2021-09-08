@@ -1,5 +1,6 @@
 <template>
   <Codemirror
+    v-if="isMounted"
     v-model:value="code"
     :options="cmOptions"
     border
@@ -11,7 +12,7 @@
 </template>
 
 <script setup>
-import { Codemirror } from "../../../packages/index.js";
+import Codemirror from "../../../packages/index";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
@@ -19,23 +20,26 @@ import "codemirror/mode/javascript/javascript.js";
 // theme
 // import "codemirror/theme/dracula.css"
 
-import { ref } from "vue"
+import { ref, onMounted } from "vue";
+const isMounted = ref(false);
+
 const code = ref(`var i = 0;
 for (; i < 9; i++) {
     console.log(i);
     // more statements
 }
-`)
+`);
 
 const onChange = (val, instance) => {
-  console.log(val)
-}
+  console.log(val);
+};
 
 const cmOptions = {
-  mode: 'text/javascript',
+  mode: "text/javascript",
   //   theme: 'dracula'
-  theme: 'default'
-}
+  theme: "default",
+};
+onMounted(() => {
+  isMounted.value = true;
+});
 </script>
-
-  

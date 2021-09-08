@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../../packages/index.js";
+import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../../packages/index";
 import { ref } from "vue"
 
 const code = ref(`完整日志下载地址：${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}

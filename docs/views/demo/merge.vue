@@ -5,6 +5,7 @@
     name="merge-mode-demo"
   >
     <Codemirror
+      v-if="isMounted"
       :merge="true"
       :options="cmOptions"
       :height="400"
@@ -15,17 +16,18 @@
 </template>
 
 <script lang="ts">
-import Codemirror from "../../../packages/index.js";
+import Codemirror from "../../../packages/index";
 
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 
-import { ref, defineComponent } from "vue";
+import { ref, defineComponent, onMounted } from "vue";
 
 export default defineComponent({
   components: {
     Codemirror,
   },
   setup() {
+    const isMounted = ref(false);
     const code = ref(`<head>
   <title>codemirror-editor-vue</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -34,7 +36,11 @@ export default defineComponent({
   <title>test title</title>
   <meta data-n-head="ssr" charset="utf-8">
 </head>`);
+    onMounted(() => {
+      isMounted.value = true;
+    });
     return {
+      isMounted,
       change(val: string, instance: object) {
         console.log(val);
         console.log(instance);
@@ -53,4 +59,3 @@ export default defineComponent({
   },
 });
 </script>
-

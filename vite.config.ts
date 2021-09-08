@@ -14,7 +14,7 @@ const viteCfg = defineConfig({
   build: {
     lib: {
       formats: ["umd", "es"],
-      entry: path.resolve(__dirname, "packages/index.js"),
+      entry: path.resolve(__dirname, "packages/index.ts"),
       name: "codemirror-editor-vue3",
     },
     rollupOptions: {
