@@ -1,0 +1,59 @@
+.codemirror-container {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: fit-content;
+  font-size: 12px;
+}
+.codemirror-container.bordered {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+}
+.codemirror-container.width-auto {
+  width: 100%;
+}
+.codemirror-container.height-auto {
+  height: 100%;
+}
+.codemirror-container.height-auto .CodeMirror,
+.codemirror-container.height-auto .cm-s-default {
+  height: 100% !important;
+}
+.CodeMirror-lines .CodeMirror-placeholder.CodeMirror-line-like {
+  color: #666;
+}
+.CodeMirror,
+.CodeMirror-merge-pane {
+  height: 100%;
+  font-family: consolas !important;
+}
+.CodeMirror-merge,
+.CodeMirror-merge-right .CodeMirror {
+  height: 100%;
+}
+.editor_custom_link {
+  cursor: pointer;
+  color: #1474f1;
+  text-decoration: underline;
+}
+.editor_custom_link:hover {
+  color: #04b4fa;
+}
+.c-editor--log__error {
+  color: #bb0606;
+  font-weight: bold;
+}
+.c-editor--log__info {
+  color: #333333;
+  font-weight: bold;
+}
+.c-editor--log__warning {
+  color: #ee9900;
+}
+.c-editor--log__success {
+  color: #669600;
+}
+.cm-header,
+.cm-strong {
+  font-weight: bold;
+}

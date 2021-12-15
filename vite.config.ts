@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import { libInjectCss } from "./build/plugin";
 import * as path from "path";
-import copy from 'rollup-plugin-cpy'
+import copy from "rollup-plugin-cpy";
 const viteCfg = defineConfig({
   server: {
     host: "::",
@@ -48,8 +49,10 @@ const viteCfg = defineConfig({
   plugins: [
     vue(),
     copy([
-      { files: 'README.md', dest: './dist' }, //执行拷贝
-    ])
+      { files: "./README.md", dest: "./dist" }, //执行拷贝
+      { files: "./types/index.d.ts", dest: "./dist" }, //执行拷贝
+    ]),
+    libInjectCss(),
   ],
 });
 export default viteCfg;
