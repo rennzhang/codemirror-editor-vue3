@@ -33,7 +33,7 @@ app.mount("#app");
     border
     placeholder="测试 placeholder"
     :height="200"
-    @change="change"
+    @change="onChange"
   />
 </template>
 
@@ -68,6 +68,7 @@ for (; i < 9; i++) {
         foldGutter: true, // 启用行槽中的代码折叠
         styleActiveLine: true, // 显示选中行的样式
       },
+      onChange(val, cm) {},
     };
   },
 };

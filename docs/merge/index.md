@@ -5,7 +5,8 @@
 :::
 
 #### 说明
-merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-patch)插件使用（压缩后只占用6.3k），安装`codemirror-editor-vue3`时会自动引入该依赖
+
+merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-patch)插件使用（压缩后只占用 6.3k），安装`codemirror-editor-vue3`时会自动引入该依赖
 
 <component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
@@ -58,7 +59,7 @@ export default defineComponent({
   <meta data-n-head="ssr" charset="utf-8">
 </head>`);
     return {
-      change(val: string, instance: object) {
+      onChange(val: string, instance: object) {
         console.log(val);
         console.log(instance);
       },
@@ -77,5 +78,3 @@ export default defineComponent({
 });
 </script>
 ```
-
-  
