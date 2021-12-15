@@ -1,66 +1,67 @@
-
 <template>
-  <div ref="mergeView" />
+  <div ref="mergeView" :name="$props.name" />
 </template>
-<script>
+<script lang="ts">
 // lib
-import _CodeMirror from 'codemirror'
-const CodeMirror = window.CodeMirror || _CodeMirror
-import { ref, onMounted, markRaw, defineComponent } from "vue"
-
+import _CodeMirror from "codemirror";
+import { ref, onMounted, markRaw, defineComponent } from "vue";
 
 // merge css
-import 'codemirror/addon/merge/merge.css'
+import "codemirror/addon/merge/merge.css";
 
 // merge js
-import 'codemirror/addon/merge/merge.js'
+import "codemirror/addon/merge/merge.js";
 
 // google DiffMatchPatch
-import DiffMatchPatch from 'diff-match-patch'
+import DiffMatchPatch from "diff-match-patch";
+
+declare const window: any;
+
+const CodeMirror = window?.CodeMirror || _CodeMirror;
 
 // DiffMatchPatch config with global
-window.diff_match_patch = DiffMatchPatch
-window.DIFF_DELETE = -1
-window.DIFF_INSERT = 1
-window.DIFF_EQUAL = 0
+window.diff_match_patch = DiffMatchPatch;
+window.DIFF_DELETE = -1;
+window.DIFF_INSERT = 1;
+window.DIFF_EQUAL = 0;
 
 export default defineComponent({
-  name: "mergemode",
+  name: "mergeMode",
   props: {
-
+    name: {
+      type: String,
+      default: `cm-textarea-${new Date().toString()}`,
+    },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     cminstance: {
       type: Object,
-      default: () => ({})
-    },
-    height: {
-      type: [String, Number],
-      default: null
+      default: () => ({}),
     },
   },
   emits: ["update:cminstance", "ready"],
   setup(props, { emit }) {
-    const codemirror = ref(null)
-    const mergeView = ref(null)
-    const height = String(props.height).replace('px', "")
-    const initialize = () => {
-      codemirror.value = markRaw(CodeMirror.MergeView(mergeView.value, props.options))
-      emit("update:cminstance", markRaw(codemirror.value.edit))
-      emit('ready', codemirror)
+    const _cminstance = ref(null);
+    const mergeView = ref(null);
 
-    }
+    const initialize = () => {
+      _cminstance.value = markRaw(
+        CodeMirror.MergeView(mergeView.value, props.options)
+      );
+      emit("update:cminstance", _cminstance.value.edit);
+      emit("ready", _cminstance);
+    };
+
     onMounted(() => {
-      initialize()
-    })
+      initialize();
+    });
 
     return {
       mergeView,
-      initialize
-    }
+      initialize,
+    };
   },
 });
 </script>
-

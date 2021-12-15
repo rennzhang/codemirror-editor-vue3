@@ -4,6 +4,7 @@
   height: 100%;
   width: fit-content;
   font-size: 12px;
+  overflow: auto;
 }
 .codemirror-container.bordered {
   border-radius: 4px;
@@ -30,6 +31,7 @@
 .CodeMirror-merge,
 .CodeMirror-merge-right .CodeMirror {
   height: 100%;
+  border: none !important;
 }
 .editor_custom_link {
   cursor: pointer;

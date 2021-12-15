@@ -6,11 +6,10 @@
   ></textarea>
 </template>
 <script>
-import _CodeMirror from 'codemirror'
-const CodeMirror = window.CodeMirror || _CodeMirror
-import { ref, watch, onMounted, markRaw, computed, defineComponent } from "vue";
-import { getLinkMark, getLogMark, } from "./utils.ts";
-
+import _CodeMirror from "codemirror";
+const CodeMirror = window.CodeMirror || _CodeMirror;
+import { ref, watch, onMounted, markRaw, defineComponent } from "vue";
+import { getLinkMark, getLogMark } from "./utils.ts";
 import "./languages/fclog/index";
 import "./languages/simpleLog/index.js";
 // import 'codemirror/addon/lint/lint.css'
@@ -20,28 +19,28 @@ export default defineComponent({
     code: String,
     value: String,
     content: String,
+    name: {
+      type: String,
+      default: `cm-textarea-${new Date().toString()}`,
+    },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     cminstance: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     placeholder: {
       type: String,
-      default: ''
+      default: "",
     },
-    KeepCursorInEnd: {
-      type: Boolean,
-      default: true
-    }
   },
   emits: ["update:cminstance", "ready"],
   setup(props, { emit }) {
-    const textarea = ref()
-    const codemirror = ref(null)
-    const _KeepCursorInEnd = computed(() => props.KeepCursorInEnd)
+    const textarea = ref();
+    const _cminstance = ref(null);
+
     const renderTextMark = (cminstance = props.cminstance) => {
       const marks = cminstance.getAllMarks();
       // 重置marks
@@ -53,40 +52,36 @@ export default defineComponent({
         cminstance.markText(
           cminstance.posFromIndex(mark.start),
           cminstance.posFromIndex(mark.end),
-          { replacedWith: mark.node },
+          { replacedWith: mark.node }
         );
       }
     };
 
+    const initialize = () => {
+      _cminstance.value = markRaw(
+        CodeMirror.fromTextArea(textarea.value, props.options)
+      );
 
-    const scrollToEnd = () => {
-      Promise.resolve().then(() => {
-        let nowScrollInfo = props.cminstance.getScrollInfo();
-        props.cminstance.scrollTo(nowScrollInfo.left, nowScrollInfo.height)
-      })
+      emit("update:cminstance", markRaw(_cminstance.value));
+
+      _cminstance.value.on("change", renderTextMark);
     };
 
-    const initialize = () => {
-      codemirror.value = markRaw(CodeMirror.fromTextArea(textarea.value, props.options))
-      emit("update:cminstance", markRaw(codemirror.value))
-      codemirror.value.on("change", (cm) => {
-        renderTextMark();
-        _KeepCursorInEnd && scrollToEnd()
-      });
-
-    }
-
-    watch(() => props.cminstance, (val) => {
-      if (val) {
-        renderTextMark(props.cminstance)
-        props.cminstance.setValue(props.code || props.value || props.content)
-        emit('ready', codemirror)
-      }
-    }, { deep: true, immediate: true });
+    watch(
+      () => props.cminstance,
+      (val) => {
+        if (val) {
+          renderTextMark(props.cminstance);
+          props.cminstance.setValue(props.code || props.value || props.content);
+          emit("ready", _cminstance);
+        }
+      },
+      { deep: true, immediate: true }
+    );
 
     onMounted(() => {
-      initialize()
-    })
+      initialize();
+    });
     return {
       initialize,
       textarea,
