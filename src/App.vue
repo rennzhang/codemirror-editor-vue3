@@ -1,137 +1,59 @@
-
 <template>
-  <div class="container">
+  <button @click="isShow = !isShow">change show</button>
+  <div v-if="isShow">hahah</div>
+  <div v-else>
     <Codemirror
       v-model:value="code"
-      :options="cmOption"
+      :options="cmOptions"
       border
-      placeholder="测试 placeholder"
-      :height="200"
+      placeholder="test placeholder"
+      :height="100"
       @change="change"
+      @ready="onReady"
     />
   </div>
 </template>
-
-<script lang="ts">
-import Codemirror, {
-  createTitle,
-  createLinkMark,
-  createLogMark,
-  createLog,
-} from "../packages/index.js";
-console.log(createTitle);
-
-// base style
-import "codemirror/lib/codemirror.css";
-import "codemirror/mode/css/css.js";
+<script setup>
+import { ref, onMounted } from "vue";
+import Codemirror from "../packages/index";
+// import Codemirror from "../dist/codemirror-editor-vue3.es.js";
 
 // language
-import "codemirror/mode/vue/vue.js";
-// language
-import "codemirror/mode/css/css.js";
-import "codemirror/mode/xml/xml.js";
-import "codemirror/mode/htmlmixed/htmlmixed.js";
+import "codemirror/mode/javascript/javascript.js";
 
-// merge css
-import "codemirror/addon/merge/merge.css";
-// merge js
-import "codemirror/addon/merge/merge.js";
-import dedent from "dedent";
+// theme
+import "codemirror/theme/dracula.css";
 
-import { ref, defineComponent, watch } from "vue";
-export default defineComponent({
-  name: "codemirror-example-merge-view",
-  title: "Mode: text/html & merge view",
-  components: {
-    Codemirror,
-  },
-  setup() {
-    const code = ref(`完整日志下载地址：${createLinkMark({
-      href: "/logDownload",
-      download: "",
-      target: "_blank",
-    })}
-====================基本日志====================
-${createLogMark("2021-08-26 15:07:09: job is success", "info")}
-${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
-${createLogMark("2021-08-26 15:07:09: job is error", "error")}
+const isShow = ref(false);
+const code = ref("\n\n\n\n\n\n\n\n\n\n123");
+const cmOptions = {
+  mode: "text/javascript", // Language mode
+  theme: "dracula", // Theme
+  lineNumbers: true, // Show line number
+  smartIndent: true, // Smart indent
+  indentUnit: 2, // The smart indent unit is 2 spaces in length
+  foldGutter: true, // Code folding
+  styleActiveLine: true, // Display the style of the selected row
+};
 
-DataStreamMain start
-java.lang.NullPointerException
-at
-at java.util.Properties.load0(Properties.java:353)
-====================带有时间节点====================
-${createLog("info", "info")}
-${createLog(
-  `at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.`,
-  "error"
-)}
-${createLog("warning", "warning")}
-${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
+const change = (msg, cm) => {
+  console.log(cm);
+  console.log(code.value);
+  console.log("onChange");
+  const scrollInfo = cm.getScrollInfo();
+  cm.scrollTo(scrollInfo.left, scrollInfo.height);
+};
 
-${createLogMark("2021-08-26 15:07:09: job is success", "info")}
-====================引擎日志==================== 
+const onReady = (cm) => {
+  console.log("onReady", cm);
+  const scrollInfo = cm.getScrollInfo();
+  cm.scrollTo(scrollInfo.left, scrollInfo.top);
+};
 
-DataStreamMain start
-java.lang.NullPointerException
-at
-at java.util.Properties.load0(Properties.java:353)
-at java.util.Properties.load(Properties.java:341)
-at com.zhiweicloud.dataprocess.util.common.PropertiesUtil.getStringByKey(PropertiesUtil.
-at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEngine.
-at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
-at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
-at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
- `);
-    const orig2 = ref(`<head>
-    <title>test title</title>
-<meta data-n-head="ssr" charset="utf-8">`);
+setInterval(() => {
+  code.value += "test \n";
+}, 2000);
 
-    // watch(code, (val) => console.log(val), { deep: true });
-    return {
-      change(val: string, e: object) {
-        // console.log(val);
-        // console.log(e);
-        console.log(code.value);
-      },
-      code,
-      cmOption: {
-        value: code.value,
-        origLeft: null,
-        orig: orig2,
-        connect: "align",
-        mode: "log",
-        lineNumbers: true,
-        lineWrapping: true,
-        collapseIdentical: false,
-        highlightDifferences: true,
-      },
-    };
-  },
-});
+onMounted(() => {});
 </script>
-<style lang="less" scoped>
-.container {
-}
-.example {
-  display: flex;
-  height: 100%;
-
-  .codemirror,
-  .pre {
-    width: 50%;
-    height: 100%;
-    margin: 0;
-    overflow: auto;
-  }
-
-  .pre {
-    display: block;
-    padding: 1rem;
-    font-size: 12px;
-    line-height: 1.6;
-    word-break: break-all;
-    word-wrap: break-word;
-  }
-}
-</style>
+<style lang="less" scoped></style>
