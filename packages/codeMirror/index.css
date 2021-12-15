@@ -4,7 +4,7 @@
   height: 100%;
   width: fit-content;
   font-size: 12px;
-  overflow: auto;
+  overflow: hidden;
 }
 .codemirror-container.bordered {
   border-radius: 4px;
