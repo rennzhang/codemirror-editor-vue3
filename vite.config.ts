@@ -49,7 +49,6 @@ const viteCfg = defineConfig({
   plugins: [
     vue(),
     copy([
-      { files: "./README.md", dest: "./dist" }, //执行拷贝
       { files: "./types/index.d.ts", dest: "./dist" }, //执行拷贝
     ]),
     libInjectCss(),
