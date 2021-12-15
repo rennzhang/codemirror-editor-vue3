@@ -5,13 +5,17 @@
     :placeholder="$props.placeholder"
   ></textarea>
 </template>
-<script>
+<script lang="ts">
 import _CodeMirror from "codemirror";
-const CodeMirror = window.CodeMirror || _CodeMirror;
+
 import { ref, watch, onMounted, markRaw, defineComponent } from "vue";
-import { getLinkMark, getLogMark } from "./utils.ts";
-import "./languages/fclog/index";
-import "./languages/simpleLog/index.js";
+import { getLinkMark, getLogMark } from "./utils";
+import "./languages/fcLog/index";
+import "./languages/simpleLog/index";
+
+declare const window: any;
+const CodeMirror = window.CodeMirror || _CodeMirror;
+
 // import 'codemirror/addon/lint/lint.css'
 export default defineComponent({
   name: "codemirror-fclog",
