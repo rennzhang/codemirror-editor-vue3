@@ -6,3 +6,5 @@ node_modules/
 .idea
 .vscode
 .DS_Store
+docs/.vitepress/dist/
+
