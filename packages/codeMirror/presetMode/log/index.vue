@@ -24,7 +24,7 @@ export default defineComponent({
     content: String,
     name: {
       type: String,
-      default: `cm-textarea-${new Date().toString()}`,
+      default: `cm-textarea-${+new Date()}`,
     },
     options: {
       type: Object,

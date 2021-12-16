@@ -17,7 +17,7 @@ export default defineComponent({
   props: {
     name: {
       type: String,
-      default: `cm-textarea-${new Date().toString()}`,
+      default: `cm-textarea-${+new Date()}`,
     },
     value: String,
     content: String,
