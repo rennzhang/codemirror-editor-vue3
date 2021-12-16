@@ -37,10 +37,32 @@ export function useViewControl({ props, cminstance, presetRef }) {
     cminstance.value.doc.history = history;
     cminstance.value.doc.cleanGeneration = cleanGeneration;
   };
+
+  const isStyleChaotic = () => {
+    const gutterEl: HTMLElement = document.querySelector(".CodeMirror-gutters");
+    const gutterElLeft = gutterEl.style.left.replace("px", "");
+    return gutterElLeft != "0";
+  };
+
+  const reviseStyle = () => {
+    refresh();
+    if (!isStyleChaotic()) return;
+    let timer = setInterval(() => {
+      isStyleChaotic() ? refresh() : clearInterval(timer);
+    }, 60);
+    let clearTimer = setTimeout(() => {
+      clearInterval(timer);
+      clearTimeout(clearTimer);
+      timer = null;
+      clearTimer = null;
+    }, 400);
+  };
+
   return {
     refresh,
     resize,
     destroy,
     containerHeight,
+    reviseStyle,
   };
 }

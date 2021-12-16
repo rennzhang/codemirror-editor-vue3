@@ -143,11 +143,12 @@ export default defineComponent({
     const internalInstance = getCurrentInstance();
     const presetRef = ref(null);
 
-    const { refresh, resize, destroy, containerHeight } = useViewControl({
-      props,
-      cminstance,
-      presetRef,
-    });
+    const { refresh, resize, destroy, containerHeight, reviseStyle } =
+      useViewControl({
+        props,
+        cminstance,
+        presetRef,
+      });
 
     const { listenerEvents } = useEvents({
       props,
@@ -169,22 +170,6 @@ export default defineComponent({
           );
         });
       }
-    };
-
-    const reviseStyle = () => {
-      let timer = setInterval(() => {
-        const gutterEl: HTMLElement = document.querySelector(
-          ".CodeMirror-gutters"
-        );
-        const gutterElLeft = gutterEl.style.left.replace("px", "");
-        gutterElLeft != "0" ? refresh() : clearInterval(timer);
-      }, 60);
-      let clearTimer = setTimeout(() => {
-        clearInterval(timer);
-        clearTimeout(clearTimer);
-        timer = null;
-        clearTimer = null;
-      }, 400);
     };
 
     const onCodeChange = (newVal) => {
