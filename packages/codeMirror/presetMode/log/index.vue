@@ -20,7 +20,6 @@ const CodeMirror = window.CodeMirror || _CodeMirror;
 export default defineComponent({
   name: "codemirror-fclog",
   props: {
-    code: String,
     value: String,
     content: String,
     name: {
@@ -76,7 +75,7 @@ export default defineComponent({
       (val) => {
         if (val) {
           renderTextMark(props.cminstance);
-          props.cminstance.setValue(props.code || props.value || props.content);
+          props.cminstance.setValue(props.value || props.content);
           emit("ready", _cminstance);
         }
       },

@@ -19,7 +19,6 @@ export default defineComponent({
       type: String,
       default: `cm-textarea-${new Date().toString()}`,
     },
-    code: String,
     value: String,
     content: String,
     options: {
@@ -52,13 +51,9 @@ export default defineComponent({
       unwatch = watch(
         () => props.cminstance,
         (val, oldVal) => {
-          val &&
-            props.cminstance.setValue(
-              props.code || props.value || props.content
-            );
+          val && props.cminstance.setValue(props.value || props.content);
 
           emit("ready", _cminstance);
-
           unwatch();
         },
         { deep: true }
