@@ -39,7 +39,6 @@ export default {
 
 <script lang="ts">
 import Codemirror from "codemirror-editor-vue3";
-import "codemirror-editor-vue3/dist/style.css";
 
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 

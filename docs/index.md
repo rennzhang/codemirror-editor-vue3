@@ -16,8 +16,6 @@ npm install codemirror-editor-vue3
 import { createApp } from "vue";
 import App from "./App.vue";
 import Codemirror from "codemirror-editor-vue3";
-// plugin-style
-import "codemirror-editor-vue3/dist/style.css";
 let app = createApp(App);
 app.use(Codemirror);
 app.mount("#app");
@@ -39,9 +37,6 @@ app.mount("#app");
 
 <script>
 import Codemirror from "codemirror-editor-vue3";
-
-// plugin-style
-import "codemirror-editor-vue3/dist/style.css";
 
 // language
 import "codemirror/mode/javascript/javascript.js";

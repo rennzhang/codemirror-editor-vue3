@@ -9,7 +9,23 @@ module.exports = {
     repo: "RennCheung/codemirror-editor-vue3",
     docsDir: "docs",
     lastUpdated: "最近更新时间",
+
+    nav: [
+      { text: "Guide", link: "/", activeMatch: "^/$|^/guide/" },
+      {
+        text: "Changelog",
+        link: "/Changelog",
+        activeMatch: "^/Changelog",
+      },
+    ],
     sidebar: {
+      "/Guide/": getGuideSidebar(),
+      "/Changelog": [
+        {
+          text: "Changelog",
+          link: "/CHANGELOG",
+        },
+      ],
       "/": getGuideSidebar(),
     },
   },
@@ -36,13 +52,9 @@ function getGuideSidebar() {
         { text: "log模式", link: "/log/index" },
       ],
     },
-    {
-      text: "更多案例",
-      link: "/more/index",
-      // children: [
-      //   { text: "merge模式", link: "/merge/index" },
-      //   { text: "log模式", link: "/log/index" },
-      // ],
-    },
+    // {
+    //   text: "更多案例",
+    //   link: "/more/index",
+    // },
   ];
 }
