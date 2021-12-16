@@ -81,7 +81,6 @@ import { componentsEvts, cmEvts, DEFAULT_OPTIONS } from "./config/index";
 export default defineComponent({
   name: "CodemirrorEditor",
   props: {
-    code: String,
     value: String,
     marker: Function,
     unseenLines: Array,
@@ -172,13 +171,28 @@ export default defineComponent({
       }
     };
 
+    const reviseStyle = () => {
+      let timer = setInterval(() => {
+        const gutterEl: HTMLElement = document.querySelector(
+          ".CodeMirror-gutters"
+        );
+        const gutterElLeft = gutterEl.style.left.replace("px", "");
+        gutterElLeft != "0" ? refresh() : clearInterval(timer);
+      }, 60);
+      let clearTimer = setTimeout(() => {
+        clearInterval(timer);
+        clearTimeout(clearTimer);
+        timer = null;
+        clearTimer = null;
+      }, 400);
+    };
+
     const onCodeChange = (newVal) => {
       const cm_value = cminstance.value.getValue();
       if (newVal !== cm_value) {
-        const scrollInfo = cminstance.value.getScrollInfo();
         cminstance.value.setValue(newVal);
         content.value = newVal;
-        cminstance.value.scrollTo(scrollInfo.left, scrollInfo.top);
+        reviseStyle();
       }
       unseenLineMarkers();
     };
@@ -190,7 +204,6 @@ export default defineComponent({
 
       // prevents funky dynamic rendering
       resize();
-      // refresh()
       ctx.emit("ready", cminstance.value);
       watch(
         [() => props.height, () => props.width],
@@ -250,7 +263,8 @@ export default defineComponent({
       ready,
       resize,
       containerHeight,
-      instanceName: props.name || internalInstance?.parent?.type?.name + "-cm",
+      instanceName:
+        props.name || internalInstance?.parent?.type?.name || undefined,
       presetRef,
     };
   },
