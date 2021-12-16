@@ -30,7 +30,7 @@ export default defineComponent({
   props: {
     name: {
       type: String,
-      default: `cm-textarea-${new Date().toString()}`,
+      default: `cm-mergeView-${new Date().toString()}`,
     },
     options: {
       type: Object,
