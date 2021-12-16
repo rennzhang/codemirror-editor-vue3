@@ -14,18 +14,11 @@ module.exports = {
       { text: "Guide", link: "/", activeMatch: "^/$|^/guide/" },
       {
         text: "Changelog",
-        link: "/Changelog",
-        activeMatch: "^/Changelog",
+        link: "https://github.com/RennCheung/codemirror-editor-vue3/blob/main/CHANGELOG.md",
       },
     ],
     sidebar: {
       "/Guide/": getGuideSidebar(),
-      "/Changelog": [
-        {
-          text: "Changelog",
-          link: "/CHANGELOG",
-        },
-      ],
       "/": getGuideSidebar(),
     },
   },
