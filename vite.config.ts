@@ -20,7 +20,7 @@ const viteCfg = defineConfig({
     },
     rollupOptions: {
       output: {
-        // name: 'codemirror-editor-vue3', // 仓库或组件的名字
+        name: "codemirror-editor-vue3", // 仓库或组件的名字
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
           vue: "Vue",
