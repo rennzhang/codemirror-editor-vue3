@@ -10,8 +10,6 @@ const viteCfg = defineConfig({
     https: false,
   },
   // 生产环境路径，类似webpack的assetsPath
-  // base: "./",
-  // resolve: { dedupe: ["vue", "codemirror"] },
   build: {
     lib: {
       formats: ["umd", "es"],
