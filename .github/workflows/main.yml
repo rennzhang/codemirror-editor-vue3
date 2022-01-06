@@ -20,7 +20,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.2.0 # This step installs the ssh client into the workflow run. There's many options available for this on the action marketplace.
 
       - name: Build and Deploy Repo
-        uses: JamesIves/github-pages-deploy-action@releases/v3-test
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BASE_BRANCH: main
           BRANCH: gh-pages
