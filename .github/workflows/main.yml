@@ -15,7 +15,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install
-        run: npm ci && npm run-script docs:build
+        run: npm i && npm run-script docs:build
       - name: Install SSH Client
         uses: webfactory/ssh-agent@v0.2.0 # This step installs the ssh client into the workflow run. There's many options available for this on the action marketplace.
 
