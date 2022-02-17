@@ -6,14 +6,24 @@
       border
       :height="400"
     />
+    <a href=""></a>
   </demo-preview>
 </template>
 
 <script setup>
-import Codemirror, { createLinkMark, createLogMark, createLog, createTitle } from "../../../../packages/index";
-import { ref } from "vue"
+import Codemirror, {
+  createLinkMark,
+  createLogMark,
+  createLog,
+  createTitle,
+} from "../../../../packages/index";
+import { ref } from "vue";
 
-const code = ref(`完整日志下载地址：${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
+const code = ref(`完整日志下载地址：${createLinkMark({
+  href: "/logDownload",
+  download: "",
+  target: "_blank",
+})}
 ${createTitle("基本日志")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
@@ -36,11 +46,9 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEng
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
- `)
+ `);
 const cmOptions = {
-  mode: 'fclog',
-  theme: 'default'
-}
+  mode: "fclog",
+  theme: "default",
+};
 </script>
-
-  

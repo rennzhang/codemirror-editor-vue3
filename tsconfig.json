@@ -5,6 +5,7 @@
     "target": "esnext",
     "lib": ["DOM", "ESNext"],
     "types": ["vite/client"],
+    "jsx": "preserve",
     "strict": true,
     "allowJs": true,
     "esModuleInterop": true,
@@ -14,10 +15,24 @@
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["packages/*"],
+      "./*": ["./*"]
     }
   },
-  "include": ["src/**/*", "build/**/*", "*.ts", "*.vue", "types"]
+  "include": [
+    "packages/**/*",
+    // "packages",
+    // "packages/*",
+    // "playground/**/*",
+    // "playground",
+    "types",
+    "*.ts",
+    "*.tsx",
+    "*.vue",
+    "*.d.ts"
+  ]
+  // "exclude": ["build/**/*"]
 }

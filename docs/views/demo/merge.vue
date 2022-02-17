@@ -41,7 +41,7 @@ export default defineComponent({
     });
     return {
       isMounted,
-      change(val: string, instance: object) {
+      onChange(val: string, instance: object) {
         console.log(val);
         console.log(instance);
       },

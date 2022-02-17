@@ -1,5 +1,5 @@
 <template>
-  <Codemirror
+  <codemirror
     v-if="isMounted"
     v-model:value="code"
     :options="cmOptions"
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import Codemirror from "../../../packages/index";
+import { codemirror } from "../../../packages/index";
 
 // language
 import "codemirror/mode/javascript/javascript.js";

@@ -1,19 +1,31 @@
-import Codemirror from "../packages/codeMirror/index.vue";
+import _CodeMirror from "codemirror";
+import type { App } from "vue";
+import type { EditorConfiguration } from "codemirror";
+import codemirror from "./src/components/index.vue";
+import "./src/style/index.css";
 
-export * from "../packages/codeMirror/presetMode/log/utils";
-import "./codeMirror/index.css";
-import "./codeMirror/index.less";
-export { Codemirror };
-Codemirror.install = (app, config) => {
+declare interface InstallConfig {
+  events: any[];
+  options: EditorConfiguration;
+}
+
+export * from ".";
+
+const CodeMirror = window.CodeMirror || _CodeMirror;
+const install = (app: App, config?: InstallConfig) => {
   if (config) {
     if (config.options) {
-      Codemirror.props.globalOptions.default = () => config.options;
+      codemirror.props.globalOptions.default = () => config.options;
     }
     if (config.events) {
-      Codemirror.props.globalEvents.default = () => config.events;
+      codemirror.props.globalEvents.default = () => config.events;
     }
   }
-  app.component("Codemirror", Codemirror);
+  // eslint-disable-next-line vue/multi-word-component-names
+  app.component("Codemirror", codemirror);
   return app;
 };
-export default Codemirror;
+
+export * from "./src/components/presetMode/log/utils";
+export { CodeMirror, codemirror, install };
+export default { CodeMirror, codemirror, install };

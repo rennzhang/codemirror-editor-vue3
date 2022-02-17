@@ -1,19 +1,32 @@
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { libInjectCss } from "./build/plugin";
-import * as path from "path";
-import copy from "rollup-plugin-cpy";
+import { resolve } from "path";
+
+import plugins from "./build/plugins";
+
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), ".", dir);
+}
+
 const viteCfg = defineConfig({
   server: {
     host: "::",
     open: true,
     https: false,
   },
+  resolve: {
+    alias: [
+      {
+        find: /@\//,
+        replacement: pathResolve("packages/") + "/",
+      },
+    ],
+  },
   // 生产环境路径，类似webpack的assetsPath
   build: {
+    minify: "esbuild",
     lib: {
       formats: ["umd", "es"],
-      entry: path.resolve(__dirname, "packages/index.ts"),
+      entry: resolve(__dirname, "packages/index.ts"),
       name: "codemirror-editor-vue3",
     },
     rollupOptions: {
@@ -44,12 +57,6 @@ const viteCfg = defineConfig({
       ],
     },
   },
-  plugins: [
-    vue(),
-    copy([
-      { files: "./types/index.d.ts", dest: "./dist" }, //执行拷贝
-    ]),
-    libInjectCss(),
-  ],
+  plugins,
 });
 export default viteCfg;
