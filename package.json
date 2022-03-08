@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "license": "MIT",
   "files": [
     "dist/codemirror-editor-vue3.es.js",
