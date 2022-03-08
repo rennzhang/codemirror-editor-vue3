@@ -1,31 +1,37 @@
 import _CodeMirror from "codemirror";
 import type { App } from "vue";
 import type { EditorConfiguration } from "codemirror";
-import codemirror from "./src/components/index.vue";
+import VueCodemirror from "./src/components/index.vue";
 import "./src/style/index.css";
 
 declare interface InstallConfig {
-  events: any[];
   options: EditorConfiguration;
   componentName: string;
 }
 
-const CodeMirror = window.CodeMirror || _CodeMirror;
 const install = (app: App, config?: InstallConfig) => {
   if (config) {
     if (config.options) {
-      codemirror.props.globalOptions.default = () => config.options;
+      VueCodemirror.props.globalOptions.default = () => config.options;
     }
   }
 
-  app.component(config?.componentName || "Codemirror", codemirror);
+  app.component(config?.componentName || "Codemirror", VueCodemirror);
   return app;
 };
 
-export * from ".";
+const CodeMirror = window.CodeMirror || _CodeMirror;
+
+/**
+ * Use global components.
+ * @example
+ * import { createApp } from "vue";
+ * const app = createApp(App);
+ * app.use(GlobalCmComponent, { componentName: "customCodemirrorComponentName" });
+ */
+const GlobalCmComponent = install;
 
 export * from "./src/components/presetMode/log/utils";
 
-export { CodeMirror, codemirror, install as VueCodemirror };
-
-export default codemirror;
+export { CodeMirror, GlobalCmComponent, VueCodemirror };
+export default VueCodemirror;
