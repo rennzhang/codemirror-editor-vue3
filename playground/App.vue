@@ -16,14 +16,13 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, onMounted } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
-import { codemirror } from "@/index";
+import Codemirror from "@/index";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/theme/dracula.css";
 
 export default defineComponent({
-  components: { Codemirror: codemirror },
+  components: { Codemirror },
   setup() {
     // import Codemirror from "../dist/codemirror-editor-vue3.es.js";
 
@@ -60,7 +59,7 @@ export default defineComponent({
     //   code.value += "test \n";
     // }, 2000);
 
-    onMounted(() => {});
+    // onMounted(() => {});
     return {
       isShow,
       code,

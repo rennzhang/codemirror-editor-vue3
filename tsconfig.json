@@ -7,7 +7,6 @@
     "types": ["vite/client"],
     "jsx": "preserve",
     "strict": true,
-    "allowJs": true,
     "esModuleInterop": true,
     "incremental": false,
     "skipLibCheck": true,
@@ -24,15 +23,11 @@
   },
   "include": [
     "packages/**/*",
-    // "packages",
-    // "packages/*",
-    // "playground/**/*",
-    // "playground",
+    "playground/**/*",
     "types",
     "*.ts",
     "*.tsx",
     "*.vue",
     "*.d.ts"
   ]
-  // "exclude": ["build/**/*"]
 }

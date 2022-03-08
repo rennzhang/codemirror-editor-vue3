@@ -17,7 +17,7 @@ const viteCfg = defineConfig({
     alias: [
       {
         find: /@\//,
-        replacement: pathResolve("packages/") + "/",
+        replacement: `${pathResolve("packages/")}/`,
       },
     ],
   },

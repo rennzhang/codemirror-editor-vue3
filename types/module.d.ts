@@ -16,5 +16,3 @@ declare module "*.less" {
 }
 // 声明第三方库
 declare module "dedent";
-declare module "rollup-plugin-cpy";
-declare module "codemirror-editor-vue3";

@@ -59,10 +59,13 @@ export function useViewControl({
 
   const reviseStyle = () => {
     refresh();
+
     if (!isStyleChaotic()) return;
+
     const timer = setInterval(() => {
       isStyleChaotic() ? refresh() : clearInterval(timer);
     }, 60);
+
     const clearTimer = setTimeout(() => {
       clearInterval(timer);
       clearTimeout(clearTimer);

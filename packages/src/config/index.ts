@@ -36,7 +36,7 @@ export const componentsEvts: ComponentsEvts = {
 };
 
 // codemirror events
-export const cmEvts = [
+export const cmEvts: CMEvents[] = [
   "changes",
   "scroll",
   "beforeChange",
@@ -64,10 +64,11 @@ export const getCmEvts = () => {
   });
   return result;
 };
+
 export const DEFAULT_OPTIONS = {
-  mode: "text", // 语言模式
-  theme: "default", // 主题
-  lineNumbers: true, // 显示行号
-  smartIndent: true, // 智能缩进
-  indentUnit: 2, // 智能缩进单位为4个空格长度
+  mode: "text", // Language mode
+  theme: "default", // Theme
+  lineNumbers: true, // Display line number
+  smartIndent: true, // Intelligent indentation
+  indentUnit: 2,
 };

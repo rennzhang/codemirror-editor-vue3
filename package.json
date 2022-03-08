@@ -56,7 +56,8 @@
     "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",
     "docs-serve": "vitepress serve docs",
-    "deploy-docs": "bash scripts/deploy-docs.sh"
+    "deploy-docs": "bash scripts/deploy-docs.sh",
+    "tsc": "tsc"
   },
   "dependencies": {
     "codemirror": "^5.62.3",

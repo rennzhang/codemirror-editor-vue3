@@ -12,5 +12,6 @@ export declare interface CmProps {
   merge?: boolean;
   name?: string;
   marker?: () => HTMLElement;
+  /* Consult: https://codemirror.net/doc/manual.html#option_gutters */
   unseenLines?: Array<any>;
 }
