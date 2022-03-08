@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "1.1.0-beta16",
+  "version": "2.0.0-beta.1",
   "license": "MIT",
   "files": [
     "dist/codemirror-editor-vue3.es.js",
@@ -60,8 +60,10 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "codemirror": "^5.62.3",
     "diff-match-patch": "^1.0.5"
+  },
+  "peerDependencies": {
+    "codemirror": "^5.62.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
