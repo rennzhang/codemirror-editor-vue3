@@ -4,21 +4,39 @@
 
 ### 安装
 
-```npm
-npm install codemirror-editor-vue3
+```bash
+npm install codemirror-editor-vue3 -S
+```
+
+```bash
+yarn add codemirror-editor-vue3
+```
+
+```bash
+pnpm i codemirror-editor-vue3 codemirror -S
 ```
 
 ### 全局安装
 
+::: info
+**不建议全局注册组件**，这会导致无法正确获取模板上的类型提示。
+:::
 `main.js:`
 
 ```js
 import { createApp } from "vue";
 import App from "./App.vue";
-import Codemirror from "codemirror-editor-vue3";
-let app = createApp(App);
-app.use(Codemirror);
+import { GlobalCmComponent } from "codemirror-editor-vue3";
+
+const app = createApp(App);
+app.use(GlobalCmComponent);
 app.mount("#app");
+```
+
+custom component name:
+
+```js
+app.use(GlobalCmComponent, { componentName: "customName" });
 ```
 
 ### 组件中使用
@@ -90,6 +108,18 @@ export default {
   }
 }
 </script>
+
+### 使用[Codemirror 静态属性](https://codemirror.net/doc/manual.html#api_static)
+
+```vue
+import { CodeMirror } from "codemirror-editor-vue3"; CodeMirror.Pos(0, 5);
+```
+
+`or:`
+
+```vue
+import _CodeMirror from "codemirror"; _CodeMirror.Pos(0, 5);
+```
 
 ### 其他说明
 

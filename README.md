@@ -6,23 +6,38 @@ For complete documentation and more cases, please check [codemirror-editor-vue3-
 
 ### Install
 
-```
+```bash
 npm install codemirror-editor-vue3 -S
+```
+
+```bash
 yarn add codemirror-editor-vue3
 ```
 
+```bash
+pnpm i codemirror-editor-vue3 codemirror -S
+```
+
 ### Use in the global
+
+> **Do not recommend global registration components**, which will result in the type of prompt on the template that cannot be properly obtained.
 
 `main.js:`
 
 ```js
 import { createApp } from "vue";
 import App from "./App.vue";
-import Codemirror from "codemirror-editor-vue3";
+import { GlobalCmComponent } from "codemirror-editor-vue3";
 
 const app = createApp(App);
-app.use(Codemirror);
+app.use(GlobalCmComponent);
 app.mount("#app");
+```
+
+custom component name:
+
+```js
+app.use(GlobalCmComponent, { componentName: "customName" });
 ```
 
 ### Use in components
@@ -74,6 +89,18 @@ for (; i < 9; i++) {
   },
 };
 </script>
+```
+
+### use [Codemirror Static property](https://codemirror.net/doc/manual.html#api_static)
+
+```vue
+import { CodeMirror } from "codemirror-editor-vue3"; CodeMirror.Pos(0, 5);
+```
+
+`or:`
+
+```vue
+import _CodeMirror from "codemirror"; _CodeMirror.Pos(0, 5);
 ```
 
 ### Other instructions

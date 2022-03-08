@@ -45,6 +45,10 @@ function getGuideSidebar() {
         { text: "log模式", link: "/log/index" },
       ],
     },
+    {
+      text: "Typescript 支持",
+      link: "/tsSupport/index",
+    },
     // {
     //   text: "更多案例",
     //   link: "/more/index",

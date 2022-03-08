@@ -24,10 +24,12 @@
   "include": [
     "packages/**/*",
     "playground/**/*",
+    "docs/**/*",
     "types",
     "*.ts",
     "*.tsx",
     "*.vue",
-    "*.d.ts"
+    "*.d.ts",
+    "*.md"
   ]
 }

@@ -1,3 +1,15 @@
+## 2.0.0-rc
+
+`2022-03-08`
+
+- 🌟 Use TS reconstruction partial code, fully support TS type check.
+  - Modify registration global component mode
+
+---
+
+- 🌟 使用 ts 重构部分代码，全面支持 ts 类型检查
+  - 修改注册全局组件方式
+
 ## 1.0.1
 
 `2022-01-04`
