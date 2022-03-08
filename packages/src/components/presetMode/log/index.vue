@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, ref, unref, watch, onMounted, markRaw } from "vue";
 import type { PropType } from "vue";
 import type { Editor } from "codemirror";
 

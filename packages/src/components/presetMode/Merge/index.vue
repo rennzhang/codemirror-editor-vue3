@@ -3,13 +3,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, ref, onMounted, markRaw } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
 import type { PropType } from "vue";
 
 // lib
 import _CodeMirror from "codemirror";
-
-import { ref, onMounted, markRaw, defineComponent } from "vue";
 
 // merge css
 import "codemirror/addon/merge/merge.css";

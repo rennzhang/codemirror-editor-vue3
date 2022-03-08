@@ -31,6 +31,13 @@
 <script lang="ts">
 import type { Ref, PropType } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
+import {
+  defineComponent,
+  ref,
+  getCurrentInstance,
+  watch,
+  onBeforeUnmount,
+} from "vue";
 
 // base style
 import "codemirror/lib/codemirror.css";

@@ -1,4 +1,6 @@
 import type { Ref } from "vue";
+import { ref } from "vue";
+
 import type { Editor } from "codemirror";
 import type { CmProps } from "@/src/types/props";
 

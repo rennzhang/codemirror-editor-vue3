@@ -9,6 +9,7 @@
 <script lang="ts">
 import type { PropType, WatchStopHandle } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
+import { ref, defineComponent, onMounted, markRaw, watch, unref } from "vue";
 // lib
 import _CodeMirror from "codemirror";
 

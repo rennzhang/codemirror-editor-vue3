@@ -1,18 +1,19 @@
 <template>
-  <codemirror
+  <Codemirror
     v-if="isMounted"
     v-model:value="code"
     :options="cmOptions"
     border
     placeholder="测试 placeholder"
     :height="200"
-    @change="onChange"
     class="cm-component"
+    @change="onChange"
   />
 </template>
 
-<script setup>
-import { codemirror } from "../../../packages/index";
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import Codemirror from "../../../packages/index";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
@@ -20,7 +21,6 @@ import "codemirror/mode/javascript/javascript.js";
 // theme
 // import "codemirror/theme/dracula.css"
 
-import { ref, onMounted } from "vue";
 const isMounted = ref(false);
 
 const code = ref(`var i = 0;
@@ -30,13 +30,12 @@ for (; i < 9; i++) {
 }
 `);
 
-const onChange = (val, instance) => {
+const onChange = (val, cm) => {
   console.log(val);
 };
 
 const cmOptions = {
   mode: "text/javascript",
-  //   theme: 'dracula'
   theme: "default",
 };
 onMounted(() => {
