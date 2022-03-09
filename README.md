@@ -93,14 +93,16 @@ for (; i < 9; i++) {
 
 ### use [Codemirror Static property](https://codemirror.net/doc/manual.html#api_static)
 
-```vue
-import { CodeMirror } from "codemirror-editor-vue3"; CodeMirror.Pos(0, 5);
+```js
+import { CodeMirror } from "codemirror-editor-vue3";
+CodeMirror.Pos(0, 5);
 ```
 
 `or:`
 
-```vue
-import _CodeMirror from "codemirror"; _CodeMirror.Pos(0, 5);
+```js
+import _CodeMirror from "codemirror";
+_CodeMirror.Pos(0, 5);
 ```
 
 ### Other instructions
