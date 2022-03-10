@@ -1,4 +1,24 @@
-## 2.0.0-rc
+## 2.0.2
+
+`2022-03-10`
+
+- 🐞 Fix the log mode, `createTitle` function parameters `Symbol` has no default value.
+
+---
+
+- 🐞 修复 log 模式中, `createTitle` 函数参数 `symbol` 没有默认值问题
+
+## 2.0.1
+
+`2022-03-09`
+
+- 🐞 Fix errors in README
+
+---
+
+- 🐞 修复 README 中错误
+
+## 2.0.0
 
 `2022-03-08`
 

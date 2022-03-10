@@ -2,6 +2,7 @@
 
 - 确保你的项目支持 ts
 - 推荐安装 [volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) 获取更好的模板提示
+- 安装依赖 [@types/codemirror](https://www.npmjs.com/package/@types/codemirror)
 
 ## Demo
 
@@ -21,6 +22,7 @@
 import { ref } from "vue";
 import Codemirror from "codemirror-editor-vue3";
 
+// @types/codemirror
 import { Editor, EditorConfiguration } from "codemirror";
 
 // language
