@@ -166,6 +166,6 @@ export function createTitle(
 ) {
   // const offsetLength = Math.floor((1.5 * title.length) / 2);
   const arr = new Array(Math.max(symbolLength || 15, 5));
-  const wraptext = arr.join(symbol);
+  const wraptext = arr.join(symbol || "=");
   return `${wraptext}${title}${wraptext}`;
 }
