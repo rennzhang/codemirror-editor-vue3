@@ -6,8 +6,8 @@ export declare interface CmProps {
   globalOptions?: EditorConfiguration;
   placeholder?: string;
   border?: boolean;
-  width: string | number;
-  height: string | number;
+  width: string | number | null;
+  height: string | number | null;
   keepCursorInEnd: boolean;
   merge?: boolean;
   name?: string;

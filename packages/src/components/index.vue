@@ -109,11 +109,11 @@ export default defineComponent({
       default: false,
     },
     width: {
-      type: [String, Number] as PropType<string | number>,
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
     height: {
-      type: [String, Number] as PropType<string | number>,
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
     keepCursorInEnd: {
@@ -199,9 +199,9 @@ export default defineComponent({
       resize();
       emit("ready", cminstance.value as Editor);
       watch(
-        [() => props.height, () => props.width],
-        ([height, width]) => {
-          resize(height, width);
+        [() => props.width, () => props.height],
+        ([width, height]) => {
+          resize(width, height);
         },
         { deep: true }
       );

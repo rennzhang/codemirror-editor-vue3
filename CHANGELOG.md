@@ -1,3 +1,13 @@
+## 2.0.3
+
+`2022-03-15`
+
+- 🐞 Repair cannot dynamically set the width and height [#11](https://github.com/RennCheung/codemirror-editor-vue3/issues/11).
+
+---
+
+- 🐞 修复无法动态设置宽度和高度问题 [#11](https://github.com/RennCheung/codemirror-editor-vue3/issues/11)
+
 ## 2.0.2
 
 `2022-03-10`
