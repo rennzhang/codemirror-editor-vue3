@@ -60,7 +60,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "codemirror": "^5.62.3",
+    "codemirror": "^5.64.0",
     "diff-match-patch": "^1.0.5"
   },
   "devDependencies": {

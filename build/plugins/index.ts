@@ -3,7 +3,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import checker from "vite-plugin-checker";
 import dts from "vite-plugin-dts";
-import { libInjectCss } from "./custom";
+import libInjectCss from "./custom/InjectCss";
 
 export default [
   vue(),

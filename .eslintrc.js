@@ -35,6 +35,7 @@ module.exports = {
     "no-unused-expressions": "off",
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
   overrides: [
     {

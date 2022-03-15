@@ -13,7 +13,7 @@ specifiers:
   '@vue/cli-plugin-typescript': ~4.5.15
   '@vue/compiler-sfc': ^3.2.26
   '@vueuse/core': ^7.3.0
-  codemirror: ^5.62.3
+  codemirror: ^5.64.0
   dedent: ^0.7.0
   diff-match-patch: ^1.0.5
   eslint: ^8.7.0

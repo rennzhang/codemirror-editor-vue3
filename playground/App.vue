@@ -7,7 +7,8 @@
       :options="cmOptions"
       border
       placeholder="test placeholder"
-      :height="100"
+      :height="cmHeight"
+      :width="cmWidth"
       keep-cursor-in-end
       @change="change"
       @ready="onReady"
@@ -29,7 +30,8 @@ export default defineComponent({
     // language
 
     // theme
-
+    const cmHeight = ref(100);
+    const cmWidth = ref(null);
     const isShow = ref(false);
     const code = ref("123");
     const cmOptions: EditorConfiguration = {
@@ -64,6 +66,8 @@ export default defineComponent({
       isShow,
       code,
       cmOptions,
+      cmHeight,
+      cmWidth,
       change,
       onReady,
       onInput(val: string) {
