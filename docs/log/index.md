@@ -10,22 +10,32 @@
 
 ```vue log-mode-demo
 <template>
-  <Codemirror v-model:value="code" :options="cmOptions" border :height="400" />
+  <demo-preview v-bind="{ ...$attrs, ...$props }" name="log-mode-demo">
+    <Codemirror
+      v-model:value="code"
+      :options="cmOptions"
+      border
+      :height="400"
+    />
+  </demo-preview>
 </template>
 
-<script setup>
+<script>
+import { ref, defineComponent } from "vue";
 import Codemirror, {
   createLinkMark,
   createLogMark,
   createTitle,
 } from "codemirror-editor-vue3";
-import { ref } from "vue";
 
-const code = ref(`完整日志下载地址：${createLinkMark({
-  href: "/logDownload",
-  download: "",
-  target: "_blank",
-})}
+export default defineComponent({
+  components: { Codemirror },
+  setup() {
+    const code = ref(`完整日志下载地址：${createLinkMark({
+      href: "/logDownload",
+      download: "",
+      target: "_blank",
+    })}
 ${createTitle("基本日志")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
@@ -33,7 +43,7 @@ ${createLogMark("2021-08-26 15:07:09: job is error", "error")}
 ${createTitle("带有时间节点")}
 ${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
 
-====================引擎日志==================== 
+====================引擎日志====================
 
 DataStreamMain start
 java.lang.NullPointerException
@@ -46,10 +56,21 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
  `);
-const cmOptions = {
-  mode: "log",
-  theme: "default",
-};
+    const cmOptions = {
+      mode: "log",
+      theme: "default",
+    };
+    return {
+      Codemirror,
+      createLinkMark,
+      createLogMark,
+      createTitle,
+      ref,
+      code,
+      cmOptions,
+    };
+  },
+});
 </script>
 ```
 
@@ -59,31 +80,42 @@ const cmOptions = {
 
 ```vue fclog-mode-demo
 <template>
-  <Codemirror v-model:value="code" :options="cmOptions" border :height="400" />
+  <demo-preview v-bind="{ ...$attrs, ...$props }" name="fclog-mode-demo">
+    <Codemirror
+      v-model:value="code"
+      :options="cmOptions"
+      border
+      :height="400"
+    />
+    <a href=""></a>
+  </demo-preview>
 </template>
 
-<script setup>
+<script>
+import { ref, defineComponent } from "vue";
 import Codemirror, {
   createLinkMark,
   createLogMark,
   createLog,
   createTitle,
 } from "codemirror-editor-vue3";
-import { ref } from "vue";
 
-const code = ref(`完整日志下载地址：${createLinkMark({
-  href: "/logDownload",
-  download: "",
-  target: "_blank",
-})}
+export default defineComponent({
+  components: { Codemirror },
+  setup() {
+    const code = ref(`完整日志下载地址：${createLinkMark({
+      href: "/logDownload",
+      download: "",
+      target: "_blank",
+    })}
 ${createTitle("基本日志")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
 ${createLogMark("2021-08-26 15:07:09: job is error", "error")}
 ${createTitle("带有时间节点")}
-${createLog("info", "info")}
-${createLog("warning", "warning")}
-${createLog("error", "error")}
+${createLog("info content", "info")}
+${createLog("warning content", "warning")}
+${createLog("error content", "error")}
 ${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
 
 ${createTitle("引擎日志")}
@@ -99,14 +131,28 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
  `);
-const cmOptions = {
-  mode: "fclog",
-  theme: "default",
-};
+    const cmOptions = {
+      mode: "fclog",
+      theme: "default",
+    };
+    return {
+      Codemirror,
+      createLinkMark,
+      createLogMark,
+      createLog,
+      createTitle,
+      ref,
+      code,
+      cmOptions,
+    };
+  },
+});
 </script>
 ```
 
-<script >
+<script>
+import { shallowRef } from "vue"
+
 export default {
   data() {
     return {
@@ -117,17 +163,10 @@ export default {
 
   mounted() {
     import('../views/demo/log/index.vue').then((module) => {
-        console.log(module)
-
-      this.log = module.default
-        console.log(this.log)
-
+      this.log = shallowRef(module.default)
     })
     import('../views/demo/log/fclog.vue').then((module) => {
-        console.log(module)
-      this.fcLog = module.default
-        console.log(this.fcLog)
-      
+      this.fcLog = shallowRef(module.default)
     })
   }
 }

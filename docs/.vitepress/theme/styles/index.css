@@ -38,3 +38,7 @@
 .DocSearch {
   --docsearch-primary-color: var(--c-brand) !important;
 }
+
+p > a > img {
+  margin-right: 8px;
+}

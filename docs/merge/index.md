@@ -11,6 +11,7 @@ merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-
 <component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
 <script >
+import { shallowRef } from "vue"
 export default {
   data() {
     return {
@@ -19,8 +20,8 @@ export default {
   },
 
   mounted() {
-    import('../views/demo/merge.vue').then((module) => {
-      this.dynamicComponent = module.default
+    import('../views/demo/mergeDemo.vue').then((module) => {
+      this.dynamicComponent = shallowRef(module.default)
     })
   }
 }
@@ -28,27 +29,35 @@ export default {
 
 ```vue merge-mode-demo
 <template>
-  <Codemirror
-    :merge="true"
-    :options="cmOptions"
-    :height="300"
-    @change="onChange"
-    class="cm-component"
-  />
+  <demo-preview
+    v-bind="{ ...$attrs, ...$props }"
+    title="Merge Mode："
+    name="merge-mode-demo"
+  >
+    <Codemirror
+      v-if="isMounted"
+      :merge="true"
+      :options="cmOptions"
+      :height="400"
+      class="cm-component"
+      @change="onChange"
+    />
+  </demo-preview>
 </template>
 
-<script lang="ts">
+<script>
+import { ref, defineComponent, onMounted, reactive } from "vue";
+
 import Codemirror from "codemirror-editor-vue3";
 
 import "codemirror/mode/htmlmixed/htmlmixed.js";
-
-import { ref, defineComponent } from "vue";
 
 export default defineComponent({
   components: {
     Codemirror,
   },
   setup() {
+    const isMounted = ref(false);
     const code = ref(`<head>
   <title>codemirror-editor-vue</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -57,13 +66,17 @@ export default defineComponent({
   <title>test title</title>
   <meta data-n-head="ssr" charset="utf-8">
 </head>`);
+    onMounted(() => {
+      isMounted.value = true;
+    });
     return {
-      onChange(val: string, instance: object) {
+      isMounted,
+      onChange(val, cminstance) {
         console.log(val);
-        console.log(instance);
+        console.log(cminstance);
       },
-      cmOptions: {
-        value: code.value,
+      cmOptions: reactive({
+        value: code,
         origLeft: null,
         orig: orig2,
         connect: "align",
@@ -71,7 +84,7 @@ export default defineComponent({
         lineNumbers: true,
         collapseIdentical: false,
         highlightDifferences: true,
-      },
+      }),
     };
   },
 });

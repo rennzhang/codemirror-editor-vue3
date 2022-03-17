@@ -9,11 +9,22 @@
   </demo-preview>
 </template>
 
-<script setup>
-import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../../packages/index";
-import { ref } from "vue"
+<script>
+import { ref, defineComponent } from "vue";
+import Codemirror, {
+  createLinkMark,
+  createLogMark,
+  createTitle,
+} from "../../../../packages/index";
 
-const code = ref(`完整日志下载地址：${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
+export default defineComponent({
+  components: { Codemirror },
+  setup() {
+    const code = ref(`完整日志下载地址：${createLinkMark({
+      href: "/logDownload",
+      download: "",
+      target: "_blank",
+    })}
 ${createTitle("基本日志")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
@@ -21,7 +32,7 @@ ${createLogMark("2021-08-26 15:07:09: job is error", "error")}
 ${createTitle("带有时间节点")}
 ${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
 
-====================引擎日志==================== 
+====================引擎日志====================
 
 DataStreamMain start
 java.lang.NullPointerException
@@ -33,11 +44,20 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEng
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
- `)
-const cmOptions = {
-  mode: 'log',
-  theme: 'default'
-}
+ `);
+    const cmOptions = {
+      mode: "log",
+      theme: "default",
+    };
+    return {
+      Codemirror,
+      createLinkMark,
+      createLogMark,
+      createTitle,
+      ref,
+      code,
+      cmOptions,
+    };
+  },
+});
 </script>
-
-  

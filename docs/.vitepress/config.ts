@@ -31,11 +31,14 @@ function getGuideSidebar() {
       link: "/index",
     },
     {
-      text: "配置",
-      link: "/config",
+      text: "使用说明",
       children: [
-        { text: "Props", link: "/config/props" },
-        { text: "事件系统", link: "/config/events" },
+        { text: "Props", link: "/instructions/props" },
+        { text: "Event system", link: "/instructions/events" },
+        {
+          text: "Get codemirror instance object",
+          link: "/instructions/cminstance",
+        },
       ],
     },
     {

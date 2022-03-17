@@ -1,3 +1,9 @@
+[![GitHub stars](https://img.shields.io/github/stars/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/issues)
+[![GitHub forks](https://img.shields.io/github/forks/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/network)
+[![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+[![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+
 ### 介绍
 
 该插件基于 [Codemirror](http://codemirror.net/)，仅支持 vue3 中使用。
@@ -108,6 +114,10 @@ export default {
   }
 }
 </script>
+
+### Get codemirror instance object
+
+[View code](https://renncheung.github.io/codemirror-editor-vue3/instructions/cminstance.html)
 
 ### 使用[Codemirror 静态属性](https://codemirror.net/doc/manual.html#api_static)
 

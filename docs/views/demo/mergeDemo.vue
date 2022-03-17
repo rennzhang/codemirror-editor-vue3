@@ -9,18 +9,18 @@
       :merge="true"
       :options="cmOptions"
       :height="400"
-      @change="onChange"
       class="cm-component"
+      @change="onChange"
     />
   </demo-preview>
 </template>
 
-<script lang="ts">
+<script>
+import { ref, defineComponent, onMounted, reactive } from "vue";
+
 import Codemirror from "../../../packages/index";
 
 import "codemirror/mode/htmlmixed/htmlmixed.js";
-
-import { ref, defineComponent, onMounted } from "vue";
 
 export default defineComponent({
   components: {
@@ -41,12 +41,12 @@ export default defineComponent({
     });
     return {
       isMounted,
-      onChange(val: string, instance: object) {
+      onChange(val, cminstance) {
         console.log(val);
-        console.log(instance);
+        console.log(cminstance);
       },
-      cmOptions: {
-        value: code.value,
+      cmOptions: reactive({
+        value: code,
         origLeft: null,
         orig: orig2,
         connect: "align",
@@ -54,7 +54,7 @@ export default defineComponent({
         lineNumbers: true,
         collapseIdentical: false,
         highlightDifferences: true,
-      },
+      }),
     };
   },
 });
