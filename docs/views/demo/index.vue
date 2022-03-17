@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { Editor } from "codemirror";
 import Codemirror from "../../../packages/index";
 
 // language
@@ -30,7 +31,7 @@ for (; i < 9; i++) {
 }
 `);
 
-const onChange = (val, cm) => {
+const onChange = (val: string, cm: Editor) => {
   console.log(val);
 };
 

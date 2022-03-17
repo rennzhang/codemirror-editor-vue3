@@ -1,3 +1,15 @@
+## 2.0.4
+
+`2022-03-17`
+
+- 🐞 Fix the problem that the merge mode failed to be used. [#14](https://github.com/RennCheung/codemirror-editor-vue3/issues/14)
+- 🌟 Add ts type: get the type of component through ref [CmComponentRef](https://github.com/RennCheung/codemirror-editor-vue3/blob/main/packages/index.ts#L16).
+
+---
+
+- 🐞 修复 merge 模式报错无法使用问题 [#14](https://github.com/RennCheung/codemirror-editor-vue3/issues/14)
+- 🌟 增加 ts 类型：通过 ref 获取组件的类型[CmComponentRef](https://github.com/RennCheung/codemirror-editor-vue3/blob/main/packages/index.ts#L16)
+
 ## 2.0.3
 
 `2022-03-15`
