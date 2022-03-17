@@ -1,11 +1,13 @@
 import type { Editor } from "codemirror";
 import type { ComponentInternalInstance, Ref } from "vue";
+import { unref, computed } from "vue";
+import type { MergeView } from "codemirror/addon/merge/merge";
 import type { CmProps } from "@/src/types/props";
 import { componentsEvts, CMEvents } from "../config";
 
 declare type UseEventsParams = {
   props: CmProps;
-  cminstance: Ref<Editor>;
+  cminstance: Ref<Editor | MergeView>;
   emit: ((event: "ready", cm: Editor) => void) &
     ((event: "update:value", value: string) => void) &
     ((event: "change", value: string, cm: Editor) => void) &
@@ -30,6 +32,13 @@ const useEvents = ({
   internalInstance,
   content,
 }: UseEventsParams): { listenerEvents: () => void } => {
+  const realCm = computed(
+    () =>
+      (props.merge
+        ? (unref(cminstance) as MergeView)?.editor()
+        : unref(cminstance)) as Editor
+  );
+
   /** @description 根据组件实例获取在该组件上监听的事件，用来确定需要 emit 的事件 */
   const getBindEvents = () => {
     const evts: CMEvents[] = [];
@@ -45,7 +54,7 @@ const useEvents = ({
 
   /** @description listener events */
   const listenerEvents = () => {
-    cminstance.value.on("change", (cm: Editor) => {
+    realCm.value.on("change", (cm: Editor) => {
       const currentVal = cm.getValue();
       if (currentVal === content.value) return;
       // eslint-disable-next-line no-param-reassign
@@ -69,7 +78,7 @@ const useEvents = ({
       .filter((e) => !tmpEvents[e] && (tmpEvents[e] = true))
       .forEach((event) => {
         // 循环事件，并兼容 run-time 事件命名
-        (cminstance.value as Editor).on(event, (...args: any[]) => {
+        realCm.value.on(event, (...args: any[]) => {
           // console.log('当有事件触发了', event, args)
           emit(event, ...args);
         });

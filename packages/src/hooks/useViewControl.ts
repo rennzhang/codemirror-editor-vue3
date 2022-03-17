@@ -1,12 +1,13 @@
 import type { Ref } from "vue";
-import { ref } from "vue";
+import { ref, unref, computed } from "vue";
 
 import type { Editor } from "codemirror";
+import type { MergeView } from "codemirror/addon/merge/merge";
 import type { CmProps } from "@/src/types/props";
 
 export declare type UseViewControlParams = {
   props: CmProps;
-  cminstance: Ref<Nullable<Editor>>;
+  cminstance: Ref<Nullable<Editor | MergeView>>;
   presetRef: Ref<Nullable<{ initialize: () => void }>>;
 };
 
@@ -18,9 +19,15 @@ export function useViewControl({
   const containerWidth = ref<Nullable<string>>(null);
   const containerHeight = ref<Nullable<string>>(null);
 
+  const realCm = computed(
+    () =>
+      (props.merge
+        ? (unref(cminstance) as MergeView)?.editor()
+        : unref(cminstance)) as Editor
+  );
   const refresh = () => {
     nextTick(() => {
-      cminstance.value?.refresh();
+      realCm.value?.refresh();
     });
   };
 
@@ -31,24 +38,24 @@ export function useViewControl({
     // if (props.merge) {
     //   cmHeight -= 2;
     // }
-    cminstance.value?.setSize(containerWidth.value, cmHeight);
+    realCm.value?.setSize(containerWidth.value, cmHeight);
   };
 
   const destroy = () => {
     // garbage cleanup
-    const element = cminstance.value?.getWrapperElement();
+    const element = realCm.value?.getWrapperElement();
     element?.remove();
   };
 
   const reload = () => {
     // Save current values
-    const history = cminstance.value?.getDoc().getHistory();
+    const history = realCm.value?.getDoc().getHistory();
     // props.options = cminstance.value.getValue()
     presetRef.value?.initialize();
     destroy();
 
     // Restore values
-    cminstance.value?.getDoc().setHistory(history);
+    realCm.value?.getDoc().setHistory(history);
   };
 
   const isStyleChaotic = () => {

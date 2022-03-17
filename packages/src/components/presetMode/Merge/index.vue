@@ -5,6 +5,8 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, markRaw } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
+import type { MergeView } from "codemirror/addon/merge/merge";
+
 import type { PropType } from "vue";
 
 // lib
@@ -41,7 +43,7 @@ export default defineComponent({
   },
   emits: ["update:cminstance", "ready"],
   setup(props, { emit }) {
-    const _cminstance = ref<unknown>();
+    const _cminstance = ref<MergeView>();
     const mergeView = ref<HTMLElement>();
 
     const initialize = () => {
@@ -57,6 +59,7 @@ export default defineComponent({
     });
 
     return {
+      mergeView,
       initialize,
     };
   },
