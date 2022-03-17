@@ -3,6 +3,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/network)
 [![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 [![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+
 ### Introduction
 
 The plug-in is based on [Codemirror](http://codemirror.net/) and only supports vue3. In addition to the modes supported by codemirror, this plugin also supports custom log modes.
@@ -95,6 +96,10 @@ for (; i < 9; i++) {
 };
 </script>
 ```
+
+### Get codemirror instance object
+
+[View code](https://renncheung.github.io/codemirror-editor-vue3/instructions/cminstance.html)
 
 ### use [Codemirror Static property](https://codemirror.net/doc/manual.html#api_static)
 

@@ -12,6 +12,7 @@ const viteCfg = defineConfig({
     host: "::",
     open: true,
     https: false,
+    port: 3008,
   },
   resolve: {
     alias: [
