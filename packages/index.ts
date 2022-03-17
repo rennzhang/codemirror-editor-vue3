@@ -1,9 +1,19 @@
 import _CodeMirror from "codemirror";
 import type { App } from "vue";
-import type { EditorConfiguration } from "codemirror";
+import type { EditorConfiguration, Editor } from "codemirror";
 import VueCodemirror from "./src/components/index.vue";
 import "./src/style/index.css";
 
+interface CmComp {
+  cminstance: Editor;
+  resize: (
+    width?: string | number | null,
+    height?: string | number | null
+  ) => void;
+  refresh: () => void;
+  destroy: () => void;
+}
+export type CmComponentRef = CmComp | null;
 declare interface InstallConfig {
   options: EditorConfiguration;
   componentName: string;
