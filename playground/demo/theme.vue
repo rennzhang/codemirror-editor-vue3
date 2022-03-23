@@ -8,7 +8,7 @@
 <script lang="ts">
 import { ref } from "vue";
 import { EditorConfiguration } from "codemirror";
-import Codemirror from "@/index";
+import Codemirror from "codemirror-editor-vue3";
 
 // language
 import "codemirror/mode/javascript/javascript.js";

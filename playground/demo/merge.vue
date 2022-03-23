@@ -12,7 +12,8 @@
 import { ref, defineComponent } from "vue";
 import { MergeView } from "codemirror/addon/merge/merge";
 import { Editor } from "codemirror";
-import Codemirror from "@/index";
+import Codemirror from "codemirror-editor-vue3";
+
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 
 export default defineComponent({
