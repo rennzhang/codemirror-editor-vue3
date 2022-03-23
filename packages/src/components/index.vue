@@ -40,6 +40,7 @@ import {
   onBeforeUnmount,
   unref,
   defineExpose,
+  computed,
 } from "vue";
 import "codemirror/lib/codemirror.css";
 import Default from "./presetMode/default/index.vue";
@@ -130,7 +131,7 @@ const emit = defineEmits({ ...componentsEvts, ...getCmEvts() });
 const cminstance = ref<Nullable<Editor>>(null);
 const content = ref("");
 const presetModeName = shallowRef<Component>(Default);
-const cmOptions = ref<any>({
+const cmOptions = ref<EditorConfiguration>({
   ...DEFAULT_OPTIONS,
   ...props.globalOptions,
   ...props.options,
@@ -140,6 +141,9 @@ const instanceName =
   props.name || internalInstance?.parent?.type?.name || undefined;
 const presetRef = ref(null);
 
+const realCminstance = computed<Editor>(() =>
+  props.merge ? (unref(cminstance) as any)?.editor() : unref(cminstance)
+);
 const { refresh, resize, destroy, containerHeight, reviseStyle } =
   useViewControl({
     props,
@@ -210,13 +214,9 @@ const handlePresetModeName = () => {
 watch(
   () => props.options,
   (val) => {
-    const realCm = props.merge
-      ? (unref(cminstance) as any)?.editor()
-      : unref(cminstance);
-
     // eslint-disable-next-line guard-for-in
     for (const key in props.options) {
-      realCm.setOption(
+      realCminstance.value?.setOption(
         key as keyof EditorConfiguration,
         unref(val[key as keyof EditorConfiguration])
       );
@@ -232,6 +232,12 @@ watch(
   }
 );
 
+watch(
+  () => props.placeholder,
+  (val) => {
+    realCminstance.value?.setOption("placeholder", val);
+  }
+);
 watch(
   () => props.merge,
   (val) => {
