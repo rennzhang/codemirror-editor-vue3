@@ -3,6 +3,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import checker from "vite-plugin-checker";
 import dts from "vite-plugin-dts";
+import Pages from "vite-plugin-pages";
+import WindiCSS from "vite-plugin-windicss";
 import libInjectCss from "./custom/InjectCss";
 
 export default [
@@ -10,7 +12,7 @@ export default [
   vueJsx(),
   AutoImport({
     dts: "./types/auto-imports.d.ts",
-    imports: ["vue"],
+    imports: ["vue", "vue-router"],
     eslintrc: {
       enabled: true, // Default `false`
       filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
@@ -31,4 +33,9 @@ export default [
   }),
   dts(),
   libInjectCss(),
+  Pages({
+    dirs: "playground/demo",
+    exclude: ["playground/demo/index.vue"],
+  }),
+  WindiCSS(),
 ];
