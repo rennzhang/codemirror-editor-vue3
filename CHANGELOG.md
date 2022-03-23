@@ -1,3 +1,13 @@
+## 2.0.5
+
+`2022-03-23`
+
+- 🐞 fix: Repair "PlaceHolder" cannot respond to update issues [#15](https://github.com/RennCheung/codemirror-editor-vue3/issues/15)
+
+---
+
+- 🐞 fix: 修复 "PlaceHolder" 不能响应式更新的 bug [#15](https://github.com/RennCheung/codemirror-editor-vue3/issues/15)
+
 ## 2.0.4
 
 `2022-03-17`
