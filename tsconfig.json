@@ -18,7 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": ["packages/*"],
-      "./*": ["./*"]
+      "./*": ["./*"],
+      "codemirror-editor-vue3": ["packages/index.ts"]
     }
   },
   "include": [

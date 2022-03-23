@@ -11,7 +11,7 @@
 <script lang="ts">
 import { ref } from "vue";
 import { EditorConfiguration } from "codemirror";
-import Codemirror from "@/index";
+import Codemirror from "codemirror-editor-vue3";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
@@ -32,10 +32,13 @@ export default defineComponent({
 
     cmPlaceholder.value += "1 ";
 
-    setInterval(() => {
+    const timer = setInterval(() => {
       cmPlaceholder.value += "1 ";
       console.log(cmPlaceholder.value);
     }, 2000);
+    onUnmounted(() => {
+      clearInterval(timer);
+    });
     return {
       code,
       cmOptions,

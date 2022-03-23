@@ -20,6 +20,10 @@ const viteCfg = defineConfig({
         find: /@\//,
         replacement: `${pathResolve("packages/")}/`,
       },
+      {
+        find: "codemirror-editor-vue3",
+        replacement: `${pathResolve("packages/index.ts")}`,
+      },
     ],
   },
   // 生产环境路径，类似webpack的assetsPath
