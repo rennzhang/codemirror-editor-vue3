@@ -16,6 +16,8 @@ import "codemirror/mode/javascript/javascript.js";
 // theme
 import "codemirror/theme/darcula.css";
 
+// console.dir();
+
 export default defineComponent({
   components: {
     Codemirror,

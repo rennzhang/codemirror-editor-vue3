@@ -32,13 +32,13 @@ export default defineComponent({
 
     cmPlaceholder.value += "1 ";
 
-    const timer = setInterval(() => {
-      cmPlaceholder.value += "1 ";
-      console.log(cmPlaceholder.value);
-    }, 2000);
-    onUnmounted(() => {
-      clearInterval(timer);
-    });
+    // const timer = setInterval(() => {
+    //   cmPlaceholder.value += "1 ";
+    //   console.log(cmPlaceholder.value);
+    // }, 2000);
+    // onUnmounted(() => {
+    //   clearInterval(timer);
+    // });
     return {
       code,
       cmOptions,

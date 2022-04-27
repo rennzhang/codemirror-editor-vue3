@@ -34,7 +34,12 @@ export default [
   dts(),
   libInjectCss(),
   Pages({
-    dirs: "playground/demo",
+    dirs: [
+      {
+        dir: "playground/demo",
+        baseRoute: "demo",
+      },
+    ],
     exclude: ["playground/demo/index.vue"],
   }),
   WindiCSS(),

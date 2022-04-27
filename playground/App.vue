@@ -1,10 +1,12 @@
 <template>
-  <div class="py-4 px-8">
-    <h3 class="text-2xl mb-2">点击查看 Demo</h3>
+  <div class="min-w-80vw py-4 px-8">
+    <h3 class="mb-4 text-2xl text-gray-400">
+      👇👇👇 Click to view the example 👇👇👇
+    </h3>
     <div
       v-for="(item, index) in routes"
       :key="index"
-      class="inline-block mr-3 text-blue-600 mb-3"
+      class="mr-3 mb-3 text-blue-500 inline-block"
       :class="{ active: route.name == item.name }"
     >
       <router-link :to="item.path"
@@ -22,6 +24,13 @@ import { routes } from "./router/index";
 const route = useRoute();
 </script>
 <style lang="less">
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  width: 90vw;
+  font-size: 14px;
+}
 .router-link-exact-active {
   span {
     text-decoration: underline;
