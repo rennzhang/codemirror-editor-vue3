@@ -11,7 +11,7 @@ import { defineComponent, ref, unref, watch, onMounted, markRaw } from "vue";
 import type { PropType } from "vue";
 import type { Editor } from "codemirror";
 
-import _CodeMirror from "@/src/sourceLib";
+import _CodeMirror from "../../../sourceLib";
 
 import { getLinkMarks, getLogMark, MarkStates } from "./utils";
 import "./languages/fcLog/index";

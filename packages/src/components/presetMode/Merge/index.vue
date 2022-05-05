@@ -13,7 +13,7 @@ import "codemirror/addon/merge/merge.js";
 import DiffMatchPatch from "diff-match-patch";
 import type { PropType } from "vue";
 import { defineComponent, markRaw, onMounted, ref } from "vue";
-import _CodeMirror from "@/src/sourceLib";
+import _CodeMirror from "../../../sourceLib";
 
 // DiffMatchPatch config with global
 window.diff_match_patch = DiffMatchPatch;

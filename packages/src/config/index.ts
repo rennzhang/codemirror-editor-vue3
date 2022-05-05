@@ -1,42 +1,24 @@
-import { Editor } from "codemirror";
+import { Editor, EditorEventMap } from "codemirror";
 
-export type CMEvents =
-  | "changes"
-  | "scroll"
-  | "beforeChange"
-  | "cursorActivity"
-  | "keyHandled"
-  | "inputRead"
-  | "electricInput"
-  | "beforeSelectionChange"
-  | "viewportChange"
-  | "swapDoc"
-  | "gutterClick"
-  | "gutterContextMenu"
-  | "focus"
-  | "blur"
-  | "refresh"
-  | "optionChange"
-  | "scrollCursorIntoView"
-  | "update";
+export type EditorEventNames = Exclude<keyof EditorEventMap, "change">;
 
-interface ComponentsEvts {
+export interface ComponentEventMap {
   "update:value": (value: string) => string;
   change: (value: string, cm: Editor) => { value: string; cm: Editor };
   input: (value: string) => string;
   ready: (cm: Editor) => Editor;
-  [key: string]: any;
 }
+
 // component define events
-export const componentsEvts: ComponentsEvts = {
-  "update:value": (value: string) => value,
-  change: (value: string, cm: Editor) => ({ value, cm }),
-  input: (value: string) => value,
-  ready: (cm: Editor) => cm,
+export const componentEventMap: ComponentEventMap = {
+  "update:value": (value) => value,
+  change: (value, cm) => ({ value, cm }),
+  input: (value) => value,
+  ready: (cm) => cm,
 };
 
 // codemirror events
-export const cmEvts: CMEvents[] = [
+export const cmEvts: EditorEventNames[] = [
   "changes",
   "scroll",
   "beforeChange",
@@ -57,13 +39,18 @@ export const cmEvts: CMEvents[] = [
   "update",
 ];
 
-export const getCmEvts = () => {
-  const result: { [key: string]: () => void } = {};
+export const getCmEvts = (): Pick<
+  EditorEventMap,
+  Exclude<keyof EditorEventMap, "change">
+> => {
+  const result: any = {};
   cmEvts.forEach((name) => {
-    result[name] = (...args: any[]) => args;
+    result[name] = (...args: any) => args;
   });
   return result;
 };
+
+export const emitOptions = { ...componentEventMap, ...getCmEvts() };
 
 export const DEFAULT_OPTIONS = {
   mode: "text", // Language mode

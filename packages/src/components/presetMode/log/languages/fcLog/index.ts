@@ -1,6 +1,6 @@
 /* */
 import "codemirror/addon/mode/simple.js";
-import _CodeMirror from "@/src/sourceLib";
+import _CodeMirror from "../../../../../sourceLib";
 
 const startRegex = [
   {

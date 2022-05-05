@@ -5,6 +5,7 @@
     :height="300"
     class="cm-component"
     @change="onChange"
+    @focus="onFocus"
     @ready="onReady"
   />
 </template>
@@ -30,11 +31,8 @@ export default defineComponent({
   <meta data-n-head="ssr" charset="utf-8">
 </head>`);
     return {
-      onChange(val: string, cm: any) {
-        console.log(val);
-        const cmMerge = cm as MergeView;
-        const cminstance: Editor = cmMerge.editor();
-        console.log(cminstance.getValue());
+      onChange(val: string, cm: Editor) {
+        console.log("onChange", cm.getValue());
       },
       cmOptions: {
         value: code.value,
@@ -50,6 +48,26 @@ export default defineComponent({
         const cmMerge = cm as MergeView;
         const cminstance: Editor = cmMerge.editor();
         console.log(cminstance.getValue());
+      },
+      onFocus(cm: Editor, event: FocusEvent) {
+        console.log("onFocus", cm, event);
+        // cm.getDoc().on("beforeChange", (instance: Doc, obj: EditorChange) => {
+        //   console.log("beforeChange", instance, obj);
+        // });
+      },
+      onCursorActivity(
+        instance: Editor,
+        line: number,
+        gutter: string,
+        contextMenuEvent: MouseEvent
+      ) {
+        console.log(
+          "onGutterContextMenu",
+          instance,
+          line,
+          gutter,
+          contextMenuEvent
+        );
       },
     };
   },

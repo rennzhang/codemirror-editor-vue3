@@ -49,7 +49,7 @@ import Merge from "./presetMode/Merge/index.vue";
 import FcLog from "./presetMode/log/index.vue";
 import { useEvents } from "../hooks/useEvents";
 import { useViewControl } from "../hooks/useViewControl";
-import { componentsEvts, getCmEvts, DEFAULT_OPTIONS } from "../config/index";
+import { DEFAULT_OPTIONS, emitOptions } from "../config/index";
 
 if (typeof Object.assign !== "function") {
   Object.defineProperty(Object, "assign", {
@@ -131,8 +131,8 @@ const props = defineProps({
     default: () => [],
   },
 });
-const emit = defineEmits({ ...componentsEvts, ...getCmEvts() });
 
+const emit = defineEmits(emitOptions);
 const cminstance = ref<Nullable<Editor>>(null);
 const content = ref("");
 const presetModeName = shallowRef<Component>(Default);
@@ -159,7 +159,7 @@ const { refresh, resize, destroy, containerHeight, reviseStyle } =
 const { listenerEvents } = useEvents({
   props,
   cminstance: cminstance as Ref<Editor>,
-  emit,
+  emit: emit as any,
   internalInstance,
   content,
 });

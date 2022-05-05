@@ -2,7 +2,7 @@ import type { App } from "vue";
 import type { EditorConfiguration, Editor } from "codemirror";
 import VueCodemirror from "./src/components/index.vue";
 import "./src/style/index.css";
-import _CodeMirror from "@/src/sourceLib";
+import _CodeMirror from "./src/sourceLib";
 
 interface CmComp {
   cminstance: Editor;
