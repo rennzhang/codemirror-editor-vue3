@@ -71,7 +71,7 @@ const useEvents = ({
     });
     // const internalInstance.vnode.props
     // 所有有效事件（驼峰命名）+ 去重
-    const tmpEvents: { [key: string]: boolean } = {};
+    const tmpEvents: Record<string, boolean> = {};
     const bindEvts = getBindEvents();
     bindEvts
       // eslint-disable-next-line no-return-assign

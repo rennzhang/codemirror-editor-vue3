@@ -9,6 +9,7 @@ export enum logErrorType {
   warning = "warning",
   error = "error",
 }
+export type logErrorTypes = keyof typeof logErrorType;
 /**
  * Get Local time, format:  HH:mm:ss
  */
@@ -67,11 +68,10 @@ export function getLinkMarks(value: string) {
 }
 /**
  * Create a controllable log output type.
+ * @param { string } text - contents
+ * @param { string } type - Log type: 'info' | 'warning' | 'error'
  */
-export function createLogMark(
-  text = "",
-  type: keyof typeof logErrorType = "info"
-) {
+export function createLogMark(text = "", type: logErrorTypes = "info") {
   return `#log<${type}>log#${text}#log<${type}>log#`;
 }
 
@@ -132,13 +132,15 @@ export function getLogMark(value: string) {
 
 /**
  * Create log text with time and type
+ * @param { string } log - Log contents
+ * @param { string } type - Log type: 'info' | 'warning' | 'error'
  * @example
  *
  * createLog("info content", "info")
  * // => [14:02:32] <info> info content
  *
  */
-export function createLog(log: string, type: logErrorType | string = "") {
+export function createLog(log: string, type: logErrorTypes) {
   const now = getLocalTime();
   return `[${now}] <${type}> ${log}`;
 }
@@ -166,6 +168,6 @@ export function createTitle(
 ) {
   // const offsetLength = Math.floor((1.5 * title.length) / 2);
   const arr = new Array(Math.max(symbolLength || 15, 5));
-  const wraptext = arr.join(symbol || "=");
-  return `${wraptext}${title}${wraptext}`;
+  const wrapText = arr.join(symbol || "=");
+  return `${wrapText}${title}${wrapText}`;
 }
