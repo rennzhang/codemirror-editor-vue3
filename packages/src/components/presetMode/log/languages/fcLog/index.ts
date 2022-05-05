@@ -1,6 +1,6 @@
 /* */
 import "codemirror/addon/mode/simple.js";
-import codemirror from "codemirror";
+import _CodeMirror from "@/src/sourceLib";
 
 const startRegex = [
   {
@@ -23,7 +23,7 @@ const startRegex = [
   },
 ];
 
-codemirror.defineSimpleMode("fclog", {
+_CodeMirror.defineSimpleMode("fclog", {
   start: [
     ...startRegex,
     {

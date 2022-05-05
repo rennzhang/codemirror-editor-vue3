@@ -11,12 +11,11 @@ import { defineComponent, ref, unref, watch, onMounted, markRaw } from "vue";
 import type { PropType } from "vue";
 import type { Editor } from "codemirror";
 
-import _CodeMirror from "codemirror";
+import _CodeMirror from "@/src/sourceLib";
+
 import { getLinkMarks, getLogMark, MarkStates } from "./utils";
 import "./languages/fcLog/index";
 import "./languages/simpleLog/index";
-
-const CodeMirror = window.CodeMirror || _CodeMirror;
 
 // import 'codemirror/addon/lint/lint.css'
 export default defineComponent({
@@ -70,7 +69,7 @@ export default defineComponent({
 
     const initialize = () => {
       _cminstance.value = markRaw(
-        CodeMirror.fromTextArea(textarea.value, props.options)
+        _CodeMirror.fromTextArea(textarea.value, props.options)
       );
 
       emit("update:cminstance", unref(_cminstance));

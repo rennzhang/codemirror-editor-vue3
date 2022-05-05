@@ -1,7 +1,7 @@
 import "codemirror/addon/mode/simple.js";
-import codemirror from "codemirror";
+import _CodeMirror from "@/src/sourceLib";
 
-codemirror.defineSimpleMode("log", {
+_CodeMirror.defineSimpleMode("log", {
   start: [
     {
       regex: /^[=]+[^=]*[=]+/,

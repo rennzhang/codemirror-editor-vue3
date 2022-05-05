@@ -3,25 +3,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, markRaw } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
 import type { MergeView } from "codemirror/addon/merge/merge";
-
-import type { PropType } from "vue";
-
-// lib
-import _CodeMirror from "codemirror";
-
 // merge css
 import "codemirror/addon/merge/merge.css";
-
 // merge js
 import "codemirror/addon/merge/merge.js";
-
 // google DiffMatchPatch
 import DiffMatchPatch from "diff-match-patch";
-
-const CodeMirror = window?.CodeMirror || _CodeMirror;
+import type { PropType } from "vue";
+import { defineComponent, markRaw, onMounted, ref } from "vue";
+import _CodeMirror from "@/src/sourceLib";
 
 // DiffMatchPatch config with global
 window.diff_match_patch = DiffMatchPatch;
@@ -48,7 +40,7 @@ export default defineComponent({
 
     const initialize = () => {
       _cminstance.value = markRaw(
-        CodeMirror.MergeView(mergeView.value as HTMLElement, props.options)
+        _CodeMirror.MergeView(mergeView.value as HTMLElement, props.options)
       );
       emit("update:cminstance", _cminstance.value);
       emit("ready", _cminstance);

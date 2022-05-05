@@ -1,8 +1,8 @@
-import _CodeMirror from "codemirror";
 import type { App } from "vue";
 import type { EditorConfiguration, Editor } from "codemirror";
 import VueCodemirror from "./src/components/index.vue";
 import "./src/style/index.css";
+import _CodeMirror from "@/src/sourceLib";
 
 interface CmComp {
   cminstance: Editor;
@@ -31,7 +31,6 @@ const install = (app: App, config?: InstallConfig) => {
 };
 
 const CodeMirror = window.CodeMirror || _CodeMirror;
-
 /**
  * Use global components.
  * @example

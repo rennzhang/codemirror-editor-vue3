@@ -11,9 +11,7 @@ import type { PropType, WatchStopHandle } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
 import { ref, defineComponent, onMounted, markRaw, watch, unref } from "vue";
 // lib
-import _CodeMirror from "codemirror";
-
-const CodeMirror = window.CodeMirror || _CodeMirror;
+import _CodeMirror from "@/src/sourceLib";
 
 export default defineComponent({
   name: "DefaultMode",
@@ -53,7 +51,7 @@ export default defineComponent({
 
     const initialize = () => {
       _cminstance.value = markRaw(
-        CodeMirror.fromTextArea(textarea.value, props.options)
+        _CodeMirror.fromTextArea(textarea.value, props.options)
       );
       emit("update:cminstance", _cminstance.value);
 
