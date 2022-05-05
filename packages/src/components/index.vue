@@ -3,9 +3,10 @@
     class="codemirror-container"
     :class="{
       merge: $props.merge,
-      bordered: $props.border || $props.merge,
+      bordered: $props.border || ($props.merge && !props.originalStyle),
       'width-auto': !$props.width || $props.width == '100%',
       'height-auto': !$props.height || $props.height == '100%',
+      'original-style': props.originalStyle,
     }"
     :style="{
       height: containerHeight + 'px',
@@ -104,6 +105,10 @@ const props = defineProps({
   height: {
     type: [String, Number] as PropType<string | number | null>,
     default: null,
+  },
+  originalStyle: {
+    type: Boolean as PropType<boolean>,
+    default: false,
   },
   keepCursorInEnd: {
     type: Boolean as PropType<boolean>,

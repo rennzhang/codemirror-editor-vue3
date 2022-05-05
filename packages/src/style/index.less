@@ -19,44 +19,49 @@
       height: 100% !important;
     }
   }
+
+  .editor_custom_link {
+    cursor: pointer;
+    color: #1474f1;
+    text-decoration: underline;
+  }
+  .editor_custom_link:hover {
+    color: #04b4fa;
+  }
 }
 
-.CodeMirror-lines .CodeMirror-placeholder.CodeMirror-line-like {
-  color: #666;
-}
-.CodeMirror,
-.CodeMirror-merge-pane {
-  height: 100%;
-  font-family: consolas !important;
-}
-.CodeMirror-merge,
-.CodeMirror-merge-right .CodeMirror {
-  height: 100%;
-  border: none !important;
-}
-.editor_custom_link {
-  cursor: pointer;
-  color: #1474f1;
-  text-decoration: underline;
-}
-.editor_custom_link:hover {
-  color: #04b4fa;
-}
-.c-editor--log__error {
-  color: #bb0606;
-  font-weight: bold;
-}
-.c-editor--log__info {
-  color: #333333;
-  font-weight: bold;
-}
-.c-editor--log__warning {
-  color: #ee9900;
-}
-.c-editor--log__success {
-  color: #669600;
-}
-.cm-header,
-.cm-strong {
-  font-weight: bold;
+// Modify the CodeMirror own style
+.codemirror-container:not(.original-style) {
+  .CodeMirror-lines .CodeMirror-placeholder.CodeMirror-line-like {
+    color: #666;
+  }
+  .CodeMirror,
+  .CodeMirror-merge-pane {
+    height: 100%;
+    font-family: consolas !important;
+  }
+  .CodeMirror-merge,
+  .CodeMirror-merge-right .CodeMirror {
+    height: 100%;
+    border: none !important;
+  }
+
+  .c-editor--log__error {
+    color: #bb0606;
+    font-weight: bold;
+  }
+  .c-editor--log__info {
+    color: #333333;
+    font-weight: bold;
+  }
+  .c-editor--log__warning {
+    color: #ee9900;
+  }
+  .c-editor--log__success {
+    color: #669600;
+  }
+  .cm-header,
+  .cm-strong {
+    font-weight: bold;
+  }
 }
