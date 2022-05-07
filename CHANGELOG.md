@@ -1,3 +1,17 @@
+## 2.1.2
+
+`2022-05-07`
+
+- 🌟 feat: Provides an option to turn off automatic style injection. Disable the plugin's secondary modifications and direct injection of styles into this header, removing all '! important` [#17](https://github.com/RennCheung/codemirror-editor-vue3/issues/17)
+
+- ⚙️ type: Ts type adjustment, better TS support.
+
+---
+
+- 🌟 新功能: 提供关闭自动样式注入的选项，禁用本插件二次修改并直接注入到此头部的样式，去掉所有的`!important` [#17](https://github.com/RennCheung/codemirror-editor-vue3/issues/17)
+
+- ⚙️ 类型: ts 类型调整，更好的 ts 支持
+
 ## 2.0.6
 
 `2022-03-23`

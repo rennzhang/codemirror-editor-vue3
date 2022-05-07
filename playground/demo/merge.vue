@@ -7,6 +7,7 @@
     @change="onChange"
     @focus="onFocus"
     @ready="onReady"
+    original-style
   />
 </template>
 <script lang="ts">
