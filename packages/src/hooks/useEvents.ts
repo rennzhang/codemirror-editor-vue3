@@ -64,8 +64,8 @@ const useEvents = ({
       if (currentVal === content.value) return;
       // eslint-disable-next-line no-param-reassign
       content.value = currentVal;
-      emit("update:value", content.value);
-      emit("input", content.value);
+      content.value && emit("update:value", content.value || "");
+      content.value && emit("input", content.value || "");
 
       // 解决在 change 事件中不能使用 scrollTo的问题
       Promise.resolve().then(() => {
