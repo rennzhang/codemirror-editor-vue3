@@ -193,7 +193,7 @@ const ready = () => {
   unseenLineMarkers();
 
   // prevents funky dynamic rendering
-  resize();
+  resize(props.width, props.height || 200);
   emit("ready", cminstance.value as Editor);
   watch(
     [() => props.width, () => props.height],
