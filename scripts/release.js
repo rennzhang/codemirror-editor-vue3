@@ -113,6 +113,9 @@ async function main() {
   step("\nUpdating cross dependencies...");
   updateVersions(targetVersion);
 
+  step("publish all packages...");
+  await run("pnpm", ["run", "publish"]);
+
   // // build all packages with types
   // step("\nBuilding all packages...");
   // if (!skipBuild && !isDryRun) {
