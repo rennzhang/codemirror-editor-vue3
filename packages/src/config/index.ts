@@ -1,6 +1,12 @@
 import { Editor, EditorEventMap } from "codemirror";
 
 export type EditorEventNames = Exclude<keyof EditorEventMap, "change">;
+interface EditorEventMapWithChange extends EditorEventMap {
+  keyHandled: (instance: Editor, name: string, eventObj: Event) => void;
+  focus: (instance: Editor, eventObj: FocusEvent) => void;
+  blur: (instance: Editor, eventObj: FocusEvent) => void;
+  scrollCursorIntoView: (instance: Editor, eventObj: Event) => void;
+}
 
 export interface ComponentEventMap {
   "update:value": (value: string) => string;
@@ -40,8 +46,8 @@ export const cmEvts: EditorEventNames[] = [
 ];
 
 export const getCmEvts = (): Pick<
-  EditorEventMap,
-  Exclude<keyof EditorEventMap, "change">
+  EditorEventMapWithChange,
+  EditorEventNames
 > => {
   const result: any = {};
   cmEvts.forEach((name) => {
