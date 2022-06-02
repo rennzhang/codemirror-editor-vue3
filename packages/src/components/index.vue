@@ -133,7 +133,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(emitOptions);
-const cminstance = ref<Nullable<Editor>>(null);
+const cminstance = ref<Editor | null>(null);
 const content = ref("");
 const presetModeName = shallowRef<Component>(Default);
 const cmOptions = ref<EditorConfiguration>({

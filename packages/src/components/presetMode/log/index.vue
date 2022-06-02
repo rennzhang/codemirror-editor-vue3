@@ -34,7 +34,7 @@ export default defineComponent({
       default: () => ({}),
     },
     cminstance: {
-      type: Object as PropType<Nullable<Editor>>,
+      type: Object as PropType<Editor | null>,
       default: () => ({}),
     },
     placeholder: {
@@ -45,7 +45,7 @@ export default defineComponent({
   emits: ["update:cminstance", "ready"],
   setup(props, { emit }) {
     const textarea = ref();
-    const _cminstance = ref<Nullable<Editor>>(null);
+    const _cminstance = ref<Editor | null>(null);
 
     const renderTextMark = (
       cminstance: Editor = props.cminstance as Editor

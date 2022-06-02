@@ -17,7 +17,7 @@ declare type UseEventsParams = {
     ((event: "change", value: string, cm: Editor) => void) &
     ((event: "input", value: string) => void) &
     ((event: string, ...args: any[]) => void);
-  internalInstance: Nullable<ComponentInternalInstance>;
+  internalInstance: ComponentInternalInstance | null;
   content: Ref<string>;
 };
 

@@ -46,7 +46,7 @@ export function createLinkMark(attrs: {
 export function getLinkMarks(value: string) {
   const linkRegexp = /#link#(.+)#link#/g;
   const result: MarkStates[] = [];
-  let indexObj: Nullable<RegExpExecArray>;
+  let indexObj: RegExpExecArray | null;
   indexObj = linkRegexp.exec(value);
   while (indexObj) {
     const node = document.createElement("a");

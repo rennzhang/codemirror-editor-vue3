@@ -33,7 +33,7 @@ export default defineComponent({
       default: () => ({}),
     },
     cminstance: {
-      type: Object as PropType<Nullable<Editor>>,
+      type: Object as PropType<Editor | null>,
       default: () => null,
     },
     placeholder: {
@@ -42,12 +42,12 @@ export default defineComponent({
     },
   },
   emits: {
-    ready: (instance: Editor): Nullable<Editor> => instance,
-    "update:cminstance": (instance: Editor): Nullable<Editor> => instance,
+    ready: (instance: Editor): Editor | null => instance,
+    "update:cminstance": (instance: Editor): Editor | null => instance,
   },
   setup(props, { emit }) {
     const textarea = ref();
-    const _cminstance = ref<Nullable<Editor>>(null);
+    const _cminstance = ref<Editor | null>(null);
 
     const initialize = () => {
       _cminstance.value = markRaw(
@@ -55,7 +55,7 @@ export default defineComponent({
       );
       emit("update:cminstance", _cminstance.value);
 
-      const unwatch: Nullable<WatchStopHandle> = watch(
+      const unwatch: WatchStopHandle | null = watch(
         () => props.cminstance,
         (val) => {
           val && props.cminstance?.setValue(props.value || props.content);

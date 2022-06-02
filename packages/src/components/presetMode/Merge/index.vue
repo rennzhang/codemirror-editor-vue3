@@ -29,7 +29,7 @@ export default defineComponent({
       default: () => ({}),
     },
     cminstance: {
-      type: Object as PropType<Nullable<Editor>>,
+      type: Object as PropType<Editor | null>,
       default: () => ({}),
     },
   },

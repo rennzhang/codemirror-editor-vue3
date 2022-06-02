@@ -7,8 +7,8 @@ import type { CmProps } from "@/src/types/props";
 
 export declare type UseViewControlParams = {
   props: CmProps;
-  cminstance: Ref<Nullable<Editor | MergeView>>;
-  presetRef: Ref<Nullable<{ initialize: () => void }>>;
+  cminstance: Ref<Editor | MergeView | null>;
+  presetRef: Ref<{ initialize: () => void } | null>;
 };
 
 export function useViewControl({
@@ -16,8 +16,8 @@ export function useViewControl({
   cminstance,
   presetRef,
 }: UseViewControlParams) {
-  const containerWidth = ref<Nullable<string>>(null);
-  const containerHeight = ref<Nullable<string>>(null);
+  const containerWidth = ref<string | null>(null);
+  const containerHeight = ref<string | null>(null);
 
   const realCm = computed(
     () =>
@@ -59,7 +59,7 @@ export function useViewControl({
   };
 
   const isStyleChaotic = () => {
-    const gutterEl: Nullable<HTMLElement> = document.querySelector(
+    const gutterEl: HTMLElement | null = document.querySelector(
       ".CodeMirror-gutters"
     );
     const gutterElLeft = gutterEl?.style.left.replace("px", "");
