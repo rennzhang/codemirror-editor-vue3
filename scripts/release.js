@@ -1,20 +1,3 @@
-/**
- * 发版规范：
- * 1. 版本号由产品经理统一规定，如 2.0.0
- * 2. 开发在修复 bug 时，在版本号后增加修复版本号，如 2.0.0-1、2.0.0-2
- *
- * 注意：
- * 1. 如果在 develop 执行 release.js，则会自动同步发版 SYNC_RELEASE_BRANCHES 中的分支
- * 2. 如果在其他分支中执行 release.js，则只会在当前分支发版（遵循 git work flow 的 hot-fix 工作法）
- * 3. 可以在通过命令行参数指定要发版的分支(分支名称用英文逗号间隔)，如: npm run release --syncbranch develop,master
- */
-
-// 在 develop 分支执行发版操作时，同步发版的分支
-const SYNC_RELEASE_BRANCHES = [
-  "test",
-  // "master"
-];
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 const args = require("minimist")(process.argv.slice(2));
 const fs = require("fs");
@@ -52,20 +35,6 @@ function getCurrentBranch() {
   const res = execa.commandSync("git rev-parse --abbrev-ref HEAD");
   return res.stdout;
 }
-
-// 验证需要同步的分支是否存在于远程仓库中
-const getSyncBranches = () => {
-  if (!args.syncbranch) return SYNC_RELEASE_BRANCHES;
-  const inputBranch = args.syncbranch.split(",");
-  const allRemoteBranch = execa.commandSync("git branch -r").stdout;
-  inputBranch.forEach((branch) => {
-    if (!allRemoteBranch.includes(branch)) {
-      throw new Error(`远程仓库中没有此分支: ${branch}`);
-    }
-  });
-  return inputBranch;
-};
-const syncBranch = getSyncBranches();
 
 async function main() {
   let targetVersion = args._[0];
@@ -113,9 +82,6 @@ async function main() {
   step("\nUpdating cross dependencies...");
   updateVersions(targetVersion);
 
-  step("publish all packages...");
-  await run("pnpm", ["run", "publish"]);
-
   // // build all packages with types
   // step("\nBuilding all packages...");
   // if (!skipBuild && !isDryRun) {
@@ -143,23 +109,14 @@ async function main() {
     // 推送当前分支代码
     step(`\n[Branch ${getCurrentBranch()}] Pushing to GitLab...`);
     await runIfNotDry("git", ["tag", `v${targetVersion}`]);
-    await runIfNotDry("git", ["push", "origin", `refs/tags/v${targetVersion}`]);
-    await runIfNotDry("git", ["push"]);
-
-    // 如果当前是 develop 分支，则同步发版到 SYNC_RELEASE_BRANCHES 中所有分支
-    if (getCurrentBranch() == "develop") {
-      for (const branch of syncBranch) {
-        step(`\n[Branch ${branch}] Pushing to GitLab...`);
-        runIfNotDry("git", ["push", branch, `refs/tags/v${targetVersion}`]);
-        await runIfNotDry("git", ["checkout", branch]);
-        await runIfNotDry("git", ["merge", "develop"]);
-        await runIfNotDry("git", ["push"]);
-      }
-      await runIfNotDry("git", ["checkout", "develop"]);
-    }
+    // await runIfNotDry("git", ["push", "origin", `refs/tags/v${targetVersion}`]);
+    // await runIfNotDry("git", ["push"]);
   };
 
   await syncPushCode();
+
+  step("publish all packages...");
+  await run("pnpm", ["run", "publish"]);
 
   if (isDryRun) {
     console.log("\nDry run finished - run git diff to see package changes.");
@@ -168,15 +125,15 @@ async function main() {
   console.log();
 }
 
-function updateVersions(version) {
-  updatePackage(path.resolve(__dirname, "../"), version);
-}
-
 function updatePackage(pkgRoot, version) {
   const pkgPath = path.resolve(pkgRoot, "package.json");
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
   pkg.version = version;
   fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
+}
+
+function updateVersions(version) {
+  updatePackage(path.resolve(__dirname, "../"), version);
 }
 
 main().catch((err) => {

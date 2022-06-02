@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "license": "MIT",
   "files": [
     "dist/codemirror-editor-vue3.es.js",
@@ -95,7 +95,7 @@
     "unplugin-auto-import": "^0.5.11",
     "vite": "^2.7.2",
     "vite-plugin-checker": "^0.4.2",
-    "vite-plugin-dts": "^0.9.9",
+    "vite-plugin-dts": "^1.2.0",
     "vite-plugin-pages": "^0.22.0",
     "vite-plugin-windicss": "^1.8.3",
     "vitepress": "^0.22.3",
