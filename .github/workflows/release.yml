@@ -21,4 +21,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/qmhc/vite-plugin-dts/blob/main/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/RennCheung/codemirror-editor-vue3/blob/main/CHANGELOG.md) for details.
