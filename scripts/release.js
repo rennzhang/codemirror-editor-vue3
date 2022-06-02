@@ -109,14 +109,14 @@ async function main() {
     // 推送当前分支代码
     step(`\n[Branch ${getCurrentBranch()}] Pushing to GitLab...`);
     await runIfNotDry("git", ["tag", `v${targetVersion}`]);
-    // await runIfNotDry("git", ["push", "origin", `refs/tags/v${targetVersion}`]);
-    // await runIfNotDry("git", ["push"]);
+    await runIfNotDry("git", ["push", "origin", `refs/tags/v${targetVersion}`]);
+    await runIfNotDry("git", ["push"]);
   };
 
   await syncPushCode();
 
   step("publish all packages...");
-  await run("pnpm", ["run", "publish"]);
+  await run("pnpm", ["run", "publish-pkg"]);
 
   if (isDryRun) {
     console.log("\nDry run finished - run git diff to see package changes.");

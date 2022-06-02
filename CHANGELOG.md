@@ -1,25 +1,18 @@
-## [2.1.5](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.4...v2.1.5) (2022-06-02)
-
+## [2.1.6](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.4...v2.1.5) (2022-06-02)
 
 ### Bug Fixes
 
-* **type:** change codemirror event type([#19](https://github.com/RennCheung/codemirror-editor-vue3/issues/19)) ([f29a9f5](https://github.com/RennCheung/codemirror-editor-vue3/commit/f29a9f5e9e7e06f5fb9d8fc95c17d4b46329621d))
-
-
+- **type:** change codemirror event type([#19](https://github.com/RennCheung/codemirror-editor-vue3/issues/19)) ([f29a9f5](https://github.com/RennCheung/codemirror-editor-vue3/commit/f29a9f5e9e7e06f5fb9d8fc95c17d4b46329621d))
 
 ## [2.1.4](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.3...v2.1.4) (2022-05-29)
 
-
 ### Bug Fixes
 
-* 取出 emit 出现警告 ([882d120](https://github.com/RennCheung/codemirror-editor-vue3/commit/882d1207f698d94f3036f8a9fd156392d686f1ff))
-
+- 取出 emit 出现警告 ([882d120](https://github.com/RennCheung/codemirror-editor-vue3/commit/882d1207f698d94f3036f8a9fd156392d686f1ff))
 
 ### Features
 
-* Set the default height to 200 ([1faa2f9](https://github.com/RennCheung/codemirror-editor-vue3/commit/1faa2f9f533628a44c228c1830698cdea4f71c1a))
-
-
+- Set the default height to 200 ([1faa2f9](https://github.com/RennCheung/codemirror-editor-vue3/commit/1faa2f9f533628a44c228c1830698cdea4f71c1a))
 
 ## 2.1.3
 
