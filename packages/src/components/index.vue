@@ -193,7 +193,7 @@ const ready = () => {
   unseenLineMarkers();
 
   // prevents funky dynamic rendering
-  resize(props.width, props.height || 200);
+  resize(props.width, props.height);
   emit("ready", cminstance.value as Editor);
   watch(
     [() => props.width, () => props.height],
@@ -261,5 +261,3 @@ defineExpose({
   destroy,
 });
 </script>
-
-<style scoped lang="less"></style>
