@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 const semver = require("semver");
-const currentVersion = require("../package.json").version;
-const { prompt } = require("enquirer");
 const execa = require("execa");
+const { prompt } = require("enquirer");
+const currentVersion = require("../package.json").version;
 
 const preId =
   args.preid ||
@@ -16,7 +16,7 @@ const isDryRun = args.dry;
 const versionIncrements = ["repair", "patch", "minor", "major"];
 
 const inc = (i) => {
-  if (i == "repair") {
+  if (i === "repair") {
     return preId
       ? semver.inc(currentVersion, "prerelease", preId)
       : `${currentVersion}-1`;
@@ -85,7 +85,7 @@ async function main() {
   // // build all packages with types
   // step("\nBuilding all packages...");
   // if (!skipBuild && !isDryRun) {
-  //   await run("pnpm", ["run", "build"]);
+  //   await run("npm", ["run", "build"]);
   //   // test generated dts files
   // } else {
   //   console.log("(skipped)");
@@ -93,7 +93,7 @@ async function main() {
 
   // generate changelog
   step("\nGenerating changelog...");
-  await run("pnpm", ["run", "changelog"]);
+  await run("npm", ["run", "changelog"]);
 
   const { stdout } = await run("git", ["diff"], { stdio: "pipe" });
   if (stdout) {
@@ -116,7 +116,7 @@ async function main() {
   await syncPushCode();
 
   step("publish all packages...");
-  await run("pnpm", ["run", "publish-pkg"]);
+  await run("npm", ["run", "publish-pkg"]);
 
   if (isDryRun) {
     console.log("\nDry run finished - run git diff to see package changes.");
