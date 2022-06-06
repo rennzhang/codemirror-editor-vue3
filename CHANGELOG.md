@@ -1,3 +1,12 @@
+## [2.1.7](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.6...v2.1.7) (2022-06-06)
+
+
+### Bug Fixes
+
+* Remove the default height of 200([#20](https://github.com/RennCheung/codemirror-editor-vue3/issues/20)) ([a7b4121](https://github.com/RennCheung/codemirror-editor-vue3/commit/a7b41213ee1cc457cc532b2c75ca64d675371215))
+
+
+
 ## [2.1.6](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.4...v2.1.5) (2022-06-02)
 
 ### Bug Fixes
