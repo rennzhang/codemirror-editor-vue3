@@ -1,6 +1,6 @@
 <template>
   <div class="demo-preview" :class="$props.name">
-    <div class="demo-preview-head" v-if="$props.title">
+    <div v-if="$props.title" class="demo-preview-head">
       {{ $props.title }}
     </div>
     <div class="demo-preview-body">
@@ -23,8 +23,9 @@
 
 <script>
 import { ref, onMounted } from "vue";
+
 export default {
-  name: "default",
+  name: "Default",
   components: {},
   props: {
     title: {
@@ -46,11 +47,10 @@ export default {
     const tiggerShowCode = () => {
       showCode.value = !showCode.value;
       if (showCode.value) {
-        viewDom.value.style.height =
+        viewDom.value.style.height = `${
           document.querySelector(`.language-vue.${props.name} pre`)
-            .clientHeight +
-          2 +
-          "px";
+            .clientHeight + 2
+        }px`;
         viewDom.value.style.borderTop = "1px solid #ddd";
         return;
       }
@@ -61,7 +61,7 @@ export default {
     const moveCodeContent = () => {
       demoContent.value = document.querySelector(`.demo-preview.${props.name}`);
       codeContent.value = document.querySelector(`.language-vue.${props.name}`);
-      let demoControl = document.querySelector(
+      const demoControl = document.querySelector(
         `.demo-preview.${props.name} .demo-preview-control`
       );
       if (!demoContent.value.contains(codeContent.value)) {
@@ -75,10 +75,10 @@ export default {
 
     const copy = () => {
       if (copyStatus.value) return;
-      var type = "text/plain";
-      let text = codeContent.value.innerText;
-      var blob = new Blob([text], { type });
-      var data = [new ClipboardItem({ [type]: blob })];
+      const type = "text/plain";
+      const text = codeContent.value.innerText;
+      const blob = new Blob([text], { type });
+      const data = [new ClipboardItem({ [type]: blob })];
       navigator.clipboard.write(data).then(
         function (e) {
           copyStatus.value = true;
