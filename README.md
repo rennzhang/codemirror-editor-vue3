@@ -7,9 +7,9 @@
 
 ### Introduction
 
-The plug-in is based on [Codemirror](http://codemirror.net/) 5 and only supports Vue 3. In addition to the modes supported by codemirror, this plugin also supports custom log modes.
+The plug-in is based on [Codemirror 5](http://codemirror.net/) and only supports Vue 3. In addition to the modes supported by codemirror, this plugin also supports custom log modes.
 
-For complete documentation and more cases, please check [codemirror-editor-vue3-docs](https://renncheung.github.io/codemirror-editor-vue3/index.html).(Currently only Chinese version, English version is under planning)
+For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/index.html).(Currently only Chinese version, English version is under planning)
 
 ### Install
 
@@ -63,6 +63,9 @@ app.use(GlobalCmComponent, { componentName: "customName" });
 
 <script>
 import Codemirror from "codemirror-editor-vue3";
+
+// placeholder
+import "codemirror/addon/display/placeholder.js";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
