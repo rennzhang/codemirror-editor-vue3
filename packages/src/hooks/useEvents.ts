@@ -61,11 +61,11 @@ const useEvents = ({
   const listenerEvents = () => {
     realCm.value.on("change", (cm: Editor) => {
       const currentVal = cm.getValue();
-      if (currentVal === content.value) return;
+      if (currentVal === content.value && currentVal !== "") return;
       // eslint-disable-next-line no-param-reassign
       content.value = currentVal;
-      content.value && emit("update:value", content.value || "");
-      content.value && emit("input", content.value || "");
+      emit("update:value", content.value || "");
+      emit("input", content.value || " ");
 
       // 解决在 change 事件中不能使用 scrollTo的问题
       Promise.resolve().then(() => {

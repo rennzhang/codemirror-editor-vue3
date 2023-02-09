@@ -9,17 +9,17 @@ interface EditorEventMapWithChange extends EditorEventMap {
 }
 
 export interface ComponentEventMap {
-  "update:value": (value: string) => string;
+  "update:value": (value: string) => any;
   change: (value: string, cm: Editor) => { value: string; cm: Editor };
-  input: (value: string) => string;
+  input: (value: string) => any;
   ready: (cm: Editor) => Editor;
 }
 
 // component define events
 export const componentEventMap: ComponentEventMap = {
-  "update:value": (value) => value,
+  "update:value": () => true,
   change: (value, cm) => ({ value, cm }),
-  input: (value) => value,
+  input: () => true,
   ready: (cm) => cm,
 };
 

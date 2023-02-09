@@ -7,6 +7,7 @@
     :placeholder="cmPlaceholder"
   >
   </Codemirror>
+  {{ code }}
 </template>
 <script lang="ts">
 import { ref } from "vue";
@@ -23,7 +24,7 @@ export default defineComponent({
     Codemirror,
   },
   setup() {
-    const code = ref("");
+    const code = ref("123");
     const cmPlaceholder = ref("test placeholder");
 
     const cmOptions: EditorConfiguration = {
