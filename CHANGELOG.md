@@ -1,3 +1,12 @@
+## [2.1.9-beta1](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.7...v2.1.9-beta1) (2023-02-09)
+
+
+### Bug Fixes
+
+* Data not updated when all code is selected for deletion([#30](https://github.com/RennCheung/codemirror-editor-vue3/issues/30)) ([95b43ea](https://github.com/RennCheung/codemirror-editor-vue3/commit/95b43ea5638da37603b739d4632045f94901cf6f))
+
+
+
 ## [2.1.8](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.7...v2.1.8) (2023-01-31)
 
 
