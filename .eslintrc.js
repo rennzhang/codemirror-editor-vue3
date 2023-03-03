@@ -36,7 +36,7 @@ module.exports = {
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "vue/multi-word-component-names": "warn",
+    "vue/multi-word-component-names": "off",
   },
   overrides: [
     {

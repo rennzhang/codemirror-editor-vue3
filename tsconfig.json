@@ -6,6 +6,7 @@
     "lib": ["DOM", "ESNext"],
     "types": ["vite/client"],
     "jsx": "preserve",
+    "allowJs": true,
     "strict": true,
     "esModuleInterop": true,
     "incremental": false,

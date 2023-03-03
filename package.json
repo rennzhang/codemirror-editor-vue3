@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "license": "MIT",
   "files": [
     "dist/codemirror-editor-vue3.es.js",
@@ -28,7 +28,7 @@
     "name": "RennCheung",
     "email": "906155099@qq.com"
   },
-  "homepage": "https://renncheung.github.io/codemirror-editor-vue3/index.html",
+  "homepage": "https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started",
   "unpkg": "dist/codemirror-editor-vue3.js",
   "jsnext:main": "dist/codemirror-editor-vue3.js",
   "jspm": {
