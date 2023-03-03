@@ -1,12 +1,5 @@
 <template>
-  <demo-preview v-bind="{ ...$attrs, ...$props }" name="log-mode-demo">
-    <Codemirror
-      v-model:value="code"
-      :options="cmOptions"
-      border
-      :height="400"
-    />
-  </demo-preview>
+  <Codemirror v-model:value="code" :options="cmOptions" border :height="400" />
 </template>
 
 <script>
@@ -25,12 +18,10 @@ export default defineComponent({
       download: "",
       target: "_blank",
     })}
-${createTitle("基本日志")}
+${createTitle("可以标记每一行日志的输出类型")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
 ${createLogMark("2021-08-26 15:07:09: job is error", "error")}
-${createTitle("带有时间节点")}
-${createLinkMark({ href: "/logDownload", download: "", target: "_blank" })}
 
 ====================引擎日志====================
 

@@ -1,6 +1,5 @@
 @import "./var.css";
 @import "./code.css";
-@import "../iconfont/iconfont.css";
 
 .icon {
   width: 1em;
@@ -41,4 +40,8 @@
 
 p > a > img {
   margin-right: 8px;
+}
+
+.vp-doc a {
+  display: inline-block;
 }

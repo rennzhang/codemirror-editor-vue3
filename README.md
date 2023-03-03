@@ -7,25 +7,27 @@
 
 ### Introduction
 
-The plug-in is based on [Codemirror 5](http://codemirror.net/) and only supports Vue 3. In addition to the modes supported by codemirror, this plugin also supports custom log modes.
+The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported. 
 
-For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/index.html).(Currently only Chinese version, English version is under planning)
+In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
+
+For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started/index.html).(Currently only Chinese version, English version is under planning)
 
 ### Install
 
 ```bash
-npm install codemirror-editor-vue3 -S
+npm install codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
 
 ```bash
-yarn add codemirror-editor-vue3
+yarn add codemirror-editor-vue3 codemirror@5.6.0
 ```
 
 ```bash
-pnpm i codemirror-editor-vue3 codemirror -S
+pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
 
-### Use in the global
+### Register global component
 
 > **Do not recommend global registration components**, which will result in the type of prompt on the template that cannot be properly obtained.
 
@@ -69,7 +71,8 @@ import "codemirror/addon/display/placeholder.js";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
-
+// placeholder
+import "codemirror/addon/display/placeholder.js";
 // theme
 import "codemirror/theme/dracula.css";
 
@@ -99,32 +102,4 @@ for (; i < 9; i++) {
   },
 };
 </script>
-```
-
-### Get codemirror instance object
-
-[View code](https://renncheung.github.io/codemirror-editor-vue3/instructions/cminstance.html)
-
-### use [Codemirror Static property](https://codemirror.net/doc/manual.html#api_static)
-
-```js
-import { CodeMirror } from "codemirror-editor-vue3";
-CodeMirror.Pos(0, 5);
-```
-
-`or:`
-
-```js
-import _CodeMirror from "codemirror";
-_CodeMirror.Pos(0, 5);
-```
-
-### Other instructions
-
-The codemirror basic style has been introduced inside the `codemirror-editor-vue3` plugin, and there is no need to repeatedly introduce the following styles when using:
-
-```js
-// base style
-import "codemirror/lib/codemirror.css";
-import "codemirror/mode/css/css.js";
 ```

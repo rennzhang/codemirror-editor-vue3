@@ -1,18 +1,12 @@
 <template>
-  <demo-preview
-    v-bind="{ ...$attrs, ...$props }"
-    title="Merge Mode："
-    name="merge-mode-demo"
-  >
-    <Codemirror
-      v-if="isMounted"
-      :merge="true"
-      :options="cmOptions"
-      :height="400"
-      class="cm-component"
-      @change="onChange"
-    />
-  </demo-preview>
+  <Codemirror
+    v-if="isMounted"
+    :merge="true"
+    :options="cmOptions"
+    :height="400"
+    class="cm-component"
+    @change="onChange"
+  />
 </template>
 
 <script>
