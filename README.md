@@ -11,7 +11,7 @@ The codemirror component of vue3. This component is developed based on [Codemirr
 
 In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
 
-For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/en/).(Currently only Chinese version, English version is under planning)
+For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started).(Currently only Chinese version, English version is under planning)
 
 ### Install
 
