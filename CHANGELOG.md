@@ -1,3 +1,7 @@
+## [2.2.1](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.2.0...v2.2.1) (2023-03-03)
+
+
+
 # [2.2.0](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.1.9-beta1...v2.2.0) (2023-02-09)
 
 
