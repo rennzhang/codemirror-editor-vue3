@@ -5,7 +5,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 [![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 
-### Introduction
+# Introduction
 
 The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported. 
 
@@ -13,7 +13,7 @@ In addition to the officially supported modes, the log output presentation mode 
 
 For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started).
 
-### Install
+## Install
 
 ```bash
 npm install codemirror-editor-vue3 codemirror@5.6.0 -S
@@ -27,7 +27,7 @@ yarn add codemirror-editor-vue3 codemirror@5.6.0
 pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
 
-### Register global component
+## Register global component
 
 > **Do not recommend global registration components**, which will result in the type of prompt on the template that cannot be properly obtained.
 
@@ -43,13 +43,13 @@ app.use(GlobalCmComponent);
 app.mount("#app");
 ```
 
-custom component name:
+The global registered component name is Codemirror or you can customize a component name, for example:
 
 ```js
 app.use(GlobalCmComponent, { componentName: "customName" });
 ```
 
-### Use in components
+## Use in components
 
 ```vue
 <template>
@@ -92,14 +92,81 @@ for (; i < 9; i++) {
       cmOptions: {
         mode: "text/javascript", // Language mode
         theme: "dracula", // Theme
-        lineNumbers: true, // Show line number
-        smartIndent: true, // Smart indent
-        indentUnit: 2, // The smart indent unit is 2 spaces in length
-        foldGutter: true, // Code folding
-        styleActiveLine: true, // Display the style of the selected row
       },
     };
   },
 };
 </script>
 ```
+
+## Component Props
+
+[cm_config_url]: https://codemirror.net/doc/manual.html#config
+[cm_editor_type_url]: https://codemirror.net/doc/manual.html#config
+[default_options_url]: https://github.com/RennCheung/codemirror-editor-vue3/blob/main/packages/src/config/index.ts#L68
+
+| name              |                            description                            | type                         |                 default                 | 
+| ----------------- | :--------------------------------------------------------: | :--------------------------- | :------------------------------------: | 
+| **value(v-model)**  |                         Editor content                         | `string`                     |                   ""                   |  
+| **options**         |            [Configuration options of codemirror5][cm_config_url]            | [EditorConfiguration][cm_editor_type_url] | [DEFAULT_OPTIONS][default_options_url] |  
+| **placeholder**     |         Editor placeholder content to introduce codemirror related files         | `string`                     |                   ""                    | 
+| **border**          |                         Whether to display editor borders                         | `boolean`                    |                `false`                 | 
+| **width**           |                   width               | `string`                     |                `100%  `                | 
+| **height**          |                         height                         | `string`                     |                `100%  `                | 
+| **original-style**  | Using the original style, disable the second modification of the style for this component (but does not affect width, height, and border) | ` boolean`                   |                `false`                 | 
+| **KeepCursorInEnd** |      Always keep the mouse position on the last line      | `boolean`                    |                `false`                 | 
+| **merge**           |                         merge mode, can also be used as diff pattern                      | `boolean`                    |                `false`                 | 
+| *name*            |             Name, which is passed to the textarea inside the component(This is useless🙃)            | `string`                     |          -           | 
+
+
+## Events
+### Component Events
+> The following three are only the events encapsulated by this component. Please refer to more events [Codemirror Events](./events#codemirror-events)
+
+| event name |          description           | params                              |
+| -------- | :---------------------: | :------------------------------------ |
+| `change` |   value or instance changes    | `(value: string, cm: Editor) => void` |
+| `input`  |          input          | `(value: string) => void`             |
+| `ready`  | The Codemirror component is mounted | `(cm: Editor) => void;`               |
+
+---
+
+### Codemirror Events
+
+The following events are official events of Codemirror5. You can refer to the official documents for details [Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly through components, for example：
+
+```vue {8-10}
+<Codemirror
+  v-model:value="code"
+  :options="{ mode: 'text/x-vue', theme: 'default' }"
+  border
+  placeholder="test-placeholder"
+  :height="200"
+  @change="onChange"
+  @blur="onBlur"
+  @focus="onFocus"
+  @scroll="onScroll"
+/>
+```
+
+> All event names are as follows：
+
+- `changes`
+- `scroll`
+- `beforeChange`
+- `cursorActivity`
+- `keyHandled`
+- `inputRead`
+- `electricInput`
+- `beforeSelectionChange`
+- `viewportChange`
+- `swapDoc`
+- `gutterClick`
+- `gutterContextMenu`
+- `focus`
+- `blur`
+- `refresh`
+- `optionChange`
+- `scrollCursorIntoView`
+- `update`
+
