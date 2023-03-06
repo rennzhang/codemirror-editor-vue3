@@ -7,7 +7,7 @@ function pathResolve(dir: string) {
   return resolve(process.cwd(), ".", dir);
 }
 
-const viteCfg = defineConfig({
+export default defineConfig({
   server: {
     host: "::",
     open: true,
@@ -53,6 +53,7 @@ const viteCfg = defineConfig({
         "vue",
         "codemirror",
         "diff-match-patch",
+        "DiffMatchPatch",
         "codemirror/addon/mode/simple.js",
         "codemirror/lib/codemirror.js",
         "codemirror/mode/css/css.js",
@@ -64,4 +65,3 @@ const viteCfg = defineConfig({
   },
   plugins,
 });
-export default viteCfg;

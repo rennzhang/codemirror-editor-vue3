@@ -30,7 +30,7 @@ const libInjectCss = (): PluginOption => {
       }
       if (
         // @ts-ignore
-        id.includes(viteConfig.build.lib.entry)
+        id.includes("packages/index.ts")
       ) {
         return {
           code: `${code}
