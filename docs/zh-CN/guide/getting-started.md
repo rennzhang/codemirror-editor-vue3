@@ -6,26 +6,49 @@
 [![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 
 ## 简介
-Codemirror 的vue3组件。 基于 [Codemirror 5](http://codemirror.net/5/)开发，仅支持 vue3. 
 
-除了Codemirror官方支持的模式外，还增加了开箱即用的日志输出模式，但不一定适用于所有场景。
+Codemirror 的 vue3 组件。 基于 [Codemirror 5](http://codemirror.net/5/)开发，仅支持 vue3.
 
----
+除了 Codemirror 官方支持的模式外，还增加了开箱即用的日志输出模式，但不一定适用于所有场景。
+
 ## 安装
 
 ::: code-group
+
 ```bash [npm]
 npm install codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
+
 ```bash [yarn]
 yarn add codemirror-editor-vue3 codemirror@5.6.0
 ```
+
 ```bash [pnpm]
 pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
+
 :::
 
----
+::: details 使用 Typescript
+
+如果你的项目需要支持 Typescript，那还需要安装对应的类型包.
+
+::: code-group
+
+```bash [npm]
+npm install @types/codemirror@5.60.5 -D
+```
+
+```bash [yarn]
+yarn add @types/codemirror@5.60.5
+```
+
+```bash [pnpm]
+pnpm i @types/codemirror@5.60.5 -D
+```
+
+:::
+
 ## 注册全局组件
 
 ::: warning 提示
@@ -43,20 +66,24 @@ const app = createApp(App);
 app.use(GlobalCmComponent); // [!code ++]
 app.mount("#app");
 ```
-:::
 
+:::
 
 全局注册组件名称是`Codemirror`，也可以自定义一个组件名称，例如：
 
 ::: code-group
+
 ```js [main.js]
 // ....
-app.use(GlobalCmComponent, { componentName: "customName" });// [!code ++]
+app.use(GlobalCmComponent, { componentName: "customName" }); // [!code ++]
 ```
+
 :::
 
 ---
+
 ## 在组件中使用
+
 ::: code-group
 
 ```vue [index.vue]
@@ -130,9 +157,9 @@ const onChange = (val: string, cm: Editor) => {
   console.log(val);
   console.log(cm.getValue());
 };
-
 </script>
 ```
+
 :::
 
 例如:

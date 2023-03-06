@@ -6,25 +6,49 @@
 [![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 
 ## Introduction
-The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported. 
+
+The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported.
 
 In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
 
----
 ## Install
+
 ::: code-group
+
 ```bash [npm]
 npm install codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
+
 ```bash [yarn]
 yarn add codemirror-editor-vue3 codemirror@5.6.0
 ```
+
 ```bash [pnpm]
 pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
 ```
+
 :::
 
----
+::: details Typescript Support
+
+If your project requires Typescript support, you will also need to install the type dependency.
+
+::: code-group
+
+```bash [npm]
+npm install @types/codemirror@5.60.5 -D
+```
+
+```bash [yarn]
+yarn add @types/codemirror@5.60.5
+```
+
+```bash [pnpm]
+pnpm i @types/codemirror@5.60.5 -D
+```
+
+:::
+
 ## Register global component
 
 ::: warning
@@ -42,20 +66,24 @@ const app = createApp(App);
 app.use(GlobalCmComponent); // [!code ++]
 app.mount("#app");
 ```
-:::
 
+:::
 
 The global registered component name is Codemirror or you can customize a component name, for example:
 
 ::: code-group
+
 ```js [main.js]
 // ....
-app.use(GlobalCmComponent, { componentName: "customName" });// [!code ++]
+app.use(GlobalCmComponent, { componentName: "customName" }); // [!code ++]
 ```
+
 :::
 
 ---
+
 ## Use in components
+
 ::: code-group
 
 ```vue [index.vue]
@@ -87,8 +115,8 @@ export default {
     return {
       code,
       cmOptions: {
-  mode: "text/javascript", // language mode
-  theme: "default", // theme
+        mode: "text/javascript", // language mode
+        theme: "default", // theme
       },
       onChange(val, cm) {},
     };
@@ -121,7 +149,7 @@ import "codemirror/mode/javascript/javascript.js";
 import { ref } from "vue";
 const code = ref(`console.log("test");`);
 
-const cmOptions:EditorSelectionChange = {
+const cmOptions: EditorSelectionChange = {
   mode: "text/javascript", // language mode
   theme: "default", // theme
 };
@@ -130,9 +158,9 @@ const onChange = (val: string, cm: Editor) => {
   console.log(val);
   console.log(cm.getValue());
 };
-
 </script>
 ```
+
 :::
 
 Example:
@@ -155,4 +183,3 @@ export default {
   }
 }
 </script>
-
