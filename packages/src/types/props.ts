@@ -1,4 +1,4 @@
-import { EditorConfiguration } from "codemirror";
+import type { EditorConfiguration } from "codemirror";
 
 export declare interface CmProps {
   value: string;

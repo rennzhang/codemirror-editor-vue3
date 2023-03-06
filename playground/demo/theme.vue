@@ -7,7 +7,7 @@
 </template>
 <script lang="ts">
 import { ref } from "vue";
-import { EditorConfiguration } from "codemirror";
+import type { EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
 
 // language
