@@ -80,9 +80,13 @@ app.use(InstallCodemirro, { componentName: "customName" }); // [!code ++]
 
 :::
 
----
-
 ## Use in components
+
+This is a commonly used javascript language case.
+
+<component v-if="dynamicComponent" :is="dynamicComponent"></component>
+
+Specific code is as follows:
 
 ::: code-group
 
@@ -92,41 +96,77 @@ app.use(InstallCodemirro, { componentName: "customName" }); // [!code ++]
     v-model:value="code"
     :options="cmOptions"
     border
-    placeholder="test placeholder"
-    :height="200"
+    ref="cmRef"
+    height="400"
+    width="600"
     @change="onChange"
-  />
+    @input="onInput"
+    @ready="onReady"
+  >
+  </Codemirror>
 </template>
-
 <script>
-import Codemirror from "codemirror-editor-vue3";
-
-// placeholder
-import "codemirror/addon/display/placeholder.js";
-// language
-import "codemirror/mode/javascript/javascript.js";
-
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue'
+import 'codemirror/mode/javascript/javascript.js'
+import Codemirror from 'codemirror-editor-vue3'
 export default {
   components: { Codemirror },
   setup() {
-    const code = ref(`var i = 0;
+    const code = ref(
+      `var i = 0;
 for (; i < 9; i++) {
     console.log(i);
     // more statements
-};`);
+}
+`)
+
+    const cmRef = ref()
+    const cmOptions = {
+      mode: 'text/javascript'
+    }
+    const onChange = (val, cm) => {
+      console.log(val)
+      console.log(cm.getValue())
+    }
+
+    const onInput = (val) => {
+      console.log(val)
+    }
+
+    const onReady = (cm) => {
+      console.log(cm.focus())
+    }
+
+    onMounted(() => {
+      setTimeout(() => {
+        cmRef.value?.refresh()
+      }, 1000)
+
+      setTimeout(() => {
+        cmRef.value?.resize(300, 200)
+      }, 2000)
+
+      setTimeout(() => {
+        cmRef.value?.cminstance.isClean()
+      }, 3000)
+    })
+
+    onUnmounted(() => {
+      cmRef.value?.destroy()
+    })
 
     return {
       code,
-      cmOptions: {
-        mode: "text/javascript", // language mode
-        theme: "default", // theme
-      },
-      onChange(val, cm) {},
-    };
-  },
-};
+      cmRef,
+      cmOptions,
+      onChange,
+      onInput,
+      onReady
+    }
+  }
+}
 </script>
+
 ```
 
 ```vue [index.vue(ts setup)]
@@ -135,45 +175,71 @@ for (; i < 9; i++) {
     v-model:value="code"
     :options="cmOptions"
     border
-    placeholder="测试 placeholder"
-    :height="200"
+    ref="cmRef"
+    height="400"
+    width="600"
     @change="onChange"
-  />
+    @input="onInput"
+    @ready="onReady"
+  >
+  </Codemirror>
 </template>
-
-<script setup lang="ts">
+<script lang="ts" setup>
+import { ref, onMounted, onUnmounted } from "vue";
+import "codemirror/mode/javascript/javascript.js";
 import Codemirror from "codemirror-editor-vue3";
+import type { CmComponentRef } from "codemirror-editor-vue3"
 import type { Editor, EditorConfiguration } from "codemirror";
 
-// placeholder
-import "codemirror/addon/display/placeholder.js";
-// language
-import "codemirror/mode/javascript/javascript.js";
-
-import { ref } from "vue";
-const code = ref(`var i = 0;
+const code = ref(
+  `var i = 0;
 for (; i < 9; i++) {
     console.log(i);
     // more statements
-};`);
-
+}
+`);
+const cmRef = ref<CmComponentRef>()
 const cmOptions: EditorConfiguration = {
-  mode: "text/javascript", // language mode
-  theme: "default", // theme
+  mode: "text/javascript",
 };
 
 const onChange = (val: string, cm: Editor) => {
   console.log(val);
   console.log(cm.getValue());
 };
+
+const onInput = (val: string) => {
+  console.log(val);
+};
+
+const onReady = (cm: Editor) => {
+  console.log(cm.focus());
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    cmRef.value?.refresh()
+  }, 1000);
+
+  setTimeout(() => {
+    cmRef.value?.resize(300,200)
+  }, 2000);
+
+  setTimeout(() => {
+    cmRef.value?.cminstance.isClean()
+  }, 3000);
+})
+
+onUnmounted(() => {
+  cmRef.value?.destroy()
+})
 </script>
+
+
 ```
 
 :::
 
-Example:
-
-<component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
 <script >
 import {shallowRef} from "vue"
