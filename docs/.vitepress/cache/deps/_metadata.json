@@ -1,63 +1,51 @@
 {
-  "hash": "8c9ba250",
-  "browserHash": "7a8cf26b",
+  "hash": "e3408a0c",
+  "browserHash": "d1738428",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "06fd4366",
+      "fileHash": "c80a9235",
       "needsInterop": false
     },
     "codemirror/mode/javascript/javascript.js": {
       "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/mode/javascript/javascript.js",
       "file": "codemirror_mode_javascript_javascript__js.js",
-      "fileHash": "a86593cc",
+      "fileHash": "da66bbdc",
       "needsInterop": true
     },
     "codemirror": {
       "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/lib/codemirror.js",
       "file": "codemirror.js",
-      "fileHash": "779a6916",
+      "fileHash": "f92910da",
       "needsInterop": true
     },
     "codemirror/addon/merge/merge.js": {
       "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/addon/merge/merge.js",
       "file": "codemirror_addon_merge_merge__js.js",
-      "fileHash": "2f0a3d29",
+      "fileHash": "e5acd0e2",
       "needsInterop": true
     },
     "diff-match-patch": {
       "src": "../../../../node_modules/.pnpm/diff-match-patch@1.0.5/node_modules/diff-match-patch/index.js",
       "file": "diff-match-patch.js",
-      "fileHash": "e990446a",
+      "fileHash": "079d268b",
       "needsInterop": true
     },
     "codemirror/addon/mode/simple.js": {
       "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/addon/mode/simple.js",
       "file": "codemirror_addon_mode_simple__js.js",
-      "fileHash": "6bd9d3c3",
+      "fileHash": "5c61132d",
       "needsInterop": true
     },
     "codemirror/mode/htmlmixed/htmlmixed.js": {
       "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/mode/htmlmixed/htmlmixed.js",
       "file": "codemirror_mode_htmlmixed_htmlmixed__js.js",
-      "fileHash": "4f500e72",
-      "needsInterop": true
-    },
-    "codemirror/mode/vue/vue.js": {
-      "src": "../../../../node_modules/.pnpm/codemirror@5.65.12/node_modules/codemirror/mode/vue/vue.js",
-      "file": "codemirror_mode_vue_vue__js.js",
-      "fileHash": "4c38f367",
+      "fileHash": "38f3fa37",
       "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-JSH3JXQT": {
-      "file": "chunk-JSH3JXQT.js"
-    },
-    "chunk-VLBYB5Q5": {
-      "file": "chunk-VLBYB5Q5.js"
-    },
     "chunk-YKAEQP53": {
       "file": "chunk-YKAEQP53.js"
     },

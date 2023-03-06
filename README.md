@@ -16,15 +16,15 @@ For complete documentation and more cases, please check [codemirror-editor-vue3 
 ## Install
 
 ```bash
-npm install codemirror-editor-vue3 codemirror@5.6.0 -S
+npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash
-yarn add codemirror-editor-vue3 codemirror@5.6.0
+yarn add codemirror-editor-vue3 codemirror@5.x
 ```
 
 ```bash
-pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
+pnpm i codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 > If your project requires Typescript support, you will also need to install the '@types/codemirror' dependency.
@@ -42,17 +42,17 @@ npm install @types/codemirror@5.60.5 -D
 ```js
 import { createApp } from "vue";
 import App from "./App.vue";
-import { GlobalCmComponent } from "codemirror-editor-vue3";
+import { InstallCodemirro } from "codemirror-editor-vue3";
 
 const app = createApp(App);
-app.use(GlobalCmComponent);
+app.use(InstallCodemirro);
 app.mount("#app");
 ```
 
 The global registered component name is Codemirror or you can customize a component name, for example:
 
 ```js
-app.use(GlobalCmComponent, { componentName: "customName" });
+app.use(InstallCodemirro, { componentName: "customName" });
 ```
 
 ## Use in components

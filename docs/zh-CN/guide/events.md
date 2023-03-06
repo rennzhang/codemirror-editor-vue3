@@ -23,9 +23,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
 import "codemirror/mode/javascript/javascript.js";
 import Codemirror from "codemirror-editor-vue3";
+import type { Editor, EditorConfiguration } from "codemirror";
 
 const code = ref('console.log("name")');
 
@@ -67,10 +67,10 @@ const onReady = (cm: Editor) => {// [!code focus]
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
-import { MergeView } from "codemirror/addon/merge/merge";
 import "codemirror/mode/javascript/javascript.js";
 import Codemirror from "codemirror-editor-vue3";
+import type { Editor, EditorConfiguration } from "codemirror";
+import type { MergeView } from "codemirror/addon/merge/merge";
 
 const code = ref('console.log("name")');
 

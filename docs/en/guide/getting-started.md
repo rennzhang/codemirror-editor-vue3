@@ -16,15 +16,15 @@ In addition to the officially supported modes, the log output presentation mode 
 ::: code-group
 
 ```bash [npm]
-npm install codemirror-editor-vue3 codemirror@5.6.0 -S
+npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash [yarn]
-yarn add codemirror-editor-vue3 codemirror@5.6.0
+yarn add codemirror-editor-vue3 codemirror@5.x
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
+pnpm i codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 :::
@@ -60,10 +60,10 @@ It is not recommended to register components globally. This will cause the type 
 ```js [main.js]
 import { createApp } from "vue";
 import App from "./App.vue";
-import { GlobalCmComponent } from "codemirror-editor-vue3"; // [!code ++]
+import { InstallCodemirro } from "codemirror-editor-vue3"; // [!code ++]
 
 const app = createApp(App);
-app.use(GlobalCmComponent); // [!code ++]
+app.use(InstallCodemirro); // [!code ++]
 app.mount("#app");
 ```
 
@@ -75,7 +75,7 @@ The global registered component name is Codemirror or you can customize a compon
 
 ```js [main.js]
 // ....
-app.use(GlobalCmComponent, { componentName: "customName" }); // [!code ++]
+app.use(InstallCodemirro, { componentName: "customName" }); // [!code ++]
 ```
 
 :::
@@ -110,7 +110,11 @@ import { ref } from "vue";
 export default {
   components: { Codemirror },
   setup() {
-    const code = ref(`console.log("test");`);
+    const code = ref(`var i = 0;
+for (; i < 9; i++) {
+    console.log(i);
+    // more statements
+};`);
 
     return {
       code,
@@ -139,7 +143,7 @@ export default {
 
 <script setup lang="ts">
 import Codemirror from "codemirror-editor-vue3";
-import { Editor, EditorSelectionChange } from "codemirror";
+import type { Editor, EditorConfiguration } from "codemirror";
 
 // placeholder
 import "codemirror/addon/display/placeholder.js";
@@ -147,9 +151,13 @@ import "codemirror/addon/display/placeholder.js";
 import "codemirror/mode/javascript/javascript.js";
 
 import { ref } from "vue";
-const code = ref(`console.log("test");`);
+const code = ref(`var i = 0;
+for (; i < 9; i++) {
+    console.log(i);
+    // more statements
+};`);
 
-const cmOptions: EditorSelectionChange = {
+const cmOptions: EditorConfiguration = {
   mode: "text/javascript", // language mode
   theme: "default", // theme
 };

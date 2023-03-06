@@ -22,9 +22,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
 import "codemirror/mode/javascript/javascript.js";
 import Codemirror from "codemirror-editor-vue3";
+import type { Editor, EditorConfiguration } from "codemirror";
 
 const code = ref('console.log("name")');
 
@@ -90,8 +90,7 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 
 ```
  :::
-:::
----
+
 
 ## Codemirror Events
 

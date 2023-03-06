@@ -20,8 +20,8 @@
 
 <script lang="ts">
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror, { CmComponentRef } from "codemirror-editor-vue3"; // [!code focus]
+import type { Editor, EditorConfiguration } from "codemirror";
 
 // language
 import "codemirror/mode/javascript/javascript.js";
@@ -79,8 +79,8 @@ export default defineComponent({
 
 <script lang="ts">
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
+import type { Editor, EditorConfiguration } from "codemirror";
 
 // language
 import "codemirror/mode/javascript/javascript.js";

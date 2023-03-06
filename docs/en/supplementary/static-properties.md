@@ -13,11 +13,11 @@ Sometimes we need to use some of the static properties provided by the CodeMirro
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
 import "codemirror/mode/javascript/javascript.js";
 import Codemirror, { CodeMirror } from "codemirror-editor-vue3"; // [!code focus]
 // or// [!code focus]
 import _CodeMirror from "codemirror";// [!code focus]
+import type { Editor, EditorConfiguration } from "codemirror";
 
 const code = ref(
 `const name = "peter"

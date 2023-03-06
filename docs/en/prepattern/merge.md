@@ -40,7 +40,7 @@ export default {
 <script lang="ts">
 import { ref, defineComponent, reactive } from "vue";
 import { MergeView } from "codemirror/addon/merge/merge";
-import { Editor, EditorSelectionChange } from "codemirror";
+import type { Editor } from "codemirror";
 
 import Codemirror from "codemirror-editor-vue3";
 

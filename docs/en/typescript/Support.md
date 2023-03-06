@@ -7,13 +7,13 @@
 
 ::: code-group
 ```bash [npm]
-npm install @types/codemirror@5.6.0 -D
+npm install @types/codemirror@5.x -D
 ```
 ```bash [yarn]
-yarn add @types/codemirror@5.6.0
+yarn add @types/codemirror@5.x
 ```
 ```bash [pnpm]
-pnpm i @types/codemirror@5.6.0 -D
+pnpm i @types/codemirror@5.x -D
 ```
 :::
 
@@ -37,11 +37,11 @@ pnpm i @types/codemirror@5.6.0 -D
 import { ref } from "vue";
 import Codemirror from "codemirror-editor-vue3";
 
-// @types/codemirror
-import { Editor, EditorConfiguration } from "codemirror";
-
 // language
 import "codemirror/mode/javascript/javascript.js";
+
+// @types/codemirror
+import type { Editor, EditorConfiguration } from "codemirror";
 
 export default defineComponent({
   components: {

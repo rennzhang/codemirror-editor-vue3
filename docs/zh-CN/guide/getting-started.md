@@ -16,15 +16,15 @@ Codemirror 的 vue3 组件。 基于 [Codemirror 5](http://codemirror.net/5/)开
 ::: code-group
 
 ```bash [npm]
-npm install codemirror-editor-vue3 codemirror@5.6.0 -S
+npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash [yarn]
-yarn add codemirror-editor-vue3 codemirror@5.6.0
+yarn add codemirror-editor-vue3 codemirror@5.x
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@5.6.0 -S
+pnpm i codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 :::
@@ -60,10 +60,10 @@ pnpm i @types/codemirror@5.60.5 -D
 ```js [main.js]
 import { createApp } from "vue";
 import App from "./App.vue";
-import { GlobalCmComponent } from "codemirror-editor-vue3"; // [!code ++]
+import { InstallCodemirro } from "codemirror-editor-vue3"; // [!code ++]
 
 const app = createApp(App);
-app.use(GlobalCmComponent); // [!code ++]
+app.use(InstallCodemirro); // [!code ++]
 app.mount("#app");
 ```
 
@@ -75,7 +75,7 @@ app.mount("#app");
 
 ```js [main.js]
 // ....
-app.use(GlobalCmComponent, { componentName: "customName" }); // [!code ++]
+app.use(InstallCodemirro, { componentName: "customName" }); // [!code ++]
 ```
 
 :::
@@ -110,7 +110,11 @@ import { ref } from "vue";
 export default {
   components: { Codemirror },
   setup() {
-    const code = ref(`console.log("test");`);
+    const code = ref(`var i = 0;
+for (; i < 9; i++) {
+    console.log(i);
+    // more statements
+};`);
 
     return {
       code,
@@ -146,7 +150,11 @@ import "codemirror/addon/display/placeholder.js";
 import "codemirror/mode/javascript/javascript.js";
 
 import { ref } from "vue";
-const code = ref(`console.log("test");`);
+const code = ref(`var i = 0;
+for (; i < 9; i++) {
+    console.log(i);
+    // more statements
+};`);
 
 const cmOptions = {
   mode: "text/javascript", // 语言模式
