@@ -32,7 +32,7 @@ for (; i < 9; i++) {
 `);
 
 const onChange = (val: string, cm: Editor) => {
-  console.log(val);
+  console.log(val, cm);
 };
 
 const cmOptions = {

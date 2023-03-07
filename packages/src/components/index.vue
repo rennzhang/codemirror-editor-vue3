@@ -29,7 +29,6 @@
   </div>
 </template>
 
-<script lang="ts"></script>
 <script lang="ts" setup>
 import type { Ref, PropType, Component } from "vue";
 import type { Editor, EditorConfiguration } from "codemirror";
@@ -53,7 +52,7 @@ import { DEFAULT_OPTIONS, emitOptions } from "../config/index";
 
 if (typeof Object.assign !== "function") {
   Object.defineProperty(Object, "assign", {
-    value(target: any, varArgs: any) {
+    value(target: any) {
       if (target == null) {
         throw new TypeError("Cannot convert undefined or null to object");
       }
@@ -237,19 +236,13 @@ watch(
   }
 );
 
-watch(
-  () => props.placeholder,
-  (val) => {
-    realCminstance.value?.setOption("placeholder", val);
-  }
-);
-watch(
-  () => props.merge,
-  (val) => {
-    handlePresetModeName();
-  },
-  { immediate: true }
-);
+// watch(
+//   () => props.placeholder,
+//   (val) => {
+//     realCminstance.value?.setOption("placeholder", val);
+//   }
+// );
+watch(() => props.merge, handlePresetModeName, { immediate: true });
 
 onBeforeUnmount(() => {
   destroy();

@@ -6,7 +6,6 @@
 import { ref, defineComponent } from "vue";
 import Codemirror, {
   createLinkMark,
-  createLogMark,
   createLog,
   createTitle,
 } from "../../../../packages/index";

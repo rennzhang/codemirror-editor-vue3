@@ -1,3 +1,12 @@
+# [2.3.0-beta2](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.2.1...v2.3.0-beta2) (2023-03-07)
+
+
+### Bug Fixes
+
+* Repair the packaging issues lead to cannot be highlighted ([a355314](https://github.com/RennCheung/codemirror-editor-vue3/commit/a3553148a29372ff5eae6396de978a295b0b278e))
+
+
+
 ## [2.2.1](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.2.0...v2.2.1) (2023-03-03)
 
 

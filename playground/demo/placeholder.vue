@@ -5,13 +5,14 @@
     border
     :height="200"
     :placeholder="cmPlaceholder"
+    @ready="onReady"
   >
   </Codemirror>
   {{ code }}
 </template>
 <script lang="ts">
 import { ref } from "vue";
-import type { EditorConfiguration } from "codemirror";
+import type { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
 
 // language
@@ -24,7 +25,7 @@ export default defineComponent({
     Codemirror,
   },
   setup() {
-    const code = ref("123");
+    const code = ref("");
     const cmPlaceholder = ref("test placeholder");
 
     const cmOptions: EditorConfiguration = {
@@ -33,17 +34,22 @@ export default defineComponent({
 
     cmPlaceholder.value += "1 ";
 
-    // const timer = setInterval(() => {
-    //   cmPlaceholder.value += "1 ";
-    //   console.log(cmPlaceholder.value);
-    // }, 2000);
+    setInterval(() => {
+      cmPlaceholder.value += "1 ";
+      console.log(cmPlaceholder.value);
+    }, 2000);
     // onUnmounted(() => {
     //   clearInterval(timer);
     // });
+
     return {
       code,
       cmOptions,
       cmPlaceholder,
+      onReady(cm: Editor) {
+        // console.log(" cm", cm.pl);
+        console.log(cm.getValue());
+      },
     };
   },
 });

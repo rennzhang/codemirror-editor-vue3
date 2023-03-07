@@ -1,9 +1,11 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "2.3.0-beta1",
+  "version": "2.3.0-beta2",
   "license": "MIT",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "types": "./dist/packages/index.d.ts",
   "main": "./dist/codemirror-editor-vue3.umd.cjs",
@@ -43,14 +45,15 @@
     "dev": "vite",
     "build": "vite build",
     "build:types": "tsc --emitDeclarationOnly vite build",
-    "publish-pkg": "vite build && git push && git push --tags && npm publish && npm run deploy-docs",
-    "publish-beta": "vite build && npm publish --tag=beta",
+    "publish-pkg": "npm run release && vite build && git push && git push --tags && npm publish && npm run deploy-docs",
+    "publish-beta": "npm run release && vite build && npm publish --tag=beta",
     "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",
     "docs-serve": "vitepress serve docs",
     "deploy-docs": "bash scripts/deploy-docs.sh",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "node scripts/release.js",
+    "release": "node scripts/release.cjs",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "tsc": "tsc"
   },
   "dependencies": {
@@ -58,8 +61,8 @@
     "diff-match-patch": "^1.0.5"
   },
   "peerDependencies": {
-    "vue": "3.x",
-    "codemirror": "5.x",
+    "vue": "^3.x",
+    "codemirror": "^5.x",
     "diff-match-patch": "^1.0.5"
   },
   "devDependencies": {

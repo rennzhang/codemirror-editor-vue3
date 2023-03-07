@@ -36,6 +36,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
+        exports: "named",
         name: "codemirror-editor-vue3", // 仓库或组件的名字
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {

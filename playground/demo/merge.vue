@@ -4,10 +4,10 @@
     :options="cmOptions"
     :height="300"
     class="cm-component"
+    original-style
     @change="onChange"
     @focus="onFocus"
     @ready="onReady"
-    original-style
   />
 </template>
 <script lang="ts">

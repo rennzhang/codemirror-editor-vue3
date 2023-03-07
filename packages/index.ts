@@ -41,7 +41,6 @@ const CodeMirror = window.CodeMirror || _CodeMirror;
 const GlobalCmComponent = install;
 const InstallCodemirro = install;
 
-
 export * from "./src/components/presetMode/log/utils";
 
 export { CodeMirror, GlobalCmComponent, InstallCodemirro, VueCodemirror };
