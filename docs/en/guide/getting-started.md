@@ -20,11 +20,11 @@ npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash [yarn]
-yarn add codemirror-editor-vue3 codemirror@5.x
+yarn add codemirror-editor-vue3 codemirror@^5.65.12
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@5.x -S
+pnpm i codemirror-editor-vue3 codemirror@^5.65.12 -S
 ```
 
 :::
@@ -36,15 +36,15 @@ If your project requires Typescript support, you will also need to install the t
 ::: code-group
 
 ```bash [npm]
-npm install @types/codemirror@5.60.5 -D
+npm install @types/codemirror -D
 ```
 
 ```bash [yarn]
-yarn add @types/codemirror@5.60.5
+yarn add @types/codemirror
 ```
 
 ```bash [pnpm]
-pnpm i @types/codemirror@5.60.5 -D
+pnpm i @types/codemirror -D
 ```
 
 :::
@@ -106,9 +106,9 @@ Specific code is as follows:
   </Codemirror>
 </template>
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
-import 'codemirror/mode/javascript/javascript.js'
-import Codemirror from 'codemirror-editor-vue3'
+import { ref, onMounted, onUnmounted } from "vue";
+import "codemirror/mode/javascript/javascript.js";
+import Codemirror from "codemirror-editor-vue3";
 export default {
   components: { Codemirror },
   setup() {
@@ -118,42 +118,43 @@ for (; i < 9; i++) {
     console.log(i);
     // more statements
 }
-`)
+`
+    );
 
-    const cmRef = ref()
+    const cmRef = ref();
     const cmOptions = {
-      mode: 'text/javascript'
-    }
+      mode: "text/javascript",
+    };
     const onChange = (val, cm) => {
-      console.log(val)
-      console.log(cm.getValue())
-    }
+      console.log(val);
+      console.log(cm.getValue());
+    };
 
     const onInput = (val) => {
-      console.log(val)
-    }
+      console.log(val);
+    };
 
     const onReady = (cm) => {
-      console.log(cm.focus())
-    }
+      console.log(cm.focus());
+    };
 
     onMounted(() => {
       setTimeout(() => {
-        cmRef.value?.refresh()
-      }, 1000)
+        cmRef.value?.refresh();
+      }, 1000);
 
       setTimeout(() => {
-        cmRef.value?.resize(300, 200)
-      }, 2000)
+        cmRef.value?.resize(300, 200);
+      }, 2000);
 
       setTimeout(() => {
-        cmRef.value?.cminstance.isClean()
-      }, 3000)
-    })
+        cmRef.value?.cminstance.isClean();
+      }, 3000);
+    });
 
     onUnmounted(() => {
-      cmRef.value?.destroy()
-    })
+      cmRef.value?.destroy();
+    });
 
     return {
       code,
@@ -161,12 +162,11 @@ for (; i < 9; i++) {
       cmOptions,
       onChange,
       onInput,
-      onReady
-    }
-  }
-}
+      onReady,
+    };
+  },
+};
 </script>
-
 ```
 
 ```vue [index.vue(ts setup)]
@@ -188,7 +188,7 @@ for (; i < 9; i++) {
 import { ref, onMounted, onUnmounted } from "vue";
 import "codemirror/mode/javascript/javascript.js";
 import Codemirror from "codemirror-editor-vue3";
-import type { CmComponentRef } from "codemirror-editor-vue3"
+import type { CmComponentRef } from "codemirror-editor-vue3";
 import type { Editor, EditorConfiguration } from "codemirror";
 
 const code = ref(
@@ -197,8 +197,9 @@ for (; i < 9; i++) {
     console.log(i);
     // more statements
 }
-`);
-const cmRef = ref<CmComponentRef>()
+`
+);
+const cmRef = ref<CmComponentRef>();
 const cmOptions: EditorConfiguration = {
   mode: "text/javascript",
 };
@@ -218,28 +219,25 @@ const onReady = (cm: Editor) => {
 
 onMounted(() => {
   setTimeout(() => {
-    cmRef.value?.refresh()
+    cmRef.value?.refresh();
   }, 1000);
 
   setTimeout(() => {
-    cmRef.value?.resize(300,200)
+    cmRef.value?.resize(300, 200);
   }, 2000);
 
   setTimeout(() => {
-    cmRef.value?.cminstance.isClean()
+    cmRef.value?.cminstance.isClean();
   }, 3000);
-})
+});
 
 onUnmounted(() => {
-  cmRef.value?.destroy()
-})
+  cmRef.value?.destroy();
+});
 </script>
-
-
 ```
 
 :::
-
 
 <script >
 import {shallowRef} from "vue"

@@ -24,13 +24,13 @@ yarn add codemirror-editor-vue3 codemirror@5.x
 ```
 
 ```bash
-pnpm i codemirror-editor-vue3 codemirror@5.x -S
+pnpm i codemirror-editor-vue3 codemirror@^5.65.12 -S
 ```
 
 > If your project requires Typescript support, you will also need to install the '@types/codemirror' dependency.
 
 ```bash
-npm install @types/codemirror@5.60.5 -D
+npm install @types/codemirror -D
 ```
 
 ## Register global component

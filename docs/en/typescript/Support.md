@@ -7,13 +7,13 @@
 
 ::: code-group
 ```bash [npm]
-npm install @types/codemirror@5.x -D
+npm install @types/codemirror -D
 ```
 ```bash [yarn]
-yarn add @types/codemirror@5.x
+yarn add @types/codemirror
 ```
 ```bash [pnpm]
-pnpm i @types/codemirror@5.x -D
+pnpm i @types/codemirror -D
 ```
 :::
 
