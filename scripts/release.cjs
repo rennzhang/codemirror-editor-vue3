@@ -49,7 +49,7 @@ async function main() {
         .map((i) => `${i} (${inc(i)})`)
         .concat(["custom"]),
     });
-
+    console.log("----------- release", release);
     if (release === "custom") {
       targetVersion = (
         await prompt({
