@@ -125,12 +125,12 @@ export default defineConfig({
     footer: {
       message: "Released under the MIT License.",
       copyright: "Copyright © 2021-present Renn Cheung"
-    }
+    },
 
-    // algolia: {
-    //   appId: "6TBOE8XUG6",
-    //   apiKey: "e66169a8469730a2e3e3ec0e44d59e65",
-    //   indexName: "codemirror-editor-vue3-en"
-    // }
+    algolia: {
+      appId: "TIA2QKB31F",
+      apiKey: "57dd54cc00e988117cc8b741128f5089",
+      indexName: "codemirror-editor-vue3"
+    }
   }
 })
