@@ -1,13 +1,15 @@
 # Component Events
+
 > The following three are only the events encapsulated by this component. Please refer to more events [Codemirror Events](./events#codemirror-events)
 
-| event name |          description           | params                              |
-| -------- | :---------------------: | :------------------------------------ |
-| `change` |   value or instance changes    | `(value: string, cm: Editor) => void` |
-| `input`  |          input          | `(value: string) => void`             |
-| `ready`  | The Codemirror component is mounted | `(cm: Editor) => void;`               |
+| event name |             description             | params                                |
+| ---------- | :---------------------------------: | :------------------------------------ |
+| `change`   |      value or instance changes      | `(value: string, cm: Editor) => void` |
+| `input`    |                input                | `(value: string) => void`             |
+| `ready`    | The Codemirror component is mounted | `(cm: Editor) => void;`               |
 
-::: details Click me to view the demo
+the case:
+
 ```vue
 <template>
   <Codemirror
@@ -48,12 +50,13 @@ const onReady = (cm: Editor) => {// [!code focus]
 </script>
 
 ```
-:::
-
 
 ::: warning tip
+
 change events in the merge mode are different, Case code:
- ::: details
+
+::: details
+
 ```vue
 <template>
   <Codemirror
@@ -89,13 +92,15 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 </script>
 
 ```
- :::
 
+:::
 
 ## Codemirror Events
 
 ::: tip
+
 The following events are official events of Codemirror5. You can refer to the official documents for details [Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly through components, for example：
+
 :::
 
 ```vue {8-10}
@@ -132,4 +137,3 @@ The following events are official events of Codemirror5. You can refer to the of
 - `optionChange`
 - `scrollCursorIntoView`
 - `update`
-

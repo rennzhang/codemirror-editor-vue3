@@ -28,7 +28,7 @@ export default {
   },
 
   mounted() {
-    import('../views/demo/home.vue').then((module) => {
+    import('../demo/home.vue').then((module) => {
       this.dynamicComponent = shallowRef(module.default)
     })
   }

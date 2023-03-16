@@ -2,13 +2,14 @@
 
 > 以下三种仅是本组件封装的事件，更多事件请查阅 [Codemirror Events](./events#codemirror-events)
 
-| 事件名称 |          说明           | 参数                              |
-| -------- | :---------------------: | :------------------------------------ |
-| `change` |   `值`或者`实例`改变    | `(value: string, cm: Editor) => void` |
-| `input`  |          input          | `(value: string) => void`             |
-| `ready`  | 组件加载完成 | `(cm: Editor) => void;`               |
+| 事件名称 |        说明        | 参数                                  |
+| -------- | :----------------: | :------------------------------------ |
+| `change` | `值`或者`实例`改变 | `(value: string, cm: Editor) => void` |
+| `input`  |       input        | `(value: string) => void`             |
+| `ready`  |    组件加载完成    | `(cm: Editor) => void;`               |
 
-::: details 点击查看示例
+示例:
+
 ```vue
 <template>
   <Codemirror
@@ -49,12 +50,11 @@ const onReady = (cm: Editor) => {// [!code focus]
 </script>
 
 ```
-:::
 
+::: warning 注意 `merge(diff)` 模式下 `change` 事件有所不同, 示例:
 
-::: warning 注意
- `merge(diff)` 模式下 `change` 事件有所不同, 示例:
 ::: details
+
 ```vue
 <template>
   <Codemirror
@@ -88,13 +88,15 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 
 </script>
 ```
-:::
 
+:::
 
 ## Codemirror 自身事件
 
 ::: tip
+
 以下事件为 Codemirror5 官方自身事件，具体内容可以查阅官方文档 [Codemirror Event](https://codemirror.net/doc/manual.html#events)，使用本插件时可以直接通过组件绑定事件，例如：
+
 :::
 
 ```vue {8-10}
@@ -131,4 +133,3 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 - `optionChange`
 - `scrollCursorIntoView`
 - `update`
-

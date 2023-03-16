@@ -1,30 +1,29 @@
-import { defineConfig } from "vitepress";
-const base =
-  process.env.NODE_ENV == "production" ? "/codemirror-editor-vue3/" : "/";
+import { defineConfig } from "vitepress"
+const base = process.env.NODE_ENV == "production" ? "/codemirror-editor-vue3/" : "/"
 const routeMap = {
-  en: "/en",
-  zh: "/zh-CN",
-};
+  en: "",
+  zh: "/zh-CN"
+}
 const getNav = (lang: "en" | "zh") => {
-  const isEn = lang == "en";
-  const route = routeMap[lang];
+  const isEn = lang == "en"
+  const route = routeMap[lang]
   return [
     {
       text: isEn ? "Guide" : "入门",
       link: `${route}/guide/getting-started`,
-      activeMatch: "/guide/g",
+      activeMatch: "/guide/g"
     },
     {
       text: isEn ? "Changelog" : "更新日志",
-      link: "https://github.com/RennCheung/codemirror-editor-vue3/blob/main/CHANGELOG.md",
-    },
-  ];
-};
+      link: "https://github.com/RennCheung/codemirror-editor-vue3/blob/main/CHANGELOG.md"
+    }
+  ]
+}
 
 function getGuideSidebar(lang: "en" | "zh") {
-  const isEn = lang == "en";
+  const isEn = lang == "en"
 
-  const route = routeMap[lang];
+  const route = routeMap[lang]
   return [
     {
       text: isEn ? "Introduction" : "介绍",
@@ -32,53 +31,53 @@ function getGuideSidebar(lang: "en" | "zh") {
       items: [
         {
           text: isEn ? "Getting Started" : "入门指南",
-          link: `${route}/guide/getting-started`,
+          link: `${route}/guide/getting-started`
         },
         {
           text: isEn ? "Component Props" : "组件属性",
-          link: `${route}/guide/props`,
+          link: `${route}/guide/props`
         },
         {
           text: isEn ? "Component Events" : "组件事件",
-          link: `${route}/guide/events`,
-        },
-      ],
+          link: `${route}/guide/events`
+        }
+      ]
     },
     {
       text: isEn ? "prepattern" : "预置模式",
       items: [
         {
           text: isEn ? "merge(diff) mode" : "merge(diff) 模式",
-          link: `${route}/prepattern/merge`,
+          link: `${route}/prepattern/merge`
         },
         {
           text: isEn ? "log mode" : "log 模式",
-          link: `${route}/prepattern/log`,
-        },
-      ],
+          link: `${route}/prepattern/log`
+        }
+      ]
     },
     {
       text: isEn ? "Supplementary Instruction" : "补充说明",
       items: [
         {
           text: isEn ? "CodeMirror Static properties" : "CodeMirror 静态属性",
-          link: `${route}/supplementary/static-properties`,
+          link: `${route}/supplementary/static-properties`
         },
         {
           text: isEn ? "Get instance object" : "获取实例对象",
-          link: `${route}/supplementary/instance`,
-        },
-      ],
+          link: `${route}/supplementary/instance`
+        }
+      ]
     },
     {
       text: isEn ? "Typescript Support" : "Typescript 支持",
-      link: `${route}/typescript/Support`,
-    },
+      link: `${route}/typescript/Support`
+    }
     // {
     //   text: "更多案例",
     //   link: "/more/index",
     // },
-  ];
+  ]
 }
 export default defineConfig({
   base,
@@ -87,18 +86,16 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   locales: {
-    en: {
+    root: {
       label: "English",
       lang: "en",
       themeConfig: {
         lastUpdatedText: "Last update time",
         nav: getNav("en"),
         sidebar: {
-          "/en/guide/getting-started": getGuideSidebar("en"),
-          "/en/guide": getGuideSidebar("en"),
-          "/en": getGuideSidebar("en"),
-        },
-      },
+          "/": getGuideSidebar("en")
+        }
+      }
     },
     "zh-CN": {
       label: "简体中文",
@@ -107,29 +104,33 @@ export default defineConfig({
         lastUpdatedText: "最近更新时间",
         nav: getNav("zh"),
         sidebar: {
-          "/zh-CN/guide/getting-started": getGuideSidebar("zh"),
-          "/zh-CN": getGuideSidebar("zh"),
-        },
-      },
-    },
+          "/zh-CN": getGuideSidebar("zh")
+        }
+      }
+    }
   },
   head: [["meta", { name: "theme-color", content: "#3c8772" }]],
   themeConfig: {
     editLink: {
-      pattern:
-        "https://github.com/RennCheung/codemirror-editor-vue3/edit/main/docs/:path",
-      text: "Edit this page on GitHub",
+      pattern: "https://github.com/RennCheung/codemirror-editor-vue3/edit/main/docs/:path",
+      text: "Edit this page on GitHub"
     },
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/RennCheung/codemirror-editor-vue3",
-      },
+        link: "https://github.com/RennCheung/codemirror-editor-vue3"
+      }
     ],
 
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2021-present Renn Cheung",
-    },
-  },
-});
+      copyright: "Copyright © 2021-present Renn Cheung"
+    }
+
+    // algolia: {
+    //   appId: "6TBOE8XUG6",
+    //   apiKey: "e66169a8469730a2e3e3ec0e44d59e65",
+    //   indexName: "codemirror-editor-vue3-en"
+    // }
+  }
+})

@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /en/guide/getting-started
+      link: /guide/getting-started
     - theme: alt
       text: View on GitHub
       link: https://github.com/RennCheung/codemirror-editor-vue3
@@ -28,7 +28,7 @@ export default {
   },
 
   mounted() {
-    import('../views/demo/home.vue').then((module) => {
+    import('./demo/home.vue').then((module) => {
       this.dynamicComponent = shallowRef(module.default)
     })
   }

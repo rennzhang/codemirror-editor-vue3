@@ -7,3 +7,4 @@ node_modules/
 .vscode
 .DS_Store
 docs/.vitepress/dist/
+docs/.vitepress/cache/

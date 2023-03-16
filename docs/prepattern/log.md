@@ -1,14 +1,14 @@
-# 日志模式
+# Log mode
 
-根据业务衍生的日志模式，分为普通日志模式和自定义日志模式，如下：
+Based on the log modes derived from services, there are common log modes and custom log modes, as follows:
 
-## 简单日志模式（`mode: "log"`）
+## Simple log mode(`mode: "log"`)
 
-> 默认情况下，首字母大写的单词会显示为红色
+> By default, words that start with a capital letter are shown in red
 
 <component v-if="log" :is="log"></component>
 
-:::details 点击查看代码
+::: details Click to view the code
 
 ```vue
 <template>
@@ -22,17 +22,17 @@
   export default defineComponent({
     components: { Codemirror },
     setup() {
-      const code = ref(`完整日志下载地址：${createLinkMark({
+      const code = ref(`Complete log download address: ${createLinkMark({
         href: "/logDownload",
         download: "",
         target: "_blank"
       })}
-${createTitle("可以标记每一行日志的输出类型")}
+${createTitle("You can mark the output type of each log row")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "warning")}
 ${createLogMark("2021-08-26 15:07:09: job is error", "error")}
 
-====================引擎日志====================
+====================Engine log====================
 
 DataStreamMain start
 java.lang.NullPointerException
@@ -60,11 +60,11 @@ at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
 
 :::
 
-## 自定义日志模式（`mode: "fclog"`）
+## Custom log mode(`mode: "fclog"`)
 
 <component v-if="fcLog" :is="fcLog"></component>
 
-:::details 点击查看代码
+::: details Click to view the code
 
 ```vue
 <template>
@@ -84,13 +84,13 @@ at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
   export default defineComponent({
     components: { Codemirror },
     setup() {
-      const code = ref(`完整日志下载地址：${createLinkMark({
+      const code = ref(`Complete log download address: ${createLinkMark({
         href: "/logDownload",
         download: "",
         target: "_blank"
       })}
 
-${createTitle("带有时间节点和输出类型的日志")}
+${createTitle("Logs with time nodes and output types")}
 ${createLog("info content", "info")}
 ${createLog("warning content", "warning")}
 ${createLog("error content", "error")}
@@ -110,15 +110,15 @@ ${createLog("error content", "error")}
 
 :::
 
-## 日志模式方法说明
+## Log mode method description
 
-| 名称 | 说明 | 参数 | 案例 |
+| name | description | params | case |
 | --- | :-: | :-- | :-: |
-| `createLinkMark` | 创建一个可点击的连接（a 标签），如下载完整日志 | 支持所有 a 标签属性，如：`{ href: "/target-link", download: "", target: "_blank" }` | ![](../../img/createMarkLink.jpg) |
-| `createLogMark` | 标记日志的输出类型 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning.jpg)![](../../img/error.jpg) |
-| `getLogMark` | 获取当前标记的文本，返回节点数组 | `(value: string) => [{start: number, end: number ,node: HTMLElement}]` | - |
-| `createTitle` | 创建标题 | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../../img/createTitle.jpg) |
-| `createLog` | **仅在 fclog 模式下使用**，创建带有时间以及类型的日志文本 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning-time.jpg)![](../../img/error-time.jpg) |
+| `createLinkMark` | Create a clickable link (a tag), such as download the complete logs | support all a tag attributes, such as: `{ href: "/target-link", download: "", target: "_blank" }` | ![](../img/createMarkLink.jpg) |
+| `createLogMark` | Flags the output type of the log | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../img/info.jpg)![](../img/warning.jpg)![](../img/error.jpg) |
+| `getLogMark` | Gets the text of the current tag and returns an array of nodes | `(value: string) => [{start: number, end: number ,node: HTMLElement}]` | - |
+| `createTitle` | Create a title | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../img/createTitle.jpg) |
+| `createLog` | **Only used in fclog mode**, create log text with time and type | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../img/info.jpg)![](../img/warning-time.jpg)![](../img/error-time.jpg) |
 
 <script>
 import { shallowRef } from "vue"
@@ -132,10 +132,10 @@ export default {
   },
 
   mounted() {
-    import('../../demo/log/index.vue').then((module) => {
+    import('../demo/log/index.vue').then((module) => {
       this.log = shallowRef(module.default)
     })
-    import('../../demo/log/fclog.vue').then((module) => {
+    import('../demo/log/fclog.vue').then((module) => {
       this.fcLog = shallowRef(module.default)
     })
   }
