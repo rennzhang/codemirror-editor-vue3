@@ -85,7 +85,9 @@ app.use(InstallCodemirro, { componentName: "customName" }) // [!code ++]
 
 <component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
-具体代码如下： ::: code-group
+具体代码如下：
+
+::: code-group
 
 ```vue [index.vue]
 <template>
