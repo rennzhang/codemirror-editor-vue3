@@ -1,9 +1,9 @@
-[![GitHub stars](https://img.shields.io/github/stars/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/RennZhang/codemirror-editor-vue3)](https://github.com/RennZhang/codemirror-editor-vue3/stargazers)
 [![npm downloads](https://img.shields.io/npm/dt/codemirror-editor-vue3)](https://www.npmjs.com/package/codemirror-editor-vue3)
-[![GitHub issues](https://img.shields.io/github/issues/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/issues)
-[![GitHub forks](https://img.shields.io/github/forks/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/network)
-[![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
-[![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+[![GitHub issues](https://img.shields.io/github/issues/RennZhang/codemirror-editor-vue3)](https://github.com/RennZhang/codemirror-editor-vue3/issues)
+[![GitHub forks](https://img.shields.io/github/forks/RennZhang/codemirror-editor-vue3)](https://github.com/RennZhang/codemirror-editor-vue3/network)
+[![GitHub last commit](https://img.shields.io/github/last-commit/RennZhang/codemirror-editor-vue3)](https://github.com/RennZhang/codemirror-editor-vue3)
+[![license](https://img.shields.io/github/license/RennZhang/codemirror-editor-vue3)](https://github.com/RennZhang/codemirror-editor-vue3)
 
 # Introduction
 
@@ -11,7 +11,7 @@ The codemirror component of vue3. This component is developed based on [Codemirr
 
 In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
 
-For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://renncheung.github.io/codemirror-editor-vue3/).
+For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://RennZhang.github.io/codemirror-editor-vue3/).
 
 ## Install
 
@@ -109,7 +109,7 @@ for (; i < 9; i++) {
 
 [cm_config_url]: https://codemirror.net/doc/manual.html#config
 [cm_editor_type_url]: https://codemirror.net/doc/manual.html#config
-[default_options_url]: https://github.com/RennCheung/codemirror-editor-vue3/blob/main/packages/src/config/index.ts#L68
+[default_options_url]: https://github.com/RennZhang/codemirror-editor-vue3/blob/main/packages/src/config/index.ts#L68
 
 | name                |                                                                description                                                                | type                                      |                default                 |
 | ------------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------- | :------------------------------------: |
