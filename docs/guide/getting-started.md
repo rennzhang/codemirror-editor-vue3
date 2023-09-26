@@ -15,11 +15,11 @@ npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash [yarn]
-yarn add codemirror-editor-vue3 codemirror@^5.65.12
+yarn add codemirror-editor-vue3 codemirror@">=5.64.0 <6"
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@^5.65.12 -S
+pnpm i codemirror-editor-vue3 codemirror@">=5.64.0 <6" -S
 ```
 
 :::

@@ -20,11 +20,11 @@ npm install codemirror-editor-vue3 codemirror@5.x -S
 ```
 
 ```bash
-yarn add codemirror-editor-vue3 codemirror@5.x
+yarn add codemirror-editor-vue3 codemirror@">=5.64.0 <6"
 ```
 
 ```bash
-pnpm i codemirror-editor-vue3 codemirror@^5.65.12 -S
+pnpm i codemirror-editor-vue3 codemirror@">=5.64.0 <6" -S
 ```
 
 > If your project requires Typescript support, you will also need to install the '@types/codemirror' dependency.
