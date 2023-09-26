@@ -109,7 +109,10 @@ export default defineConfig({
       }
     }
   },
-  head: [["meta", { name: "theme-color", content: "#3c8772" }]],
+  head: [
+    ["link", { rel: "icon", href: "https://codemirror.net/favicon.ico" }],
+    ["meta", { name: "theme-color", content: "#3c8772" }]
+  ],
   themeConfig: {
     editLink: {
       pattern: "https://github.com/RennCheung/codemirror-editor-vue3/edit/main/docs/:path",
