@@ -20,7 +20,7 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: Read the [docs](https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started).
+        - label: Read the [docs](https://rennzhang.github.io/codemirror-editor-vue3/guide/getting-started).
           required: true
         - label: Check that there isn't [already an issue](https://github.com/RennCheung/codemirror-editor-vue3/issues?q=) that reports the same bug to avoid creating a duplicate.
           required: true
