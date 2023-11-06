@@ -1,3 +1,18 @@
+## [2.3.1](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.3.0...v2.3.1) (2023-11-06)
+
+
+### Bug Fixes
+
+* **docs:** - ([f13b482](https://github.com/RennCheung/codemirror-editor-vue3/commit/f13b482515aa619f01922284a961c97643731087))
+
+
+### Features
+
+* 增加 favicon ([f0cb9fa](https://github.com/RennCheung/codemirror-editor-vue3/commit/f0cb9fa71ed34eedf1cf602c268cbbaba2dd549b))
+* update install command ([956b150](https://github.com/RennCheung/codemirror-editor-vue3/commit/956b150d3c05f4d0c8fd5bd02af44a9be0b71168))
+
+
+
 # [2.3.0](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.3.0-beta.1...v2.3.0) (2023-03-07)
 
 
