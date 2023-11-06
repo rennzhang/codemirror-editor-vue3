@@ -7,6 +7,8 @@
 
 # Introduction
 
+[简体中文](https://rennzhang.github.io/codemirror-editor-vue3/zh-CN/guide/getting-started)
+
 The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported.
 
 In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
