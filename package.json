@@ -21,7 +21,7 @@
     "name": "RennCheung",
     "email": "906155099@qq.com"
   },
-  "homepage": "https://renncheung.github.io/codemirror-editor-vue3/en/guide/getting-started",
+  "homepage": "https://rennzhang.github.io/codemirror-editor-vue3/",
   "unpkg": "dist/codemirror-editor-vue3.js",
   "jsnext:main": "dist/codemirror-editor-vue3.js",
   "jspm": {
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RennCheung/codemirror-editor-vue3"
+    "url": "https://github.com/rennzhang/codemirror-editor-vue3/"
   },
   "keywords": [
     "codemirror-editor-vue3",
