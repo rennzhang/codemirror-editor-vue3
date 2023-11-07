@@ -1,3 +1,12 @@
+# [2.4.0-beta.0](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.3.1...v2.4.0-beta.0) (2023-11-07)
+
+
+### Bug Fixes
+
+* fixed script ([99e6639](https://github.com/RennCheung/codemirror-editor-vue3/commit/99e66393b34946c0f557d707a0ea3a51d43969ee))
+
+
+
 ## [2.3.1](https://github.com/RennCheung/codemirror-editor-vue3/compare/v2.3.0...v2.3.1) (2023-11-06)
 
 
