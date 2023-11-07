@@ -51,7 +51,8 @@
     "release": "tsx scripts/release.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "codemirror": "^5.64.0",
