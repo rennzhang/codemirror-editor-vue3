@@ -6,21 +6,21 @@ const startRegex = [
   {
     regex: /(\[.*?\])([ \t]*)(<error>[ \t])(.+)/,
     token: ["tag", "", "error.strong", "error.strong"],
-    sol: true,
+    sol: true
     // next: "error",
   },
   {
     regex: /(\[.*?\])([ \t]*)(<info>)(.+)(.?)/,
     token: ["tag", "", "bracket", "bracket", "hr"],
-    sol: true,
+    sol: true
     // next: "info",
   },
   {
     regex: /(\[.*?\])([ \t]*)(<warning>)(.+)(.?)/,
     token: ["tag", "", "comment", "comment", "hr"],
-    sol: true,
+    sol: true
     // next: "warning",
-  },
+  }
 ];
 
 _CodeMirror.defineSimpleMode("fclog", {
@@ -28,28 +28,28 @@ _CodeMirror.defineSimpleMode("fclog", {
     ...startRegex,
     {
       regex: /.*/,
-      token: "hr",
-    },
+      token: "hr"
+    }
   ],
   error: [
     ...startRegex,
     {
       regex: /.*/,
-      token: "error.strong",
-    },
+      token: "error.strong"
+    }
   ],
   info: [
     ...startRegex,
     {
       regex: /.*/,
-      token: "bracket",
-    },
+      token: "bracket"
+    }
   ],
   warning: [
     ...startRegex,
     {
       regex: /.*\[/,
-      token: "comment",
-    },
-  ],
+      token: "comment"
+    }
+  ]
 });

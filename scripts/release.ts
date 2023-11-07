@@ -1,10 +1,5 @@
-import minimist from "minimist";
-import fs from "fs";
-import path from "path";
 import semver from "semver";
-import { execa } from "execa";
 import colors from "picocolors";
-// import { prompt } from "enquirer";
 import prompts from "prompts";
 import { version as currentVersion } from "../package.json";
 import {
@@ -14,7 +9,7 @@ import {
   getVersionChoices,
   step,
   updateVersions,
-  syncPushCode,
+  syncPushCode
 } from "./releaseUtils";
 
 const isDryRun = args.dry;
@@ -28,7 +23,7 @@ async function main() {
       type: "select",
       name: "release",
       message: "Select release version",
-      choices: getVersionChoices(currentVersion),
+      choices: getVersionChoices(currentVersion)
     });
 
     if (release === "custom") {
@@ -36,7 +31,7 @@ async function main() {
         type: "text",
         name: "version",
         message: "Input custom version",
-        initial: currentVersion,
+        initial: currentVersion
       });
       targetVersion = res.version;
     } else {
@@ -57,7 +52,7 @@ async function main() {
   const { yes }: { yes: boolean } = await prompts({
     type: "confirm",
     name: "yes",
-    message: `Releasing ${colors.yellow(targetVersion)} Confirm?`,
+    message: `Releasing ${colors.yellow(targetVersion)} Confirm?`
   });
 
   if (!yes) {

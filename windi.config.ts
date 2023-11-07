@@ -11,7 +11,7 @@ export default defineConfig({
     // 单个标签自定义类名
     "flex-center": "flex items-center justify-center",
     "flex-center-x": "flex justify-center",
-    "flex-center-y": "flex items-center",
+    "flex-center-y": "flex items-center"
     // 嵌套标签自定义类名
     // 示例
     // "custom-title": {
@@ -26,6 +26,6 @@ export default defineConfig({
   },
   extract: {
     include: ["playground/**/*.{vue,html,jsx,tsx}"],
-    exclude: ["node_modules", ".git"],
-  },
+    exclude: ["node_modules", ".git"]
+  }
 });

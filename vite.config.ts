@@ -12,19 +12,19 @@ export default defineConfig({
     host: "::",
     open: true,
     https: false,
-    port: 3008,
+    port: 3008
   },
   resolve: {
     alias: [
       {
         find: /@\//,
-        replacement: `${pathResolve("packages/")}/`,
+        replacement: `${pathResolve("packages/")}/`
       },
       {
         find: "codemirror-editor-vue3",
-        replacement: `${pathResolve("packages/index.ts")}`,
-      },
-    ],
+        replacement: `${pathResolve("packages/index.ts")}`
+      }
+    ]
   },
   // 生产环境路径，类似webpack的assetsPath
   build: {
@@ -32,7 +32,7 @@ export default defineConfig({
     lib: {
       formats: ["umd", "es"],
       entry: resolve(__dirname, "packages/index.ts"),
-      name: "codemirror-editor-vue3",
+      name: "codemirror-editor-vue3"
     },
     rollupOptions: {
       output: {
@@ -43,10 +43,10 @@ export default defineConfig({
           vue: "Vue",
           codemirror: "codemirror",
           "codemirror/lib/codemirror.js": "codemirror",
-          "diff-match-patch": "DiffMatchPatch",
+          "diff-match-patch": "DiffMatchPatch"
           // codemirror: "codemirror/lib/codemirror.js",
           // "codemirror/lib/codemirror.js": "codemirror",
-        },
+        }
       },
 
       // 确保外部化处理那些你不想打包进库的依赖
@@ -60,9 +60,9 @@ export default defineConfig({
         "codemirror/mode/css/css.js",
         "codemirror/lib/codemirror.css",
         "codemirror/addon/merge/merge.css",
-        "codemirror/addon/merge/merge.js",
-      ],
-    },
+        "codemirror/addon/merge/merge.js"
+      ]
+    }
   },
-  plugins,
+  plugins
 });

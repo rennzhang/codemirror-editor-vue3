@@ -20,7 +20,7 @@ export const componentEventMap: ComponentEventMap = {
   "update:value": () => true,
   change: (value, cm) => ({ value, cm }),
   input: () => true,
-  ready: (cm) => cm,
+  ready: (cm) => cm
 };
 
 // codemirror events
@@ -42,13 +42,10 @@ export const cmEvts: EditorEventNames[] = [
   "refresh",
   "optionChange",
   "scrollCursorIntoView",
-  "update",
+  "update"
 ];
 
-export const getCmEvts = (): Pick<
-  EditorEventMapWithChange,
-  EditorEventNames
-> => {
+export const getCmEvts = (): Pick<EditorEventMapWithChange, EditorEventNames> => {
   const result: any = {};
   cmEvts.forEach((name) => {
     result[name] = (...args: any) => args;
@@ -63,5 +60,5 @@ export const DEFAULT_OPTIONS = {
   theme: "default", // Theme
   lineNumbers: true, // Display line number
   smartIndent: true, // Intelligent indentation
-  indentUnit: 2,
+  indentUnit: 2
 };

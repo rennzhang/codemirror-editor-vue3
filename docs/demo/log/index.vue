@@ -3,8 +3,8 @@
 </template>
 
 <script>
-  import { ref, defineComponent } from "vue"
-  import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../packages/index"
+  import { ref, defineComponent } from "vue";
+  import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../packages/index";
 
   export default defineComponent({
     components: { Codemirror },
@@ -31,11 +31,11 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEng
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
- `)
+ `);
       const cmOptions = {
         mode: "log",
         theme: "default"
-      }
+      };
       return {
         Codemirror,
         createLinkMark,
@@ -44,7 +44,7 @@ at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
         ref,
         code,
         cmOptions
-      }
+      };
     }
-  })
+  });
 </script>

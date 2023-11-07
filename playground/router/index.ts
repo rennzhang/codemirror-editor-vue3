@@ -4,7 +4,7 @@ import routes from "~pages";
 const router = createRouter({
   // ...
   routes,
-  history: createWebHashHistory(),
+  history: createWebHashHistory()
 });
 
 export { routes };

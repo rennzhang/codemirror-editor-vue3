@@ -1,39 +1,38 @@
 <template>
   <div>
     darcula theme:
-    <Codemirror v-model:value="code" :options="cmOptions" border :height="200">
-    </Codemirror>
+    <Codemirror v-model:value="code" :options="cmOptions" border :height="200"> </Codemirror>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
-import type { EditorConfiguration } from "codemirror";
-import Codemirror from "codemirror-editor-vue3";
+  import { ref } from "vue";
+  import type { EditorConfiguration } from "codemirror";
+  import Codemirror from "codemirror-editor-vue3";
 
-// language
-import "codemirror/mode/javascript/javascript.js";
+  // language
+  import "codemirror/mode/javascript/javascript.js";
 
-// theme
-import "codemirror/theme/darcula.css";
+  // theme
+  import "codemirror/theme/darcula.css";
 
-// console.dir();
+  // console.dir();
 
-export default defineComponent({
-  components: {
-    Codemirror,
-  },
-  setup() {
-    const code = ref("const obj = {}");
+  export default defineComponent({
+    components: {
+      Codemirror
+    },
+    setup() {
+      const code = ref("const obj = {}");
 
-    const cmOptions: EditorConfiguration = {
-      mode: "javascript",
-      theme: "darcula",
-    };
+      const cmOptions: EditorConfiguration = {
+        mode: "javascript",
+        theme: "darcula"
+      };
 
-    return {
-      code,
-      cmOptions,
-    };
-  },
-});
+      return {
+        code,
+        cmOptions
+      };
+    }
+  });
 </script>

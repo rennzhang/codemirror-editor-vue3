@@ -7,7 +7,7 @@ export interface MarkStates {
 export enum logErrorType {
   info = "info",
   warning = "warning",
-  error = "error",
+  error = "error"
 }
 export type logErrorTypes = keyof typeof logErrorType;
 /**
@@ -16,10 +16,8 @@ export type logErrorTypes = keyof typeof logErrorType;
 export function getLocalTime(): string {
   const date = new Date();
   const h = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
-  const m =
-    date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
-  const s =
-    date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+  const m = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+  const s = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
   // Get local hours, minutes, secondes
   return `${h}:${m}:${s}`;
 }
@@ -60,7 +58,7 @@ export function getLinkMarks(value: string) {
     result.push({
       start: indexObj.index,
       end: indexObj.index + indexObj[0].length,
-      node,
+      node
     });
     indexObj = linkRegexp.exec(value);
   }
@@ -119,7 +117,7 @@ export function getLogMark(value: string) {
         result.push({
           start: indexObj.index + offset,
           end: indexObj.index + offset + textItem.length,
-          node: cloneNode,
+          node: cloneNode
         });
         offset = offset + textItem.length + 1;
       }
@@ -161,11 +159,7 @@ export function createLog(log: string, type: logErrorTypes) {
  * createTitle("base title", 3, "*")
  * // => ***base title***
  */
-export function createTitle(
-  title: string,
-  symbolLength?: number,
-  symbol?: string
-) {
+export function createTitle(title: string, symbolLength?: number, symbol?: string) {
   // const offsetLength = Math.floor((1.5 * title.length) / 2);
   const arr = new Array(Math.max(symbolLength || 15, 5));
   const wrapText = arr.join(symbol || "=");

@@ -6,7 +6,7 @@ const fileRegex = /\.(css)$/;
 
 const injectCode = (code: string) =>
   `function styleInject(css,ref){if(ref===void 0){ref={}}var insertAt=ref.insertAt;if(!css||typeof document==="undefined"){return}var head=document.head||document.getElementsByTagName("head")[0];var style=document.createElement("style");style.type="text/css";if(insertAt==="top"){if(head.firstChild){head.insertBefore(style,head.firstChild)}else{head.appendChild(style)}}else{head.appendChild(style)}if(style.styleSheet){style.styleSheet.cssText=css}else{style.appendChild(document.createTextNode(css))}};styleInject(\`${code}\`)`;
-const template = `console.warn("__INJECT__")`;
+const template = 'console.warn("__INJECT__")';
 
 let viteConfig: ResolvedConfig;
 const css: string[] = [];
@@ -25,7 +25,7 @@ const libInjectCss = (): PluginOption => {
       if (fileRegex.test(id)) {
         css.push(code);
         return {
-          code: "",
+          code: ""
         };
       }
       if (
@@ -34,7 +34,7 @@ const libInjectCss = (): PluginOption => {
       ) {
         return {
           code: `${code}
-          ${template}`,
+          ${template}`
         };
       }
       return null;
@@ -49,7 +49,7 @@ const libInjectCss = (): PluginOption => {
 
         try {
           let data: string = fs.readFileSync(filePath, {
-            encoding: "utf8",
+            encoding: "utf8"
           });
 
           if (data.includes(template)) {
@@ -61,7 +61,7 @@ const libInjectCss = (): PluginOption => {
           console.error(e);
         }
       }
-    },
+    }
   };
 };
 

@@ -1,8 +1,6 @@
 <template>
   <div class="min-w-80vw py-4 px-8">
-    <h3 class="mb-4 text-2xl text-gray-400">
-      👇👇👇 Click to view the example 👇👇👇
-    </h3>
+    <h3 class="mb-4 text-2xl text-gray-400"> 👇👇👇 Click to view the example 👇👇👇 </h3>
     <div
       v-for="(item, index) in routes"
       :key="index"
@@ -19,25 +17,25 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { routes } from "./router/index";
+  import { routes } from "./router/index";
 
-const route = useRoute();
+  const route = useRoute();
 </script>
 <style lang="less">
-#app {
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-  width: 90vw;
-  font-size: 14px;
-}
-.router-link-exact-active {
-  span {
-    text-decoration: underline;
+  #app {
+    margin: 0 auto;
+    padding: 2rem;
+    font-weight: normal;
+    width: 90vw;
+    font-size: 14px;
   }
-  &::before {
-    content: "🌰";
-    margin-right: 4px;
+  .router-link-exact-active {
+    span {
+      text-decoration: underline;
+    }
+    &::before {
+      content: "🌰";
+      margin-right: 4px;
+    }
   }
-}
 </style>

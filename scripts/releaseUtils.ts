@@ -30,10 +30,7 @@ export async function dryRun(
   _args: string[],
   opts?: ExecaOptions<string>
 ): Promise<void> {
-  return console.log(
-    colors.blue(`[dryrun] ${bin} ${_args.join(" ")}`),
-    opts || ""
-  );
+  return console.log(colors.blue(`[dryrun] ${bin} ${_args.join(" ")}`), opts || "");
 }
 
 export const step = (msg) => console.log(chalk.cyan(msg));
@@ -51,52 +48,52 @@ export function getVersionChoices(currentVersion: string): VersionChoice[] {
   const isStable = !currentBeta && !currentAlpha;
 
   function inc(i: any, tag = currentAlpha ? "alpha" : "beta") {
-    return semver.inc(currentVersion, i, tag)!;
+    return semver.inc(currentVersion, i, tag) as string;
   }
 
   let versionChoices: VersionChoice[] = [
     {
       title: "next",
-      value: inc(isStable ? "patch" : "prerelease"),
-    },
+      value: inc(isStable ? "patch" : "prerelease")
+    }
   ];
 
   if (isStable) {
     versionChoices.push(
       {
         title: "beta-minor",
-        value: inc("preminor"),
+        value: inc("preminor")
       },
       {
         title: "beta-major",
-        value: inc("premajor"),
+        value: inc("premajor")
       },
       {
         title: "alpha-minor",
-        value: inc("preminor", "alpha"),
+        value: inc("preminor", "alpha")
       },
       {
         title: "alpha-major",
-        value: inc("premajor", "alpha"),
+        value: inc("premajor", "alpha")
       },
       {
         title: "minor",
-        value: inc("minor"),
+        value: inc("minor")
       },
       {
         title: "major",
-        value: inc("major"),
+        value: inc("major")
       }
     );
   } else if (currentAlpha) {
     versionChoices.push({
       title: "beta",
-      value: `${inc("patch")}-beta.0`,
+      value: `${inc("patch")}-beta.0`
     });
   } else {
     versionChoices.push({
       title: "stable",
-      value: inc("patch"),
+      value: inc("patch")
     });
   }
   versionChoices.push({ value: "custom", title: "custom" });

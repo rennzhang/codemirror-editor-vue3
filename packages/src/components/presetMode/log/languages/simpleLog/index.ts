@@ -5,16 +5,16 @@ _CodeMirror.defineSimpleMode("log", {
   start: [
     {
       regex: /^[=]+[^=]*[=]+/,
-      token: "strong",
+      token: "strong"
     },
     {
       regex: /([^\w])([A-Z][\w]*)/,
-      token: ["", "string"],
+      token: ["", "string"]
     },
     {
       regex: /(^[A-Z][\w]*)/,
-      token: "string",
-    },
+      token: "string"
+    }
     // {
     //     regex: /([^\d])([0-9]+)/,
     //     token: [null, 'comment']
@@ -23,5 +23,5 @@ _CodeMirror.defineSimpleMode("log", {
     //     regex: /(^[0-9]+)/,
     //     token: 'comment'
     // }
-  ],
+  ]
 });

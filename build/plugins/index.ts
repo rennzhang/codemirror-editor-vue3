@@ -16,8 +16,8 @@ export default [
     eslintrc: {
       enabled: true, // Default `false`
       filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
-      globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-    },
+      globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+    }
     // Generate corresponding .eslintrc-auto-import.json file.
     // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
   }),
@@ -27,9 +27,9 @@ export default [
     eslint: {
       lintCommand: 'eslint "./packages/**/*.{ts,tsx,vue}"',
       dev: {
-        logLevel: ["error"],
-      },
-    },
+        logLevel: ["error"]
+      }
+    }
   }),
   dts(),
   libInjectCss(),
@@ -37,10 +37,10 @@ export default [
     dirs: [
       {
         dir: "playground/demo",
-        baseRoute: "demo",
-      },
+        baseRoute: "demo"
+      }
     ],
-    exclude: ["playground/demo/index.vue"],
+    exclude: ["playground/demo/index.vue"]
   }),
-  WindiCSS(),
+  WindiCSS()
 ];

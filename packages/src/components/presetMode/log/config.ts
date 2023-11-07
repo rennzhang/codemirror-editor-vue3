@@ -6,7 +6,7 @@ export const defaultEditorOptions = {
   lineNumbers: true,
   autofocus: false,
   lineWrapping: true,
-  readOnly: false,
+  readOnly: false
 };
 
 export const propEditorOptions = {
@@ -16,7 +16,7 @@ export const propEditorOptions = {
   indentWithTabs: true,
   smartIndent: true,
   lineNumbers: true,
-  autofocus: false,
+  autofocus: false
 };
 
 export const jsonEditorOptions = {
@@ -27,5 +27,5 @@ export const jsonEditorOptions = {
   smartIndent: true,
   lineNumbers: true,
   autofocus: false,
-  matchBrackets: true,
+  matchBrackets: true
 };
