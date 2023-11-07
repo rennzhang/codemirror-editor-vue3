@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
     "./.eslintrc-auto-import.json",
@@ -10,12 +10,12 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-recommended",
     "prettier",
-    "plugin:prettier/recommended" // 添加 prettier 插件
+    "plugin:prettier/recommended", // 添加 prettier 插件
   ],
   parserOptions: {
     ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint", "import"],
   rules: {
@@ -31,14 +31,14 @@ module.exports = {
     "no-underscore-dangle": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "vue/multi-word-component-names": "off",
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
   },
   overrides: [
     {
       files: ["*.vue"],
       rules: {
-        "no-undef": "off"
-      }
-    }
-  ]
-}
+        "no-undef": "off",
+      },
+    },
+  ],
+};

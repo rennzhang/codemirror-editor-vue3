@@ -6,10 +6,7 @@ import _CodeMirror from "./src/sourceLib";
 
 interface CmComp {
   cminstance: Editor;
-  resize: (
-    width?: string | number | null,
-    height?: string | number | null
-  ) => void;
+  resize: (width?: string | number | null, height?: string | number | null) => void;
   refresh: () => void;
   destroy: () => void;
 }

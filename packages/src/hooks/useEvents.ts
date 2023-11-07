@@ -3,11 +3,7 @@ import type { ComponentInternalInstance, Ref } from "vue";
 import { unref, computed } from "vue";
 import type { MergeView } from "codemirror/addon/merge/merge";
 import type { CmProps } from "@/src/types/props";
-import {
-  componentEventMap,
-  EditorEventNames,
-  ComponentEventMap,
-} from "../config";
+import { componentEventMap, EditorEventNames, ComponentEventMap } from "../config";
 
 declare type UseEventsParams = {
   props: CmProps;
@@ -36,10 +32,7 @@ const useEvents = ({
   content,
 }: UseEventsParams): { listenerEvents: () => void } => {
   const realCm = computed(
-    () =>
-      (props.merge
-        ? (unref(cminstance) as MergeView)?.editor()
-        : unref(cminstance)) as Editor
+    () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor,
   );
 
   /** @description 根据组件实例获取在该组件上监听的事件，用来确定需要 emit 的事件 */
@@ -49,8 +42,7 @@ const useEvents = ({
       // 排除和当前组件相同的事件名称
       if (v.startsWith("on")) {
         const e: any = v.replace(v[2], v[2].toLowerCase()).slice(2);
-        !componentEventMap[e as keyof ComponentEventMap] &&
-          evts.push(e as EditorEventNames);
+        !componentEventMap[e as keyof ComponentEventMap] && evts.push(e as EditorEventNames);
       }
     });
 

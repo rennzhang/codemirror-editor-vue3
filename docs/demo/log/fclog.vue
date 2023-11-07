@@ -3,8 +3,8 @@
 </template>
 
 <script>
-  import { ref, defineComponent } from "vue"
-  import Codemirror, { createLinkMark, createLog, createTitle } from "../../../packages/index"
+  import { ref, defineComponent } from "vue";
+  import Codemirror, { createLinkMark, createLog, createTitle } from "../../../packages/index";
 
   export default defineComponent({
     components: { Codemirror },
@@ -12,22 +12,22 @@
       const code = ref(`完整日志下载地址：${createLinkMark({
         href: "/logDownload",
         download: "",
-        target: "_blank"
+        target: "_blank",
       })}
 
 ${createTitle("带有时间节点和输出类型的日志")}
 ${createLog("info content", "info")}
 ${createLog("warning content", "warning")}
 ${createLog("error content", "error")}
-`)
+`);
       const cmOptions = {
-        mode: "fclog"
-      }
+        mode: "fclog",
+      };
       return {
         ref,
         code,
-        cmOptions
-      }
-    }
-  })
+        cmOptions,
+      };
+    },
+  });
 </script>

@@ -45,10 +45,7 @@ export const cmEvts: EditorEventNames[] = [
   "update",
 ];
 
-export const getCmEvts = (): Pick<
-  EditorEventMapWithChange,
-  EditorEventNames
-> => {
+export const getCmEvts = (): Pick<EditorEventMapWithChange, EditorEventNames> => {
   const result: any = {};
   cmEvts.forEach((name) => {
     result[name] = (...args: any) => args;

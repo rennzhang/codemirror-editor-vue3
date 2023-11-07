@@ -1,10 +1,5 @@
-import minimist from "minimist";
-import fs from "fs";
-import path from "path";
 import semver from "semver";
-import { execa } from "execa";
 import colors from "picocolors";
-// import { prompt } from "enquirer";
 import prompts from "prompts";
 import { version as currentVersion } from "../package.json";
 import {

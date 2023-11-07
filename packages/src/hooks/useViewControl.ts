@@ -11,19 +11,12 @@ export declare type UseViewControlParams = {
   presetRef: Ref<{ initialize: () => void } | null>;
 };
 
-export function useViewControl({
-  props,
-  cminstance,
-  presetRef,
-}: UseViewControlParams) {
+export function useViewControl({ props, cminstance, presetRef }: UseViewControlParams) {
   const containerWidth = ref<string | null>(null);
   const containerHeight = ref<string | null>(null);
 
   const realCm = computed(
-    () =>
-      (props.merge
-        ? (unref(cminstance) as MergeView)?.editor()
-        : unref(cminstance)) as Editor
+    () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor,
   );
   const refresh = () => {
     nextTick(() => {
@@ -59,9 +52,7 @@ export function useViewControl({
   };
 
   const isStyleChaotic = () => {
-    const gutterEl: HTMLElement | null = document.querySelector(
-      ".CodeMirror-gutters"
-    );
+    const gutterEl: HTMLElement | null = document.querySelector(".CodeMirror-gutters");
     const gutterElLeft = gutterEl?.style.left.replace("px", "");
     return gutterElLeft !== "0";
   };

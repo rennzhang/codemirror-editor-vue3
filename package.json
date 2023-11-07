@@ -44,7 +44,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:types": "tsc --emitDeclarationOnly vite build",
     "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",
     "docs-serve": "vitepress serve docs",
@@ -74,7 +73,6 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/cli-plugin-typescript": "~4.5.15",
-    "@vueuse/core": "^9.13.0",
     "chalk": "^4.1.2",
     "conventional-changelog-cli": "^2.0.31",
     "dedent": "^0.7.0",
@@ -92,7 +90,6 @@
     "picocolors": "^1.0.0",
     "prettier": "^2.8.4",
     "prompts": "^2.4.2",
-    "rollup-plugin-cpy": "^2.0.1",
     "rollup-plugin-vue": "^6.0.0",
     "semver": "^7.3.5",
     "tsx": "^3.12.3",

@@ -20,7 +20,7 @@ export const isDryRun = !!args.dry;
 export async function run(
   bin: string,
   _args: string[],
-  opts: ExecaOptions<string> = {}
+  opts: ExecaOptions<string> = {},
 ): Promise<ExecaReturnValue<string>> {
   return execa(bin, _args, { stdio: "inherit", ...opts });
 }
@@ -28,12 +28,9 @@ export async function run(
 export async function dryRun(
   bin: string,
   _args: string[],
-  opts?: ExecaOptions<string>
+  opts?: ExecaOptions<string>,
 ): Promise<void> {
-  return console.log(
-    colors.blue(`[dryrun] ${bin} ${_args.join(" ")}`),
-    opts || ""
-  );
+  return console.log(colors.blue(`[dryrun] ${bin} ${_args.join(" ")}`), opts || "");
 }
 
 export const step = (msg) => console.log(chalk.cyan(msg));
@@ -51,7 +48,7 @@ export function getVersionChoices(currentVersion: string): VersionChoice[] {
   const isStable = !currentBeta && !currentAlpha;
 
   function inc(i: any, tag = currentAlpha ? "alpha" : "beta") {
-    return semver.inc(currentVersion, i, tag)!;
+    return semver.inc(currentVersion, i, tag) as string;
   }
 
   let versionChoices: VersionChoice[] = [
@@ -86,7 +83,7 @@ export function getVersionChoices(currentVersion: string): VersionChoice[] {
       {
         title: "major",
         value: inc("major"),
-      }
+      },
     );
   } else if (currentAlpha) {
     versionChoices.push({
