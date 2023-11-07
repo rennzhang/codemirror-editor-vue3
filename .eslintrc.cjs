@@ -5,21 +5,20 @@ module.exports = {
     node: true
   },
   extends: [
-    "./.eslintrc-auto-import.json",
-    "airbnb-base",
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-recommended",
-    "prettier",
-    "plugin:prettier/recommended" // 添加 prettier 插件
+    "plugin:prettier/recommended", // 添加 prettier 插件
+    "./.eslintrc-auto-import.json"
   ],
   parserOptions: {
     ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
     sourceType: "module"
   },
-  plugins: ["vue", "@typescript-eslint", "import"],
+  plugins: ["vue", "prettier", "@typescript-eslint", "import"],
   rules: {
-    "prettier/prettier": "error",
+    semi: ["off"], // 要求或禁止使用分号代替 ASI
     quotes: ["error", "double", "avoid-escape"],
     "no-console": "off",
     "import/no-unresolved": "off",
@@ -41,4 +40,4 @@ module.exports = {
       }
     }
   ]
-}
+};
