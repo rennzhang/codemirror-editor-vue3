@@ -124,7 +124,7 @@ for (; i < 9; i++) {
 | **original-style**  | Using the original style, disable the second modification of the style for this component (but does not affect width, height, and border) | ` boolean`                                |                `false`                 |
 | **KeepCursorInEnd** |                                              Always keep the mouse position on the last line                                              | `boolean`                                 |                `false`                 |
 | **merge**           |                                               merge mode, can also be used as diff pattern                                                | `boolean`                                 |                `false`                 |
-| _name_              |                               Name, which is passed to the textarea inside the component(This is useless🙃)                               | `string`                                  |                   -                    |
+
 
 ## Events
 
