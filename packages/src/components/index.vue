@@ -43,6 +43,12 @@
     computed,
   } from "vue";
   import "codemirror/lib/codemirror.css";
+  import "codemirror/addon/fold/foldgutter.css";
+  import "codemirror/addon/fold/foldcode.js";
+  import "codemirror/addon/fold/foldgutter.js";
+  import "codemirror/addon/fold/brace-fold.js";
+  import "codemirror/addon/selection/active-line.js";
+
   import Default from "./presetMode/default/index.vue";
   import Merge from "./presetMode/Merge/index.vue";
   import FcLog from "./presetMode/log/index.vue";
@@ -136,9 +142,17 @@
   const content = ref("");
   const presetModeName = shallowRef<Component>(Default);
   const cmOptions = ref<EditorConfiguration>({
+    foldGutter: true,
     ...DEFAULT_OPTIONS,
     ...props.globalOptions,
     ...props.options,
+    gutters: [
+      ...new Set([
+        "CodeMirror-linenumbers",
+        "CodeMirror-foldgutter",
+        ...(props.options?.gutters || []),
+      ]),
+    ],
   });
   const internalInstance = getCurrentInstance();
   const instanceName = props.name || internalInstance?.parent?.type?.name || undefined;

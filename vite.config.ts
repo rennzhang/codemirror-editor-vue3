@@ -11,7 +11,6 @@ export default defineConfig({
   server: {
     host: "::",
     open: true,
-    https: false,
     port: 3008,
   },
   resolve: {
@@ -61,6 +60,11 @@ export default defineConfig({
         "codemirror/lib/codemirror.css",
         "codemirror/addon/merge/merge.css",
         "codemirror/addon/merge/merge.js",
+        "codemirror/addon/selection/active-line.js",
+        "codemirror/addon/fold/foldgutter.css",
+        "codemirror/addon/fold/foldcode.js",
+        "codemirror/addon/fold/foldgutter.js",
+        "codemirror/addon/fold/brace-fold.js",
       ],
     },
   },

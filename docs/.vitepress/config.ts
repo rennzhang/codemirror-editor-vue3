@@ -14,6 +14,10 @@ const getNav = (lang: "en" | "zh") => {
       activeMatch: "/guide/g"
     },
     {
+      text: isEn ? "More Case" : "更多案例",
+      link: `https://codemirror-editor-vue3-demos.vercel.app/demo`,
+    },
+    {
       text: isEn ? "Changelog" : "更新日志",
       link: "https://github.com/RennCheung/codemirror-editor-vue3/blob/main/CHANGELOG.md"
     }

@@ -1,3 +1,12 @@
+# [2.5.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.1...v2.5.0-beta.0) (2024-03-27)
+
+
+### Features
+
+* playound demo ([c9eafda](https://github.com/rennzhang/codemirror-editor-vue3/commit/c9eafda8236ba19b9f5b06554b0cf47b09a74aa0))
+
+
+
 ## [2.4.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.0...v2.4.1) (2023-11-07)
 
 
