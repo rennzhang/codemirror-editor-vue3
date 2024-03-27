@@ -61,4 +61,5 @@ export const DEFAULT_OPTIONS = {
   lineNumbers: true, // Display line number
   smartIndent: true, // Intelligent indentation
   indentUnit: 2,
+  styleActiveLine: true,
 };

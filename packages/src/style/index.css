@@ -3,12 +3,11 @@
   display: inline-block;
   height: 100%;
   width: fit-content;
-  font-size: 12px;
+  font-size: 13px;
   overflow: hidden;
 }
 .codemirror-container.bordered {
-  border-radius: 4px;
-  border: 1px solid #dddddd;
+    border: 1px solid #aaaaaa;
 }
 .codemirror-container.width-auto {
   width: 100%;
