@@ -1,14 +1,14 @@
-# Merge Mode
+# merge 模式
 
 ::: tip
 
-merge pattern-related dependencies are already introduced within the component; you only need to import the language pattern and style files that you need to use.
+组件内部已经引入 merge 模式相关依赖，只需要引入需要使用的语言模式和样式文件即可。
 
 :::
 
-## introduce
+## 说明
 
-The merge mode works with the [diff-match-patch](https://github.com/JackuB/diff-match-patch) plug-in(Only 6.3k after compression), For better out-of-the-box, this dependency is automatically introduced when you install `codemirror-editor-vue3`.
+merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-patch)插件使用（压缩后只占用 6.3k），为了更好的开箱即用，安装`codemirror-editor-vue3`时会自动引入该依赖
 
 <component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
@@ -22,14 +22,14 @@ export default {
   },
 
   mounted() {
-    import('../demo/mergeDemo.vue').then((module) => {
+    import('../../../demo/mergeDemo.vue').then((module) => {
       this.dynamicComponent = shallowRef(module.default)
     })
   }
 }
 </script>
 
-:::details Click to view the code
+:::details 点击查看代码
 
 ```vue
 <template>

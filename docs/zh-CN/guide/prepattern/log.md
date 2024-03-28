@@ -132,10 +132,10 @@ export default {
   },
 
   mounted() {
-    import('../../demo/log/index.vue').then((module) => {
+    import('../../../demo/log/index.vue').then((module) => {
       this.log = shallowRef(module.default)
     })
-    import('../../demo/log/fclog.vue').then((module) => {
+    import('../../../demo/log/fclog.vue').then((module) => {
       this.fcLog = shallowRef(module.default)
     })
   }

@@ -2,3 +2,8 @@
   margin-right: 8px;
   display: inline-block;
 }
+
+.VPDoc:not(.has-aside) .container .content  {
+  width: 100%;
+  max-width: 100% !important;
+}

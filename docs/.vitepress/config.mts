@@ -1,4 +1,11 @@
 import { defineConfig } from "vitepress"
+import { resolve } from "path";
+
+
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), ".", dir);
+}
+
 const base = process.env.NODE_ENV == "production" ? "/codemirror-editor-vue3/" : "/"
 const routeMap = {
   en: "",
@@ -15,7 +22,8 @@ const getNav = (lang: "en" | "zh") => {
     },
     {
       text: isEn ? "More Case" : "更多案例",
-      link: `https://codemirror-editor-vue3-demos.vercel.app/demo`,
+      link: `${route}/moreCase/index`,
+      activeMatch: "/moreCase/g"
     },
     {
       text: isEn ? "Changelog" : "更新日志",
@@ -52,11 +60,11 @@ function getGuideSidebar(lang: "en" | "zh") {
       items: [
         {
           text: isEn ? "merge(diff) mode" : "merge(diff) 模式",
-          link: `${route}/prepattern/merge`
+          link: `${route}/guide/prepattern/merge`
         },
         {
           text: isEn ? "log mode" : "log 模式",
-          link: `${route}/prepattern/log`
+          link: `${route}/guide/prepattern/log`
         }
       ]
     },
@@ -65,18 +73,18 @@ function getGuideSidebar(lang: "en" | "zh") {
       items: [
         {
           text: isEn ? "CodeMirror Static properties" : "CodeMirror 静态属性",
-          link: `${route}/supplementary/static-properties`
+          link: `${route}/guide/supplementary/static-properties`
         },
         {
           text: isEn ? "Get instance object" : "获取实例对象",
-          link: `${route}/supplementary/instance`
+          link: `${route}/guide/supplementary/instance`
         }
       ]
     },
     {
       text: isEn ? "Typescript Support" : "Typescript 支持",
-      link: `${route}/typescript/Support`
-    }
+      link: `${route}/guide/typescript/Support`
+    },
     // {
     //   text: "更多案例",
     //   link: "/more/index",
@@ -89,6 +97,17 @@ export default defineConfig({
   description: "CodeMirror component for Vue3",
   lastUpdated: true,
   cleanUrls: true,
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: "codemirror-editor-vue3",
+          replacement: `${pathResolve("packages/index.ts")}`,
+
+        },
+      ]
+    }
+  },
   locales: {
     root: {
       label: "English",
@@ -97,7 +116,7 @@ export default defineConfig({
         lastUpdatedText: "Last update time",
         nav: getNav("en"),
         sidebar: {
-          "/": getGuideSidebar("en")
+          "/guide": getGuideSidebar("en"),
         }
       }
     },
@@ -108,7 +127,7 @@ export default defineConfig({
         lastUpdatedText: "最近更新时间",
         nav: getNav("zh"),
         sidebar: {
-          "/zh-CN": getGuideSidebar("zh")
+          "/zh-CN/guide": getGuideSidebar("zh")
         }
       }
     }

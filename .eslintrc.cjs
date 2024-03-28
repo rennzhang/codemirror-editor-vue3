@@ -9,8 +9,6 @@ module.exports = {
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-recommended",
-    "prettier",
-    "plugin:prettier/recommended", // 添加 prettier 插件
   ],
   parserOptions: {
     ecmaVersion: "latest",
@@ -19,7 +17,6 @@ module.exports = {
   },
   plugins: ["vue", "@typescript-eslint", "import"],
   rules: {
-    "prettier/prettier": "error",
     quotes: ["error", "double", "avoid-escape"],
     "no-console": "off",
     "import/no-unresolved": "off",
@@ -32,6 +29,7 @@ module.exports = {
     "@typescript-eslint/ban-ts-comment": "off",
     "vue/multi-word-component-names": "off",
     "@typescript-eslint/no-explicit-any": ["off"],
+    "import/prefer-default-export": "off",
   },
   overrides: [
     {
