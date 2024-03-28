@@ -12,8 +12,8 @@ export declare type UseViewControlParams = {
 };
 
 export function useViewControl({ props, cminstance, presetRef }: UseViewControlParams) {
-  const containerWidth = ref<string>("auto");
-  const containerHeight = ref<string>("auto");
+  const containerWidth = ref<string>("100%");
+  const containerHeight = ref<string>("100%");
 
   const realCm = computed(
     () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor,

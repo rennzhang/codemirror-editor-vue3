@@ -4,8 +4,6 @@
     :class="{
       merge: $props.merge,
       bordered: $props.border || ($props.merge && !props.originalStyle),
-      'width-auto': !$props.width || $props.width == '100%',
-      'height-auto': !$props.height || $props.height == '100%',
       'original-style': props.originalStyle,
     }"
     :style="{
