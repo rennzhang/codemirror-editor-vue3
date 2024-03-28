@@ -1,3 +1,18 @@
+# [2.5.0-beta.6](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.5...v2.5.0-beta.6) (2024-03-28)
+
+
+### Bug Fixes
+
+* 去除多余样式 ([bcb810d](https://github.com/rennzhang/codemirror-editor-vue3/commit/bcb810d3c7d5c019d2c894106070d93a19a32c0b))
+* 修复路径报错 ([439b8cc](https://github.com/rennzhang/codemirror-editor-vue3/commit/439b8cce758c996efa1b8fb662ca9f6c677c345c))
+
+
+### Features
+
+* 宽高支持百分比 ([dda1e5b](https://github.com/rennzhang/codemirror-editor-vue3/commit/dda1e5b85b38f987fba236a05fd7917c285ab1b5))
+
+
+
 # [2.5.0-beta.5](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.4...v2.5.0-beta.5) (2024-03-28)
 
 
