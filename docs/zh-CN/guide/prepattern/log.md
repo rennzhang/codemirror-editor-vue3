@@ -114,11 +114,11 @@ ${createLog("error content", "error")}
 
 | 名称 | 说明 | 参数 | 案例 |
 | --- | :-: | :-- | :-: |
-| `createLinkMark` | 创建一个可点击的连接（a 标签），如下载完整日志 | 支持所有 a 标签属性，如：`{ href: "/target-link", download: "", target: "_blank" }` | ![](../../img/createMarkLink.jpg) |
-| `createLogMark` | 标记日志的输出类型 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning.jpg)![](../../img/error.jpg) |
+| `createLinkMark` | 创建一个可点击的连接（a 标签），如下载完整日志 | 支持所有 a 标签属性，如：`{ href: "/target-link", download: "", target: "_blank" }` | ![](../../../img/createMarkLink.jpg) |
+| `createLogMark` | 标记日志的输出类型 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../../img/info.jpg)![](../../../img/warning.jpg)![](../../../img/error.jpg) |
 | `getLogMark` | 获取当前标记的文本，返回节点数组 | `(value: string) => [{start: number, end: number ,node: HTMLElement}]` | - |
-| `createTitle` | 创建标题 | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../../img/createTitle.jpg) |
-| `createLog` | **仅在 fclog 模式下使用**，创建带有时间以及类型的日志文本 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning-time.jpg)![](../../img/error-time.jpg) |
+| `createTitle` | 创建标题 | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../../../img/createTitle.jpg) |
+| `createLog` | **仅在 fclog 模式下使用**，创建带有时间以及类型的日志文本 | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../../img/info.jpg)![](../../../img/warning-time.jpg)![](../../../img/error-time.jpg) |
 
 <script>
 import { shallowRef } from "vue"

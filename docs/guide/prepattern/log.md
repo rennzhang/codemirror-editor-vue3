@@ -114,11 +114,11 @@ ${createLog("error content", "error")}
 
 | name | description | params | case |
 | --- | :-: | :-- | :-: |
-| `createLinkMark` | Create a clickable link (a tag), such as download the complete logs | support all a tag attributes, such as: `{ href: "/target-link", download: "", target: "_blank" }` | ![](../img/createMarkLink.jpg) |
-| `createLogMark` | Flags the output type of the log | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../img/info.jpg)![](../img/warning.jpg)![](../img/error.jpg) |
+| `createLinkMark` | Create a clickable link (a tag), such as download the complete logs | support all a tag attributes, such as: `{ href: "/target-link", download: "", target: "_blank" }` | ![](../../img/createMarkLink.jpg) |
+| `createLogMark` | Flags the output type of the log | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning.jpg)![](../../img/error.jpg) |
 | `getLogMark` | Gets the text of the current tag and returns an array of nodes | `(value: string) => [{start: number, end: number ,node: HTMLElement}]` | - |
-| `createTitle` | Create a title | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../img/createTitle.jpg) |
-| `createLog` | **Only used in fclog mode**, create log text with time and type | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../img/info.jpg)![](../img/warning-time.jpg)![](../img/error-time.jpg) |
+| `createTitle` | Create a title | `(value: string, symbolLength?: number = 15, symbol?:string = "=") => string` | ![](../../img/createTitle.jpg) |
+| `createLog` | **Only used in fclog mode**, create log text with time and type | (text: string, type: `'info' \| 'warning' \| 'error'`) => void | ![](../../img/info.jpg)![](../../img/warning-time.jpg)![](../../img/error-time.jpg) |
 
 <script>
 import { shallowRef } from "vue"
