@@ -12,8 +12,8 @@ export declare type UseViewControlParams = {
 };
 
 export function useViewControl({ props, cminstance, presetRef }: UseViewControlParams) {
-  const containerWidth = ref<string | null>(null);
-  const containerHeight = ref<string | null>(null);
+  const containerWidth = ref<string>("auto");
+  const containerHeight = ref<string>("auto");
 
   const realCm = computed(
     () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor,
@@ -25,13 +25,25 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
   };
 
   const resize = (width = props.width, height = props.height) => {
-    containerWidth.value = String(width).replace("px", "");
-    containerHeight.value = String(height).replace("px", "");
-    const cmHeight = containerHeight.value;
-    // if (props.merge) {
-    //   cmHeight -= 2;
-    // }
-    realCm.value?.setSize(containerWidth.value, cmHeight);
+    let cmHeight = "";
+    let cmWidth = "";
+    if (String(width).includes("%")) {
+      cmWidth = "100%";
+      containerWidth.value = String(width);
+    } else {
+      cmWidth = String(width).replace("px", "");
+      containerWidth.value = `${cmWidth}px`;
+    }
+
+    if (String(height).includes("%")) {
+      cmHeight = "100%";
+      containerHeight.value = String(height);
+    } else {
+      cmHeight = String(height).replace("px", "");
+      containerHeight.value = `${cmHeight}px`;
+    }
+
+    realCm.value?.setSize(cmWidth, cmHeight);
   };
 
   const destroy = () => {
@@ -77,6 +89,7 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
     refresh,
     resize,
     destroy,
+    containerWidth,
     containerHeight,
     reviseStyle,
   };
