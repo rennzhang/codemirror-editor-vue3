@@ -1,27 +1,32 @@
 <template>
   <div>
-    <Codemirror v-model:value="code" :options="cmOptions" border :height="200" :width="400">
-    </Codemirror>
+    <Codemirror
+      v-model:value="code"
+      :options="cmOptions"
+      border
+      :height="200"
+      :width="400"
+    />
   </div>
 </template>
 <script lang="ts">
-  import { ref } from "vue";
-  import type { EditorConfiguration } from "codemirror";
-  import Codemirror from "codemirror-editor-vue3";
-  // import 'codemirror/addon/fold/foldgutter.css'
-  // import 'codemirror/addon/fold/foldcode.js'
-  // import 'codemirror/addon/fold/foldgutter.js'
-  // import 'codemirror/addon/fold/brace-fold.js'
+import { ref } from "vue";
+import type { EditorConfiguration } from "codemirror";
+import Codemirror from "codemirror-editor-vue3";
+// import 'codemirror/addon/fold/foldgutter.css'
+// import 'codemirror/addon/fold/foldcode.js'
+// import 'codemirror/addon/fold/foldgutter.js'
+// import 'codemirror/addon/fold/brace-fold.js'
 
-  // language
-  import "codemirror/mode/javascript/javascript.js";
+// language
+import "codemirror/mode/javascript/javascript.js";
 
-  export default defineComponent({
-    components: {
-      Codemirror,
-    },
-    setup() {
-      const code = ref(`function findSequence(goal) {
+export default defineComponent({
+  components: {
+    Codemirror,
+  },
+  setup() {
+    const code = ref(`function findSequence(goal) {
   function find(start, history) {
     if (start == goal)
       return history;
@@ -34,15 +39,15 @@
   return find(1, "1");
 }`);
 
-      const cmOptions: EditorConfiguration = {
-        mode: "application/typescript",
-        lineWiseCopyCut: true,
-      };
+    const cmOptions: EditorConfiguration = {
+      mode: "application/typescript",
+      lineWiseCopyCut: true,
+    };
 
-      return {
-        code,
-        cmOptions,
-      };
-    },
-  });
+    return {
+      code,
+      cmOptions,
+    };
+  },
+});
 </script>

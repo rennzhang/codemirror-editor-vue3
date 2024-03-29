@@ -1,28 +1,33 @@
 <template>
   <div>
     darcula theme:
-    <Codemirror v-model:value="code" :options="cmOptions" border :height="200"> </Codemirror>
+    <Codemirror
+      v-model:value="code"
+      :options="cmOptions"
+      border
+      :height="200"
+    />
   </div>
 </template>
 <script lang="ts">
-  import { ref } from "vue";
-  import type { EditorConfiguration } from "codemirror";
-  import Codemirror from "codemirror-editor-vue3";
+import { ref } from "vue";
+import type { EditorConfiguration } from "codemirror";
+import Codemirror from "codemirror-editor-vue3";
 
-  // language
-  import "codemirror/mode/javascript/javascript.js";
-  import "codemirror/addon/lint/lint.css";
-  // import 'codemirror/addon/fold/foldgutter.css'
-  // import 'codemirror/addon/fold/foldcode.js'
-  // import 'codemirror/addon/fold/foldgutter.js'
-  // import 'codemirror/addon/fold/brace-fold.js'
+// language
+import "codemirror/mode/javascript/javascript.js";
+import "codemirror/addon/lint/lint.css";
+// import 'codemirror/addon/fold/foldgutter.css'
+// import 'codemirror/addon/fold/foldcode.js'
+// import 'codemirror/addon/fold/foldgutter.js'
+// import 'codemirror/addon/fold/brace-fold.js'
 
-  export default defineComponent({
-    components: {
-      Codemirror,
-    },
-    setup() {
-      const code = ref(`{
+export default defineComponent({
+  components: {
+    Codemirror,
+  },
+  setup() {
+    const code = ref(`{
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
   "version": "2.4.1",
@@ -136,21 +141,21 @@
 }
 `);
 
-      const cmOptions: EditorConfiguration = {
-        // json编辑器选项
-        mode: "application/json",
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: true,
-        autofocus: false,
-        foldGutter: false,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-      };
+    const cmOptions: EditorConfiguration = {
+      // json编辑器选项
+      mode: "application/json",
+      indentWithTabs: true,
+      smartIndent: true,
+      lineNumbers: true,
+      autofocus: false,
+      foldGutter: false,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    };
 
-      return {
-        code,
-        cmOptions,
-      };
-    },
-  });
+    return {
+      code,
+      cmOptions,
+    };
+  },
+});
 </script>
