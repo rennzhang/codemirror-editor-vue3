@@ -3,7 +3,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import dts from "vite-plugin-dts";
 import Pages from "vite-plugin-pages";
-import WindiCSS from "vite-plugin-windicss";
+import UnoCSS from "unocss/vite";
+
 import libInjectCss from "./custom/InjectCss";
 
 export default [
@@ -31,5 +32,5 @@ export default [
     ],
     exclude: ["playground/demo/index.vue"],
   }),
-  WindiCSS(),
+  UnoCSS(),
 ];

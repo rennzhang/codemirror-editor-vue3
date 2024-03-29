@@ -27,6 +27,7 @@
     "packages/**/*",
     "playground/**/*",
     "docs/**/*",
+    "docs/demo/**/*.vue",
     "script",
     "types",
     "*.ts",

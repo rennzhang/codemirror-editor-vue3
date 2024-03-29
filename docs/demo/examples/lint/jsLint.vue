@@ -3,7 +3,7 @@
     v-model:value="code"
     :options="cmOptions"
     :height="300"
-    width="80%"
+    width="90%"
     class="cm-component"
     :border="true"
     @ready="onReady"
@@ -13,9 +13,14 @@
 import { ref, reactive } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
-
-// language
+import { JSHINT } from "jshint";
+// language json or js
 import "codemirror/mode/javascript/javascript.js";
+import "codemirror/addon/lint/javascript-lint";
+import "codemirror/addon/lint/lint.css";
+import "codemirror/addon/lint/lint.js";
+
+window.JSHINT = JSHINT;
 
 const code = ref(`function findSequence(goal) {
   function find(start, history) {
@@ -34,6 +39,10 @@ const cmOptions:EditorConfiguration = reactive({
   mode: "javascript",
   lineNumbers: true,
   lineWiseCopyCut: true,
+  // 是否在编辑器侧边栏中显示代码提示
+  // Whether to display code hints in the editor sidebar
+  gutters: ["CodeMirror-lint-markers"],
+  lint: true,
 });
 
 const cminstance = ref<Editor | null>(null);

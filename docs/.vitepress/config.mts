@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress"
 import { resolve } from "path";
+import UnoCSS from "unocss/vite";
 
 
 function pathResolve(dir: string) {
@@ -21,9 +22,9 @@ const getNav = (lang: "en" | "zh") => {
       activeMatch: "/guide/g"
     },
     {
-      text: isEn ? "More Case" : "更多案例",
-      link: `${route}/moreCase/index`,
-      activeMatch: "/moreCase/g"
+      text: isEn ? "More Example" : "更多案例",
+      link: `${route}/example/index`,
+      activeMatch: "/example/g"
     },
     {
       text: isEn ? "Changelog" : "更新日志",
@@ -91,6 +92,27 @@ function getGuideSidebar(lang: "en" | "zh") {
     // },
   ]
 }
+function getExampleSidebar(lang: "en" | "zh") {
+  const isEn = lang == "en"
+
+  const route = routeMap[lang]
+  return [
+    {
+      text: isEn ? "Examples" : "示例",
+      collapsed: false,
+      items: [
+        {
+          text: isEn ? "Basic Examples" : "基础示例",
+          link: `${route}/example/index`
+        },
+        {
+          text: "Code Lint",
+          link: `${route}/example/codeLint`
+        },
+      ]
+    },
+  ]
+}
 export default defineConfig({
   base,
   title: "codemirror-editor-vue3",
@@ -98,6 +120,9 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   vite: {
+    plugins: [
+      UnoCSS()
+    ],
     resolve: {
       alias: [
         {
@@ -117,6 +142,7 @@ export default defineConfig({
         nav: getNav("en"),
         sidebar: {
           "/guide": getGuideSidebar("en"),
+          "/example": getExampleSidebar("en"),
         }
       }
     },
@@ -127,7 +153,8 @@ export default defineConfig({
         lastUpdatedText: "最近更新时间",
         nav: getNav("zh"),
         sidebar: {
-          "/zh-CN/guide": getGuideSidebar("zh")
+          "/zh-CN/guide": getGuideSidebar("zh"),
+          "/zh-CN/example": getExampleSidebar("zh"),
         }
       }
     }

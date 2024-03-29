@@ -1,10 +1,15 @@
 <template>
   <div class="example">
     <div class="example-showcase">
-      <div>
-        lang: {{ props.schema.lang }}
-        <div>
-          <span v-if="props.schema.describe">{{ props.schema.describe }}</span>
+      <div class="w-full  mb-5">
+        <div class=" mb-2">
+          Theme: <span class="font-bold">{{ isDark?'dracula':'default' }}</span>
+        </div>
+        <div class=" mb-2">
+          Lang: <span class="font-bold">{{ props.schema.lang }}</span>
+        </div>
+        <div class="font-bold">
+          {{ props.schema.describe }}
         </div>
       </div>
       <component
@@ -60,6 +65,7 @@ const props = defineProps<{
     comp: any
   },
 }>();
+
 const { isDark } = useData();
 
 const showCode = ref(false);
@@ -85,6 +91,7 @@ watch(() => [isDark, demoRef], ([val, cmRef]) => {
 
   .example-showcase {
     padding: 1.5rem;
+    padding-top: .5rem;
     border-bottom: 1px solid #e8e8e8;
     display: flex;
     flex-direction: column;

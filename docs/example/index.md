@@ -20,7 +20,7 @@ export default {
   },
 
   mounted() {
-    import('../demo/moreCase/index.vue').then((module) => {
+    import('../demo/examples/index.vue').then((module) => {
       this.CaseContainer = shallowRef(module.default)
     })
 

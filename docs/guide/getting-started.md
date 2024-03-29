@@ -11,7 +11,7 @@ In addition to the officially supported modes, the log output presentation mode 
 ::: code-group
 
 ```bash [npm]
-npm install codemirror-editor-vue3 codemirror@5.x -S
+npm install codemirror-editor-vue3 codemirror@^5 -S
 ```
 
 ```bash [yarn]
@@ -19,7 +19,7 @@ yarn add codemirror-editor-vue3 codemirror@">=5.64.0 <6"
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@">=5.64.0 <6" -S
+pnpm i codemirror-editor-vue3 codemirror@^5 -S
 ```
 
 :::

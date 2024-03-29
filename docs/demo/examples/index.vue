@@ -11,10 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import { describe } from "node:test";
 import Example from "./components/Example.vue";
-import jsDemo from "./cases/js.vue";
-import jsDemoRaw from "./cases/js.vue?raw";
+import jsDemo from "./lang/js.vue";
+import jsDemoRaw from "./lang/js.vue?raw";
 
 </script>
 

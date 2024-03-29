@@ -11,7 +11,7 @@ Codemirror 的 vue3 组件。 基于 [Codemirror 5](http://codemirror.net/5/)开
 ::: code-group
 
 ```bash [npm]
-npm install codemirror-editor-vue3 codemirror@5.x -S
+npm install codemirror-editor-vue3 codemirror@^5 -S
 ```
 
 ```bash [yarn]
@@ -19,7 +19,7 @@ yarn add codemirror-editor-vue3 codemirror@">=5.64.0 <6"
 ```
 
 ```bash [pnpm]
-pnpm i codemirror-editor-vue3 codemirror@">=5.64.0 <6" -S
+pnpm i codemirror-editor-vue3 codemirror@^5 -S
 ```
 
 :::

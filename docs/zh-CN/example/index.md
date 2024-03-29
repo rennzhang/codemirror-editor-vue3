@@ -2,10 +2,6 @@
 aside: false
 ---
 
-# 案例
-
-更多案例陆续更新中...
-
 <component v-if="CaseContainer" :is="CaseContainer"></component>
 
 <script>
@@ -19,7 +15,7 @@ export default {
   },
 
   mounted() {
-    import('../../demo/moreCase/index.vue').then((module) => {
+    import('../../demo/examples/index.vue').then((module) => {
       this.CaseContainer = shallowRef(module.default)
     })
 
