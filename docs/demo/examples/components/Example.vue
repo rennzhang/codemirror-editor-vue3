@@ -1,15 +1,17 @@
 <template>
   <div class="example">
     <div class="example-showcase">
-      <div class="w-full  mb-5">
-        <div class=" mb-2">
-          Theme: <span class="font-bold">{{ isDark?'dracula':'default' }}</span>
+      <div class="w-full mb-5">
+        <div class="flex-center">
+          <div class=" mb-2 mr-10">
+            Theme: <span class="font-bold">{{ isDark?'dracula':'default' }}</span>
+          </div>
+          <div class=" mb-2">
+            Lang: <span class="font-bold">{{ props.schema.lang }}</span>
+          </div>
         </div>
-        <div class=" mb-2">
-          Lang: <span class="font-bold">{{ props.schema.lang }}</span>
-        </div>
-        <div class="font-bold">
-          {{ props.schema.describe }}
+        <div class="font-bold flex-center">
+          > {{ props.schema.describe }}
         </div>
       </div>
       <component

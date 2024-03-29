@@ -1,5 +1,4 @@
 <template>
-  <h1>Code Lint</h1>
   <div class="mb-3 mt-5">
     <a
       v-for="(item, index) in schemas"
