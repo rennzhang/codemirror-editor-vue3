@@ -1,3 +1,12 @@
+# [2.5.0-beta.7](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.6...v2.5.0-beta.7) (2024-03-29)
+
+
+### Bug Fixes
+
+* doc build error ([179e36f](https://github.com/rennzhang/codemirror-editor-vue3/commit/179e36fd42b586a7a594899bc9079322dacdf531))
+
+
+
 # [2.5.0-beta.6](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.5...v2.5.0-beta.6) (2024-03-28)
 
 
