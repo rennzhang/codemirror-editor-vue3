@@ -3,75 +3,22 @@
 
 ### Features
 
-* 文档搜索改用MiniSearch ([f0e0880](https://github.com/rennzhang/codemirror-editor-vue3/commit/f0e088010b0e830597a75d8fa4375f13679aac83))
+- 🌟 Document optimization: adding code validation cases
+- 🌟 Document optimization: Change search to MiniSearch([f0e0880](https://github.com/rennzhang/codemirror-editor-vue3/commit/f0e088010b0e830597a75d8fa4375f13679aac83))
+- 🌟 Width and height support percentage, removing excess styles - 🐞 Fix some known issues
 
+---
 
-
-# [2.5.0-beta.7](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.6...v2.5.0-beta.7) (2024-03-29)
-
-
-### Bug Fixes
-
-* doc build error ([179e36f](https://github.com/rennzhang/codemirror-editor-vue3/commit/179e36fd42b586a7a594899bc9079322dacdf531))
-
-
-
-# [2.5.0-beta.6](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.5...v2.5.0-beta.6) (2024-03-28)
+- 🌟 文档优化：增加代码校验案例
+- 🌟 文档优化：搜索改用MiniSearch ([f0e0880](https://github.com/rennzhang/codemirror-editor-vue3/commit/f0e088010b0e830597a75d8fa4375f13679aac83))
+- 🌟 宽高支持百分比，去除多余样式
+- 🐞 修复一些已知问题
 
 
 ### Bug Fixes
 
 * 去除多余样式 ([bcb810d](https://github.com/rennzhang/codemirror-editor-vue3/commit/bcb810d3c7d5c019d2c894106070d93a19a32c0b))
 * 修复路径报错 ([439b8cc](https://github.com/rennzhang/codemirror-editor-vue3/commit/439b8cce758c996efa1b8fb662ca9f6c677c345c))
-
-
-### Features
-
-* 宽高支持百分比 ([dda1e5b](https://github.com/rennzhang/codemirror-editor-vue3/commit/dda1e5b85b38f987fba236a05fd7917c285ab1b5))
-
-
-
-# [2.5.0-beta.5](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.4...v2.5.0-beta.5) (2024-03-28)
-
-
-
-# [2.5.0-beta.4](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.3...v2.5.0-beta.4) (2024-03-28)
-
-
-
-# [2.5.0-beta.3](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.2...v2.5.0-beta.3) (2024-03-28)
-
-
-
-# [2.5.0-beta.2](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.1...v2.5.0-beta.2) (2024-03-28)
-
-
-
-# [2.5.0-beta.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.1...v2.5.0-beta.1) (2024-03-27)
-
-
-### Features
-
-* playound demo ([dd89ad2](https://github.com/rennzhang/codemirror-editor-vue3/commit/dd89ad28074d87aa82826eac43d391809b09a5c2))
-
-
-
-# [2.5.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.1...v2.5.0-beta.0) (2024-03-27)
-
-
-### Features
-
-* playound demo ([dd89ad2](https://github.com/rennzhang/codemirror-editor-vue3/commit/dd89ad28074d87aa82826eac43d391809b09a5c2))
-
-
-
-# [2.5.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.1...v2.5.0-beta.0) (2024-03-27)
-
-
-### Features
-
-* playound demo ([c9eafda](https://github.com/rennzhang/codemirror-editor-vue3/commit/c9eafda8236ba19b9f5b06554b0cf47b09a74aa0))
-
 
 
 ## [2.4.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.4.0...v2.4.1) (2023-11-07)
