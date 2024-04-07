@@ -5,7 +5,8 @@
 
 - 🌟 Document optimization: adding code validation cases
 - 🌟 Document optimization: Change search to MiniSearch([f0e0880](https://github.com/rennzhang/codemirror-editor-vue3/commit/f0e088010b0e830597a75d8fa4375f13679aac83))
-- 🌟 Width and height support percentage, removing excess styles - 🐞 Fix some known issues
+- 🌟 Width and height support percentage, removing excess styles 
+- 🐞 Fix some known issues
 
 ---
 
