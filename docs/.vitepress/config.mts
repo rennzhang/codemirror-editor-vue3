@@ -179,11 +179,34 @@ export default defineConfig({
       message: "Released under the MIT License.",
       copyright: "Copyright © 2021-present Renn Cheung"
     },
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          "zh-CN": {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
 
-    algolia: {
-      appId: "TIA2QKB31F",
-      apiKey: "57dd54cc00e988117cc8b741128f5089",
-      indexName: "codemirror-editor-vue3"
-    }
+    // algolia: {
+    //   appId: "TIA2QKB31F",
+    //   apiKey: "57dd54cc00e988117cc8b741128f5089",
+    //   indexName: "codemirror-editor-vue3"
+    // }
   }
 })

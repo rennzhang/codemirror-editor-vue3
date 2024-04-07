@@ -6,6 +6,12 @@ aside: false
 
 More cases are being updated...
 
+# Interactive Example
+
+::: tip
+You can get rich examples through the following configurations.
+
+:::
 
 <component v-if="CaseContainer" :is="CaseContainer"></component>
 
@@ -20,7 +26,7 @@ export default {
   },
 
   mounted() {
-    import('../demo/examples/index.vue').then((module) => {
+    import('../demo/examples/Interactive/index.vue').then((module) => {
       this.CaseContainer = shallowRef(module.default)
     })
 

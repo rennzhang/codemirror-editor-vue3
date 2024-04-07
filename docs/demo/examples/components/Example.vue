@@ -1,4 +1,11 @@
 <template>
+  <div
+    v-if="props.schema?.deps?.length"
+    class="mt-5"
+  >
+    该功能必须安装以下依赖 / Please install the following dependencies:
+    <BashBlock :deps="props.schema.deps" />
+  </div>
   <div class="example">
     <div class="example-showcase">
       <div class="w-full mb-5">
@@ -17,6 +24,7 @@
       <component
         :is="props.schema.comp"
         ref="demoRef"
+        v-bind="props.schema.props"
       />
     </div>
     <div class="example-action">
@@ -47,7 +55,7 @@
 
 <script lang="ts" setup>
 import {
-  ref, defineProps, computed, watch,
+  ref, defineProps, computed, watch, nextTick,
 } from "vue";
 import { useClipboard } from "@vueuse/core";
 import VCodeBlock from "@wdns/vue-code-block";
@@ -55,6 +63,7 @@ import { useData } from "vitepress";
 
 import IconCopy from "./IconCopy.vue";
 import IconCode from "./IconCode.vue";
+import BashBlock from "./BashBlock.vue";
 
 // theme
 import "codemirror/theme/dracula.css";
@@ -64,8 +73,10 @@ const props = defineProps<{
     describe?: string;
     lang: string;
     raw: string;
-    comp: any
-  },
+    comp: any,
+    deps?: string[];
+    props: any
+  }
 }>();
 
 const { isDark } = useData();
@@ -80,8 +91,10 @@ const demoRef = ref<any>(null);
 
 watch(() => [isDark, demoRef], ([val, cmRef]) => {
   if (!cmRef.value) return;
-  cmRef.value?.setTheme(val.value ? "dracula" : "default");
-  theme.value = val.value ? "github-dark" : "github";
+  nextTick(() => {
+    cmRef.value?.setTheme(val.value ? "dracula" : "default");
+    theme.value = val.value ? "github-dark" : "github";
+  });
 }, { immediate: true, deep: true });
 
 </script>

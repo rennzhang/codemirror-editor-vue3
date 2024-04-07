@@ -79,6 +79,7 @@ const onReady = (cm: Editor) => {
 
 defineExpose({
   setTheme: (theme: string) => {
+    console.log(" theme", theme);
     cminstance.value?.setOption("theme", theme);
   },
 });

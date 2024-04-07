@@ -2,6 +2,13 @@
 aside: false
 ---
 
+# 交互案例
+
+::: tip
+通过下面的各项配置，你可以得到丰富的案例
+
+:::
+
 <component v-if="CaseContainer" :is="CaseContainer"></component>
 
 <script>
@@ -15,7 +22,7 @@ export default {
   },
 
   mounted() {
-    import('../../demo/examples/index.vue').then((module) => {
+    import('../../demo/examples/Interactive/index.vue').then((module) => {
       this.CaseContainer = shallowRef(module.default)
     })
 
