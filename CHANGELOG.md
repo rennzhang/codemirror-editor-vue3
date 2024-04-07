@@ -1,3 +1,12 @@
+## [2.5.8](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.7...v2.5.8) (2024-04-07)
+
+
+### Features
+
+* 文档搜索改用MiniSearch ([f0e0880](https://github.com/rennzhang/codemirror-editor-vue3/commit/f0e088010b0e830597a75d8fa4375f13679aac83))
+
+
+
 # [2.5.0-beta.7](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.6...v2.5.0-beta.7) (2024-03-29)
 
 
