@@ -4,7 +4,10 @@
     "module": "ESNext",
     "target": "esnext",
     "lib": ["DOM", "ESNext"],
-    "types": ["vite/client"],
+    "types": [
+      "node",
+      "vite/client",
+    ],
     "jsx": "preserve",
     "allowJs": true,
     "strict": true,

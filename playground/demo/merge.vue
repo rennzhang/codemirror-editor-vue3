@@ -1,14 +1,6 @@
 <template>
-  <Codemirror
-    merge
-    :options="cmOptions"
-    :height="300"
-    class="cm-component"
-    original-style
-    @change="onChange"
-    @focus="onFocus"
-    @ready="onReady"
-  />
+  <Codemirror merge :options="cmOptions" :height="300" class="cm-component" original-style @change="onChange"
+    @focus="onFocus" @ready="onReady" />
 </template>
 <script lang="ts">
 import { ref, defineComponent } from "vue";

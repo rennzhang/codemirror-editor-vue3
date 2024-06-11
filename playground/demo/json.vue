@@ -1,12 +1,7 @@
 <template>
   <div>
     darcula theme:
-    <Codemirror
-      v-model:value="code"
-      :options="cmOptions"
-      border
-      :height="200"
-    />
+    <Codemirror v-model:value="code" :options="cmOptions" border :height="200" />
   </div>
 </template>
 <script lang="ts">

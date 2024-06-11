@@ -1,16 +1,7 @@
 <template>
-  <div
-    class="icon-box"
-    @mouseenter="isShowTooltip = true"
-    @mouseleave="isShowTooltip = false"
-  >
+  <div class="icon-box" @mouseenter="isShowTooltip = true" @mouseleave="isShowTooltip = false">
     <div v-if="isShowTooltip" class="tooltips">查看源码</div>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
       <g fill="none">
         <path d="M0 0h24v24H0z" />
         <path
@@ -23,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from "vue"
 
-const isShowTooltip = ref(false);
+const isShowTooltip = ref(false)
 </script>

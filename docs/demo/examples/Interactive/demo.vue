@@ -10,9 +10,9 @@
   />
 </template>
 <script lang="ts" setup>
-import { ref, reactive, watch } from "vue";
-import { Editor, EditorConfiguration } from "codemirror";
-import Codemirror from "codemirror-editor-vue3";
+import { ref, reactive, watch } from "vue"
+import { Editor, EditorConfiguration } from "codemirror"
+import Codemirror from "codemirror-editor-vue3"
 // language
 // import "codemirror/mode/javascript/javascript.js";
 // // import "codemirror/mode/clike/clike.js";
@@ -32,41 +32,45 @@ const code = ref(`function findSequence(goal) {
              find(start * 3, "(" + history + " * 3)");
   }
   return find(1, "1");
-}`);
+}`)
 
 const props = defineProps<{
-  lang: string;
-}>();
+  lang: string
+}>()
 
-watch(() => props.lang, (lang) => {
-  import("codemirror/mode/clike/clike.js");
-  console.log(lang);
-}, {
-  immediate: true,
-});
-const cmOptions:EditorConfiguration = reactive({
+watch(
+  () => props.lang,
+  (lang) => {
+    import("codemirror/mode/clike/clike.js")
+    console.log(lang)
+  },
+  {
+    immediate: true
+  }
+)
+const cmOptions: EditorConfiguration = reactive({
   mode: props.lang,
   // mode: "application/json",
   lineNumbers: true,
-  lineWiseCopyCut: true,
+  lineWiseCopyCut: true
   // gutters: ["CodeMirror-lint-markers"],
-});
-console.log(" cmOptions", cmOptions);
+})
+console.log(" cmOptions", cmOptions)
 
-const cminstance = ref<Editor | null>(null);
+const cminstance = ref<Editor | null>(null)
 const onReady = (cm: Editor) => {
-  cminstance.value = cm;
-  console.log(cm.getValue());
-};
+  cminstance.value = cm
+  console.log(cm.getValue())
+}
 
 defineExpose({
   setTheme: (theme: string) => {
-    cminstance.value?.setOption("theme", theme);
-  },
-});
+    cminstance.value?.setOption("theme", theme)
+  }
+})
 </script>
 <style lang="less" scoped>
-  .cm-component {
-    font-family: monospace;
-  }
+.cm-component {
+  font-family: monospace;
+}
 </style>

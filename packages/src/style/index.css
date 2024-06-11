@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 .codemirror-container.bordered {
-    border: 1px solid #aaaaaa;
+  border: 1px solid #aaaaaa;
 }
 
 .codemirror-container .editor_custom_link {

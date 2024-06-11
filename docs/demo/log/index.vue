@@ -1,19 +1,10 @@
 <template>
-  <Codemirror
-    v-model:value="code"
-    :options="cmOptions"
-    border
-    :height="400"
-  />
+  <Codemirror v-model:value="code" :options="cmOptions" border :height="400" />
 </template>
 
 <script>
-import { ref, defineComponent } from "vue";
-import Codemirror, {
-  createLinkMark,
-  createLogMark,
-  createTitle,
-} from "../../../packages/index";
+import { ref, defineComponent } from "vue"
+import Codemirror, { createLinkMark, createLogMark, createTitle } from "../../../packages/index"
 
 export default defineComponent({
   components: { Codemirror },
@@ -21,7 +12,7 @@ export default defineComponent({
     const code = ref(`完整日志下载地址：${createLinkMark({
       href: "/logDownload",
       download: "",
-      target: "_blank",
+      target: "_blank"
     })}
 ${createTitle("可以标记每一行日志的输出类型")}
 ${createLogMark("2021-08-26 15:07:09: job is success", "info")}
@@ -40,11 +31,11 @@ at com.zhiweicloud.dataprocess.engine.FlinkEngine.readFlinkEngineConfig(FlinkEng
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.buildFlinkStream(FlinkEngine.
 at com.zhiweicloud.dataprocess.engine.FlinkEngine.startFlinkEngine(FlinkEngine.
 at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
- `);
+ `)
     const cmOptions = {
       mode: "log",
-      theme: "default",
-    };
+      theme: "default"
+    }
     return {
       Codemirror,
       createLinkMark,
@@ -52,8 +43,8 @@ at com.zhiweicloud.dataprocess.DataStreamMain.main(DataStreamMain.
       createTitle,
       ref,
       code,
-      cmOptions,
-    };
-  },
-});
+      cmOptions
+    }
+  }
+})
 </script>
