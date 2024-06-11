@@ -3,6 +3,7 @@ export type LangOption = {
   label: string;
   code: string;
   langPath: string;
+  disabled?: boolean;
 };
 
 export type LayoutState = {

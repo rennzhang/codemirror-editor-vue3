@@ -13,6 +13,7 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElSlider: typeof import('element-plus/es')['ElSlider']
+    ElTips: typeof import('element-plus/es')['ElTips']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

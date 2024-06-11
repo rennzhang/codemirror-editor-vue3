@@ -49,18 +49,18 @@
 <script lang="ts" setup>
 import { ElSelect, ElOption, ElFormItem, ElCheckbox } from "element-plus";
 
-import { ref, watch, } from "vue";
+import { ref, watch, inject } from "vue";
 import { useStore } from "../store";
 import { ThemeOption } from "../types";
 import { THEME_OPTIONS, } from "../config/themeOptions";
 import "../config/theme"
 
 
-
+const provideHeight = inject<number>('height')
 
 const store = useStore();
 const widthCount = ref(100);
-const heightCount = ref(400);
+const heightCount = ref(provideHeight || 400);
 const widthUnit = ref("%");
 const heightUnit = ref("px");
 
@@ -76,6 +76,8 @@ watch([widthCount, widthUnit], () => {
 
 watch([heightCount, heightUnit], () => {
   store.height = `${heightCount.value}${heightUnit.value}`;
+}, {
+  immediate: true
 });
 
 

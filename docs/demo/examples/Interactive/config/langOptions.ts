@@ -142,6 +142,14 @@ gen ← {' #'[(life ⍣ ⍵) board]}
 (gen 1) (gen 2) (gen 3)
 `,
   },
+  // 更多语言正在添加中...
+  {
+    langPath: "",
+    value: "moreLang",
+    label: "More languages are being added...",
+    code: "",
+    disabled: true,
+  }
 ];
 
 export const DEFAULT_LANG_OPT = LANG_OPTIONS[0];

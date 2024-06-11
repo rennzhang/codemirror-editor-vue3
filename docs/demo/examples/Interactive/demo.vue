@@ -4,7 +4,7 @@
 </template>
 <script lang="ts" setup>
 import {
-  ref, reactive, computed, watch, nextTick,
+  ref, reactive, computed, watch, nextTick, inject
 } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
@@ -22,8 +22,10 @@ import "codemirror/addon/search/matchesonscrollbar.css";
 
 import "./config/lang";
 import { useStore } from "./store";
-
 const store = useStore();
+const provideHeight = inject<number>('height')
+
+store.height = String(provideHeight) || store.height || "500";
 
 const cmOptions: EditorConfiguration = reactive({
   mode: computed(() => (store.lang == "json" ? "javascript" : store.lang)),

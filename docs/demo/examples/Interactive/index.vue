@@ -29,6 +29,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import { useStore } from "./store";
 
+
 const store = useStore();
 const jsTemp = ref(TemplateRaw.toString());
 
@@ -37,6 +38,8 @@ watch(
   (val, oldVal) => {
     let temp = TemplateRaw;
     console.log(" watch store", val, oldVal, val.themePath?.length)
+
+    const transHeight = typeof val.height == "string" ? val.height : val.height + "";
     jsTemp.value = temp
       .replace(`%code%`, val.code)
       .replace(`%theme%`, val.theme)
@@ -58,4 +61,8 @@ watch(
 );
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+:deep(.el-form-item) {
+  margin-bottom: 0;
+}
+</style>

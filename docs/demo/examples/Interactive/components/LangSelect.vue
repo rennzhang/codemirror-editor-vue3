@@ -1,8 +1,8 @@
 <template>
   <el-form-item label="Lang:" class="mr-4">
     <ElSelect v-model="value" placeholder="Select" style="width: 240px" size="small" filterable>
-      <el-option v-for="item in LANG_OPTIONS" :key="item.value" :label="item.label" :value="item.value"
-        @click.native="onLangChange(item)" />
+      <el-option v-for="item in LANG_OPTIONS" :disabled="item.disabled" :key="item.value" :label="item.label"
+        :value="item.value" @click.native="onLangChange(item)" />
     </ElSelect>
   </el-form-item>
 
