@@ -3,9 +3,12 @@
   display: inline-block;
 }
 
-.VPDoc:not(.has-aside) .container .content  {
+.VPDoc:not(.has-aside) .container .content {
   width: 100%;
   max-width: 100% !important;
 }
 
-
+.VPHomeHero .main .name {
+  width: 100%;
+  max-width: 100%;
+}
