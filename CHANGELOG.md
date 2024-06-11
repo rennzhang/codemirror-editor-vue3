@@ -1,3 +1,12 @@
+# [2.6.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.8...v2.6.0-beta.0) (2024-06-11)
+
+
+### Features
+
+* 文档更新，支持配置生成案例 ([dca8355](https://github.com/rennzhang/codemirror-editor-vue3/commit/dca83557b28d207a0ce7a3e2b3c85c3cfc61882e))
+
+
+
 ## [2.5.8](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.5.0-beta.7...v2.5.8) (2024-04-07)
 
 

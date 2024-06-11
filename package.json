@@ -1,7 +1,7 @@
 {
   "name": "codemirror-editor-vue3",
   "description": "CodeMirror component for Vue3",
-  "version": "2.5.8",
+  "version": "2.6.0-beta.0",
   "license": "MIT",
   "files": [
     "dist"
@@ -49,7 +49,7 @@
     "docs-build": "vitepress build docs",
     "docs-serve": "vitepress serve docs",
     "deploy-docs": "bash scripts/deploy-docs.sh",
-    "release": "tsx scripts/release.ts",
+    "release": "node --import tsx scripts/release.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{docs,packages,tests,types}/**/*.{vue,js,jsx,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write \"{docx,packages,tests,types}/**/*.{vue,js,jsx,ts,tsx,json,css,less,scss,html,md}\"",
