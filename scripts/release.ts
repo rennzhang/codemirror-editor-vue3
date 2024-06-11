@@ -80,7 +80,7 @@ async function main() {
 
   if (args.tag === "beta") {
     step("publish packages for beta...");
-    await run("npm", ["publish", "--tag=beta"]);
+    await run("npm", ["publish", "--tag beta"]);
   } else {
     step("publish packages for official...");
     await run("npm", ["publish"]);
