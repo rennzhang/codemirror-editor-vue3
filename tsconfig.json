@@ -4,10 +4,7 @@
     "module": "ESNext",
     "target": "esnext",
     "lib": ["DOM", "ESNext"],
-    "types": [
-      "node",
-      "vite/client",
-    ],
+    "types": ["node", "vite/client", "element-plus/global"],
     "jsx": "preserve",
     "allowJs": true,
     "strict": true,
@@ -37,6 +34,8 @@
     "*.tsx",
     "*.vue",
     "*.d.ts",
-    "*.md"
+    "*.md",
+    "docs/demo/examples/Interactive/lib/cmsearch.min.js",
+    "docs/demo/examples/Interactive/lib/combo.min.js"
   ]
 }

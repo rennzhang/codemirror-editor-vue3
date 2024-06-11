@@ -1,67 +1,49 @@
 <template>
-  <Codemirror
-    v-model:value="code"
-    :options="cmOptions"
-    :height="300"
-    width="80%"
-    class="cm-component"
-    :border="true"
-    @ready="onReady"
-  />
+  <Codemirror v-model:value="store.code" :options="cmOptions" :height="store.height || '500px'" :width="store.width"
+    class="cm-component" :border="store.border" @ready="onReady" />
 </template>
 <script lang="ts" setup>
-import { ref, reactive, watch } from "vue"
-import { Editor, EditorConfiguration } from "codemirror"
-import Codemirror from "codemirror-editor-vue3"
-// language
-// import "codemirror/mode/javascript/javascript.js";
-// // import "codemirror/mode/clike/clike.js";
-// import "codemirror/addon/lint/javascript-lint";
-// import "codemirror/addon/lint/lint.css";
-// import "codemirror/addon/lint/lint.js";
-// import "codemirror/addon/lint/json-lint";
+import {
+  ref, reactive, computed, watch, nextTick,
+} from "vue";
+import { Editor, EditorConfiguration } from "codemirror";
+import Codemirror from "codemirror-editor-vue3";
 
-const code = ref(`function findSequence(goal) {
-  function find(start, history) {
-    if (start == goal)
-      return history;
-    else if (start > goal)
-      return null;
-    else
-      return find(start + 5, "(" + history + " + 5)") ||
-             find(start * 3, "(" + history + " * 3)");
-  }
-  return find(1, "1");
-}`)
+import "codemirror/addon/mode/overlay.js";
+import "codemirror/addon/scroll/simplescrollbars.js";
+import "codemirror/addon/search/searchcursor.js";
+import "codemirror/addon/search/search";
+import "codemirror/addon/dialog/dialog.js";
+import "codemirror/addon/selection/mark-selection.js";
 
-const props = defineProps<{
-  lang: string
-}>()
+import "codemirror/addon/scroll/simplescrollbars.css";
+import "codemirror/addon/dialog/dialog.css";
+import "codemirror/addon/search/matchesonscrollbar.css";
 
-watch(
-  () => props.lang,
-  (lang) => {
-    import("codemirror/mode/clike/clike.js")
-    console.log(lang)
-  },
-  {
-    immediate: true
-  }
-)
+import "./config/lang";
+import { useStore } from "./store";
+
+const store = useStore();
+
 const cmOptions: EditorConfiguration = reactive({
-  mode: props.lang,
-  // mode: "application/json",
+  mode: computed(() => (store.lang == "json" ? "javascript" : store.lang)),
+  theme: computed(() => store.theme),
+  readOnly: computed(() => store.readOnly),
   lineNumbers: true,
-  lineWiseCopyCut: true
-  // gutters: ["CodeMirror-lint-markers"],
-})
-console.log(" cmOptions", cmOptions)
+  lineWiseCopyCut: true,
+  scrollbarStyle: "simple",
+  showCursorWhenSelecting: true,
+  styleSelectedText: true,
+});
 
 const cminstance = ref<Editor | null>(null)
 const onReady = (cm: Editor) => {
   cminstance.value = cm
   console.log(cm.getValue())
 }
+
+const _fontSize = computed(() => store.fontSize || "13px");
+const _lineHeight = computed(() => store.lineHeight || "20px");
 
 defineExpose({
   setTheme: (theme: string) => {
@@ -72,5 +54,7 @@ defineExpose({
 <style lang="less" scoped>
 .cm-component {
   font-family: monospace;
+  font-size: v-bind(_fontSize);
+  line-height: v-bind(_lineHeight);
 }
 </style>

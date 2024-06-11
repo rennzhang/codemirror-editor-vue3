@@ -14,7 +14,9 @@ import Example from "../components/Example.vue"
 import JsLintDemoRaw from "./jsLint.vue?raw"
 import jsonLintRaw from "./jsonLint.vue?raw"
 
-const current = ref(1)
+
+
+const current = ref(1);
 const schemas = [
   {
     raw: JsLintDemoRaw,

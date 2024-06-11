@@ -1,22 +1,61 @@
 <template>
-  <div>Basic Demo</div>
-  <Example
-    :schema="{
-      raw: jsDemoRaw,
-      comp: jsDemo,
-      describe: 'javascript 模式下可展示 json 数据',
-      lang: 'javascript',
-      props: {
-        lang: 'text/x-c'
-      }
-    }"
-  />
+  <Example :raw="jsTemp">
+    <template #config>
+      <div class="flex w-full mb-3 flex-wrap">
+        <div class="w-full flex flex-wrap">
+          <LayoutConfig></LayoutConfig>
+        </div>
+        <hr class="w-full" />
+        <div>
+          <LangSelect />
+        </div>
+      </div>
+    </template>
+    <CodemirrorDemo></CodemirrorDemo>
+  </Example>
 </template>
 
 <script lang="ts" setup>
-import Example from "../components/Example.vue"
-import jsDemo from "./demo.vue"
-import jsDemoRaw from "./demo.vue?raw"
+import Example from "./components/Example.vue";
+import CodemirrorDemo from "./demo.vue";
+import TemplateRaw from "./template.pug?raw";
+import LangSelect from "./components/LangSelect.vue";
+import LayoutConfig from "./components/Layout.vue";
+import { ref, watch } from "vue";
+import "element-plus/es/components/select/style/css";
+import "element-plus/es/components/checkbox/style/css";
+import "element-plus/es/components/form/style/css";
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
+import { useStore } from "./store";
+
+const store = useStore();
+const jsTemp = ref(TemplateRaw.toString());
+
+watch(
+  () => store,
+  (val, oldVal) => {
+    let temp = TemplateRaw;
+    console.log(" watch store", val, oldVal, val.themePath?.length)
+    jsTemp.value = temp
+      .replace(`%code%`, val.code)
+      .replace(`%theme%`, val.theme)
+      .replace(`%lang%`, val.lang == "json" ? "javascript" : val.lang)
+      .replace(`%width%`, val.width)
+      .replace(`%height%`, val.height)
+      .replace(`%border%`, val.border + '')
+      .replace(`%readOnly%`, val.readOnly + '')
+      .replace(`%langPath%`, `import "${val.langPath}"`)
+      .replace(`%themePath%`, val.themePath?.length ? `// theme \nimport "${val.themePath}"` : "");
+
+    console.log(" jsTemp", jsTemp.value, val.code);
+
+  },
+  {
+    immediate: true,
+    deep: true,
+  }
+);
 </script>
 
 <style scoped lang="less"></style>

@@ -1,5 +1,5 @@
-import type { Ref } from "vue"
-import { ref, unref, computed } from "vue"
+import type { Ref } from "vue";
+import { ref, unref, computed, nextTick } from "vue";
 
 import type { Editor } from "codemirror"
 import type { MergeView } from "codemirror/addon/merge/merge"
@@ -11,13 +11,20 @@ export declare type UseViewControlParams = {
   presetRef: Ref<{ initialize: () => void } | null>
 }
 
-export function useViewControl({ props, cminstance, presetRef }: UseViewControlParams) {
-  const containerWidth = ref<string>("100%")
-  const containerHeight = ref<string>("100%")
+export function useViewControl({
+  props,
+  cminstance,
+  presetRef,
+}: UseViewControlParams) {
+  const containerWidth = ref<string>("100%");
+  const containerHeight = ref<string>("100%");
 
   const realCm = computed(
-    () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor
-  )
+    () =>
+      (props.merge
+        ? (unref(cminstance) as MergeView)?.editor()
+        : unref(cminstance)) as Editor
+  );
   const refresh = () => {
     nextTick(() => {
       realCm.value?.refresh()
@@ -25,26 +32,29 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
   }
 
   const resize = (width = props.width, height = props.height) => {
-    let cmHeight = ""
-    let cmWidth = ""
-    if (String(width).includes("%")) {
-      cmWidth = "100%"
-      containerWidth.value = String(width)
-    } else {
-      cmWidth = String(width).replace("px", "")
-      containerWidth.value = `${cmWidth}px`
+    let cmWidth = "100%";
+    let cmHeight = "100%";
+    console.log("resize", width, width);
+
+    if (typeof width === "number") {
+      cmWidth = `${String(width)}px`;
+    } else if (width) {
+      cmWidth = width;
     }
 
-    if (String(height).includes("%")) {
-      cmHeight = "100%"
-      containerHeight.value = String(height)
-    } else {
-      cmHeight = String(height).replace("px", "")
-      containerHeight.value = `${cmHeight}px`
+    if (typeof height === "number") {
+      cmHeight = `${String(height)}px`;
+    } else if (height) {
+      cmHeight = height;
     }
 
-    realCm.value?.setSize(cmWidth, cmHeight)
-  }
+    containerWidth.value = cmWidth;
+    containerHeight.value = cmHeight;
+
+    console.log("resize", cmWidth, cmHeight);
+
+    realCm.value?.setSize("100%", "100%");
+  };
 
   const destroy = () => {
     // garbage cleanup
@@ -64,10 +74,12 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
   }
 
   const isStyleChaotic = () => {
-    const gutterEl: HTMLElement | null = document.querySelector(".CodeMirror-gutters")
-    const gutterElLeft = gutterEl?.style.left.replace("px", "")
-    return gutterElLeft !== "0"
-  }
+    const gutterEl: HTMLElement | null = document.querySelector(
+      ".CodeMirror-gutters"
+    );
+    const gutterElLeft = gutterEl?.style.left.replace("px", "");
+    return gutterElLeft !== "0";
+  };
 
   const reviseStyle = () => {
     refresh()
