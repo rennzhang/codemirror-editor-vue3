@@ -2,9 +2,9 @@
 aside: false
 ---
 
-# 代码语法检查
+# Code syntax check
 ::: tip
-Here are some examples of code syntax checking, currently supported for js, json, etc.
+Here are some examples of code syntax checking(code lint), currently supported for js, json.
 
 Click on the blue font below to see the effect.
 :::

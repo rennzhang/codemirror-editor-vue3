@@ -1,7 +1,9 @@
 import { defineConfig } from "vitepress"
 import { resolve } from "path";
 import UnoCSS from "unocss/vite";
-
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), ".", dir);
@@ -106,7 +108,7 @@ function getExampleSidebar(lang: "en" | "zh") {
           link: `${route}/example/index`
         },
         {
-          text: "Code Lint",
+          text: "Code Syntax Check",
           link: `${route}/example/codeLint`
         },
       ]
@@ -121,7 +123,13 @@ export default defineConfig({
   cleanUrls: true,
   vite: {
     plugins: [
-      UnoCSS()
+      UnoCSS(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
     resolve: {
       alias: [

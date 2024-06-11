@@ -1,11 +1,6 @@
 <template>
   <div class="mb-3 mt-5">
-    <a
-      v-for="(item, index) in schemas"
-      :key="index"
-      class="mr-3 cursor-pointer"
-      @click="current = index"
-    >
+    <a v-for="(item, index) in schemas" :key="index" class="mr-3 cursor-pointer" @click="current = index">
       <span v-if="index == current">👉🏻</span>
       {{ item.lang }} Lint
     </a>
@@ -18,6 +13,8 @@ import { ref, defineAsyncComponent, computed } from "vue";
 import Example from "../components/Example.vue";
 import JsLintDemoRaw from "./jsLint.vue?raw";
 import jsonLintRaw from "./jsonLint.vue?raw";
+
+
 
 const current = ref(1);
 const schemas = [

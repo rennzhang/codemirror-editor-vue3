@@ -59,7 +59,9 @@
     "@wdns/vue-code-block": "^2.3.2",
     "codemirror": "^5",
     "diff-match-patch": "^1.0.5",
-    "jsonlint-mod": "^1.7.6"
+    "element-plus": "^2.6.3",
+    "jsonlint-mod": "^1.7.6",
+    "unplugin-vue-components": "^0.26.0"
   },
   "peerDependencies": {
     "codemirror": "^5",
