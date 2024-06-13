@@ -8,7 +8,8 @@
   max-width: 100% !important;
 }
 
-.VPHomeHero .main .name {
+.VPHomeHero .main .name,
+.VPHomeHero .main .tagline {
   width: 100%;
   max-width: 100%;
 }
