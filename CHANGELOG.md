@@ -1,3 +1,12 @@
+# [2.7.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.6.1...v2.7.0) (2024-06-13)
+
+
+### Features
+
+* 调整useViewControl逻辑 ([8979694](https://github.com/rennzhang/codemirror-editor-vue3/commit/89796941fab829d53363ac2a0a04454016410842))
+
+
+
 ## [2.6.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.6.0...v2.6.1) (2024-06-13)
 
 
