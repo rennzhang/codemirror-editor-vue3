@@ -11,3 +11,5 @@ import "codemirror/mode/python/python";
 import "codemirror/mode/go/go";
 import "codemirror/mode/ruby/ruby";
 import "codemirror/mode/sql/sql";
+// yaml
+import "codemirror/mode/yaml/yaml";

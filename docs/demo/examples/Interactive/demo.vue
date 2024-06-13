@@ -30,7 +30,7 @@ import { useStore } from "./store";
 const store = useStore();
 const provideHeight = inject<number>("height");
 
-store.height = String(provideHeight) || store.height || "500";
+store.height = (provideHeight && String(provideHeight)) || store.height || "500";
 
 const cmOptions: EditorConfiguration = reactive({
   mode: computed(() => (store.lang == "json" ? "javascript" : store.lang)),

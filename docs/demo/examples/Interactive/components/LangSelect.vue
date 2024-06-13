@@ -1,6 +1,6 @@
 <template>
   <el-form-item label="Lang:" class="mr-4">
-    <ElSelect v-model="value" placeholder="Select" style="width: 240px" size="small" filterable>
+    <ElSelect v-model="store.lang" placeholder="Select" style="width: 240px" size="small" filterable>
       <el-option
         v-for="item in LANG_OPTIONS"
         :disabled="item.disabled"
