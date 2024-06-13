@@ -9,11 +9,14 @@
 
 [简体中文](https://rennzhang.github.io/codemirror-editor-vue3/zh-CN/guide/getting-started)
 
-The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only vue3 is supported.
+The codemirror component of vue3. This component is developed based on [Codemirror 5](http://codemirror.net/5/) and only
+vue3 is supported.
 
-In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not necessarily suitable for all scenarios.
+In addition to the officially supported modes, the log output presentation mode is added, out of the box, but not
+necessarily suitable for all scenarios.
 
-For complete documentation and more cases, please check [codemirror-editor-vue3 docs](https://RennZhang.github.io/codemirror-editor-vue3/).
+For complete documentation and more cases, please check
+[codemirror-editor-vue3 docs](https://RennZhang.github.io/codemirror-editor-vue3/).
 
 ## Install
 
@@ -37,7 +40,8 @@ npm install @types/codemirror -D
 
 ## Register global component
 
-> **Do not recommend global registration components**, which will result in the type of prompt on the template that cannot be properly obtained.
+> **Do not recommend global registration components**, which will result in the type of prompt on the template that
+> cannot be properly obtained.
 
 `main.js:`
 
@@ -107,6 +111,20 @@ for (; i < 9; i++) {
 </script>
 ```
 
+## Language highlighting
+
+> You can click on the following link to view corresponding language cases
+
+- [javascript](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=javascript)
+- [json](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=json)
+- [css](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=css)
+- [html](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=html)
+- [apl](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=apl)
+- [yaml](https://rennzhang.github.io/codemirror-editor-vue3/example?lang=yaml)
+
+More cases are gradually being added, and you can also refer to
+[document](https://rennzhang.github.io/codemirror-editor-vue3/guide/lang) to achieve more language modes.
+
 ## Component Props
 
 [cm_config_url]: https://codemirror.net/doc/manual.html#config
@@ -125,12 +143,12 @@ for (; i < 9; i++) {
 | **KeepCursorInEnd** |                                              Always keep the mouse position on the last line                                              | `boolean`                                 |                `false`                 |
 | **merge**           |                                               merge mode, can also be used as diff pattern                                                | `boolean`                                 |                `false`                 |
 
-
 ## Events
 
 ### Component Events
 
-> The following three are only the events encapsulated by this component. Please refer to more events [Codemirror Events](./events#codemirror-events)
+> The following three are only the events encapsulated by this component. Please refer to more events
+> [Codemirror Events](./events#codemirror-events)
 
 | event name |             description             | params                                |
 | ---------- | :---------------------------------: | :------------------------------------ |
@@ -142,7 +160,9 @@ for (; i < 9; i++) {
 
 ### Codemirror Events
 
-The following events are official events of Codemirror5. You can refer to the official documents for details [Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly through components, for example：
+The following events are official events of Codemirror5. You can refer to the official documents for details
+[Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly
+through components, for example：
 
 ```vue {8-10}
 <Codemirror
