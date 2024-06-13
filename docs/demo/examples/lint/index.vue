@@ -9,12 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineAsyncComponent, computed } from "vue"
-import Example from "../components/Example.vue"
-import JsLintDemoRaw from "./jsLint.vue?raw"
-import jsonLintRaw from "./jsonLint.vue?raw"
-
-
+import { ref, defineAsyncComponent, computed } from "vue";
+import Example from "../components/Example.vue";
+import JsLintDemoRaw from "./jsLint.vue?raw";
+import jsonLintRaw from "./jsonLint.vue?raw";
 
 const current = ref(1);
 const schemas = [
@@ -23,18 +21,18 @@ const schemas = [
     comp: defineAsyncComponent(() => import("./jsLint.vue")),
     describe: "校验 js 代码, 在任意位置输入字符尝试校验功能",
     lang: "javascript",
-    deps: ["jslint"]
+    deps: ["jslint"],
   },
   {
     raw: jsonLintRaw,
     comp: defineAsyncComponent(() => import("./jsonLint.vue")),
     describe: "校验 json 数据, 在任意位置输入字符尝试校验功能",
     lang: "application/json",
-    deps: ["jsonlint"]
-  }
-]
+    deps: ["jsonlint"],
+  },
+];
 
-const currentSchema = computed(() => schemas[current.value])
+const currentSchema = computed(() => schemas[current.value]);
 </script>
 
 <style scoped lang="less"></style>

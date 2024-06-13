@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, unref, watch, onMounted, markRaw } from "vue"
-import type { PropType } from "vue"
-import type { Editor } from "codemirror"
+import { defineComponent, ref, unref, watch, onMounted, markRaw } from "vue";
+import type { PropType } from "vue";
+import type { Editor } from "codemirror";
 
-import _CodeMirror from "../../../sourceLib"
+import _CodeMirror from "../../../sourceLib";
 
-import { getLinkMarks, getLogMark, MarkStates } from "./utils"
-import "./languages/fcLog/index"
-import "./languages/simpleLog/index"
+import { getLinkMarks, getLogMark, MarkStates } from "./utils";
+import "./languages/fcLog/index";
+import "./languages/simpleLog/index";
 
 // import 'codemirror/addon/lint/lint.css'
 export default defineComponent({
@@ -19,73 +19,73 @@ export default defineComponent({
   props: {
     value: {
       type: String as PropType<string>,
-      default: ""
+      default: "",
     },
     name: {
       type: String as PropType<string>,
-      default: `cm-textarea-${+new Date()}`
+      default: `cm-textarea-${+new Date()}`,
     },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     cminstance: {
       type: Object as PropType<Editor | null>,
-      default: () => ({})
+      default: () => ({}),
     },
     placeholder: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   emits: ["update:cminstance", "ready"],
   setup(props, { emit }) {
-    const textarea = ref()
-    const _cminstance = ref<Editor | null>(null)
+    const textarea = ref();
+    const _cminstance = ref<Editor | null>(null);
 
     const renderTextMark = (cminstance: Editor = props.cminstance as Editor) => {
-      const marks = cminstance.getAllMarks()
+      const marks = cminstance.getAllMarks();
       // 重置marks
-      marks.forEach((mark) => mark.clear())
-      const value = cminstance.getValue()
-      const linkMarks: MarkStates[] = ([] as MarkStates[]).concat(getLinkMarks(value)).concat(getLogMark(value))
+      marks.forEach((mark) => mark.clear());
+      const value = cminstance.getValue();
+      const linkMarks: MarkStates[] = ([] as MarkStates[]).concat(getLinkMarks(value)).concat(getLogMark(value));
       for (let _i = 0; _i < linkMarks.length; _i++) {
-        const mark = linkMarks[_i]
+        const mark = linkMarks[_i];
         cminstance.markText(cminstance.posFromIndex(mark.start), cminstance.posFromIndex(mark.end), {
-          replacedWith: mark.node
-        })
+          replacedWith: mark.node,
+        });
       }
-    }
+    };
 
     const initialize = () => {
-      _cminstance.value = markRaw(_CodeMirror.fromTextArea(textarea.value, props.options))
+      _cminstance.value = markRaw(_CodeMirror.fromTextArea(textarea.value, props.options));
 
-      emit("update:cminstance", unref(_cminstance))
+      emit("update:cminstance", unref(_cminstance));
 
-      _cminstance.value?.on("change", renderTextMark)
-    }
+      _cminstance.value?.on("change", renderTextMark);
+    };
 
     watch(
       () => props.cminstance,
       (val) => {
         if (val) {
-          renderTextMark(props.cminstance as Editor)
-          props.cminstance?.setValue(props.value)
-          emit("ready", _cminstance)
+          renderTextMark(props.cminstance as Editor);
+          props.cminstance?.setValue(props.value);
+          emit("ready", _cminstance);
         }
       },
       { deep: true, immediate: true }
-    )
+    );
 
     onMounted(() => {
-      initialize()
-    })
+      initialize();
+    });
     return {
       initialize,
-      textarea
-    }
-  }
-})
+      textarea,
+    };
+  },
+});
 </script>
 
 <style scoped lang="less"></style>

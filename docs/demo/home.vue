@@ -1,12 +1,12 @@
 <template>
-  <div style="width: 100%; ">
-    <Example></Example>
+  <div style="width: 100%">
+    <Example />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { provide } from "vue"
-import Example from "./examples/Interactive/index.vue"
+import { provide } from "vue";
+import Example from "./examples/Interactive/index.vue";
 
-provide("height", 280)
+provide("height", 280);
 </script>

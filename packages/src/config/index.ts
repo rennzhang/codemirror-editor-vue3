@@ -1,18 +1,18 @@
-import { Editor, EditorEventMap } from "codemirror"
+import { Editor, EditorEventMap } from "codemirror";
 
-export type EditorEventNames = Exclude<keyof EditorEventMap, "change">
+export type EditorEventNames = Exclude<keyof EditorEventMap, "change">;
 interface EditorEventMapWithChange extends EditorEventMap {
-  keyHandled: (instance: Editor, name: string, eventObj: Event) => void
-  focus: (instance: Editor, eventObj: FocusEvent) => void
-  blur: (instance: Editor, eventObj: FocusEvent) => void
-  scrollCursorIntoView: (instance: Editor, eventObj: Event) => void
+  keyHandled: (instance: Editor, name: string, eventObj: Event) => void;
+  focus: (instance: Editor, eventObj: FocusEvent) => void;
+  blur: (instance: Editor, eventObj: FocusEvent) => void;
+  scrollCursorIntoView: (instance: Editor, eventObj: Event) => void;
 }
 
 export interface ComponentEventMap {
-  "update:value": (value: string) => any
-  change: (value: string, cm: Editor) => { value: string; cm: Editor }
-  input: (value: string) => any
-  ready: (cm: Editor) => Editor
+  "update:value": (value: string) => any;
+  change: (value: string, cm: Editor) => { value: string; cm: Editor };
+  input: (value: string) => any;
+  ready: (cm: Editor) => Editor;
 }
 
 // component define events
@@ -20,8 +20,8 @@ export const componentEventMap: ComponentEventMap = {
   "update:value": () => true,
   change: (value, cm) => ({ value, cm }),
   input: () => true,
-  ready: (cm) => cm
-}
+  ready: (cm) => cm,
+};
 
 // codemirror events
 export const cmEvts: EditorEventNames[] = [
@@ -42,18 +42,18 @@ export const cmEvts: EditorEventNames[] = [
   "refresh",
   "optionChange",
   "scrollCursorIntoView",
-  "update"
-]
+  "update",
+];
 
 export const getCmEvts = (): Pick<EditorEventMapWithChange, EditorEventNames> => {
-  const result: any = {}
+  const result: any = {};
   cmEvts.forEach((name) => {
-    result[name] = (...args: any) => args
-  })
-  return result
-}
+    result[name] = (...args: any) => args;
+  });
+  return result;
+};
 
-export const emitOptions = { ...componentEventMap, ...getCmEvts() }
+export const emitOptions = { ...componentEventMap, ...getCmEvts() };
 
 export const DEFAULT_OPTIONS = {
   mode: "text", // Language mode
@@ -61,5 +61,5 @@ export const DEFAULT_OPTIONS = {
   lineNumbers: true, // Display line number
   smartIndent: true, // Intelligent indentation
   indentUnit: 2,
-  styleActiveLine: true
-}
+  styleActiveLine: true,
+};

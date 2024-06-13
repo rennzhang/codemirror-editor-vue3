@@ -5,12 +5,12 @@ module.exports = {
     node: true,
   },
   extends: [
-    "./.eslintrc-auto-import.json",
     "plugin:vue/vue3-essential",
     "eslint:recommended",
+    "@vue/eslint-config-typescript",
     "@vue/typescript/recommended",
     "@vue/prettier",
-    "@vue/eslint-config-typescript",
+    "./.eslintrc-auto-import.json",
   ],
   parser: "vue-eslint-parser",
   parserOptions: {
@@ -32,19 +32,20 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
       },
     ],
     "no-unused-vars": [
-      "error",
+      "warn",
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
       },
     ],
+
     "vue/html-self-closing": [
       "error",
       {
@@ -57,18 +58,22 @@ module.exports = {
         math: "always",
       },
     ],
-    // Prettier
+    "linebreak-style": 0, // 	强制使用一致的换行风格
+    "max-len": 0, // 强制一行的最大长度
+    // // Prettier
     "prettier/prettier": [
       "error",
       {
         endOfLine: "auto",
+        semi: true,
+        trailingComma: "es5",
       },
     ],
     // Vue
     "vue/require-default-prop": "off",
     "vue/require-explicit-emits": "off",
     "vue/multi-word-component-names": "off",
-    quotes: ["error", "double", "avoid-escape"],
+    quotes: ["error", "double"],
     "no-console": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
@@ -77,9 +82,9 @@ module.exports = {
     "no-unused-expressions": "off",
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "vue/multi-word-component-names": "off",
-    "@typescript-eslint/no-explicit-any": ["off"],
+    // "@typescript-eslint/ban-ts-comment": "off",
+    // "vue/multi-word-component-names": "off",
+    // "@typescript-eslint/no-explicit-any": ["off"],
     "import/prefer-default-export": "off",
   },
   overrides: [

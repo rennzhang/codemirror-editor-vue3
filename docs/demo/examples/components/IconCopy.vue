@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
-const isShowTooltip = ref(false)
+const isShowTooltip = ref(false);
 </script>

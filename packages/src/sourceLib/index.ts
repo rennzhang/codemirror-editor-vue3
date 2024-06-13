@@ -1,8 +1,8 @@
-import _CodeMirror from "codemirror"
+import _CodeMirror from "codemirror";
 
-!window.CodeMirror && (window.CodeMirror = _CodeMirror)
+!window.CodeMirror && (window.CodeMirror = _CodeMirror);
 
-const CodeMirror = window.CodeMirror || _CodeMirror
+const CodeMirror = window.CodeMirror || _CodeMirror;
 
-export { CodeMirror }
-export default CodeMirror
+export { CodeMirror };
+export default CodeMirror;

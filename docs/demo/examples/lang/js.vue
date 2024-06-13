@@ -10,15 +10,15 @@
   />
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from "vue"
-import { Editor, EditorConfiguration } from "codemirror"
-import Codemirror from "codemirror-editor-vue3"
+import { ref, reactive } from "vue";
+import { Editor, EditorConfiguration } from "codemirror";
+import Codemirror from "codemirror-editor-vue3";
 // language
-import "codemirror/mode/javascript/javascript.js"
-import "codemirror/addon/lint/javascript-lint"
-import "codemirror/addon/lint/lint.css"
-import "codemirror/addon/lint/lint.js"
-import "codemirror/addon/lint/json-lint"
+import "codemirror/mode/javascript/javascript.js";
+import "codemirror/addon/lint/javascript-lint";
+import "codemirror/addon/lint/lint.css";
+import "codemirror/addon/lint/lint.js";
+import "codemirror/addon/lint/json-lint";
 
 const code = ref(`function findSequence(goal) {
   function find(start, history) {
@@ -31,7 +31,7 @@ const code = ref(`function findSequence(goal) {
              find(start * 3, "(" + history + " * 3)");
   }
   return find(1, "1");
-}`)
+}`);
 
 const cmOptions: EditorConfiguration = reactive({
   mode: "javascript",
@@ -39,20 +39,20 @@ const cmOptions: EditorConfiguration = reactive({
   lineNumbers: true,
   lineWiseCopyCut: true,
   gutters: ["CodeMirror-lint-markers"],
-  lint: true
-})
+  lint: true,
+});
 
-const cminstance = ref<Editor | null>(null)
+const cminstance = ref<Editor | null>(null);
 const onReady = (cm: Editor) => {
-  cminstance.value = cm
-  console.log(cm.getValue())
-}
+  cminstance.value = cm;
+  console.log(cm.getValue());
+};
 
 defineExpose({
   setTheme: (theme: string) => {
-    cminstance.value?.setOption("theme", theme)
-  }
-})
+    cminstance.value?.setOption("theme", theme);
+  },
+});
 </script>
 <style lang="less" scoped>
 .cm-component {

@@ -1,35 +1,28 @@
 import type { Ref } from "vue";
 import { ref, unref, computed, nextTick } from "vue";
 
-import type { Editor } from "codemirror"
-import type { MergeView } from "codemirror/addon/merge/merge"
-import type { CmProps } from "@/src/types/props"
+import type { Editor } from "codemirror";
+import type { MergeView } from "codemirror/addon/merge/merge";
+import type { CmProps } from "@/src/types/props";
 
 export declare type UseViewControlParams = {
-  props: CmProps
-  cminstance: Ref<Editor | MergeView | null>
-  presetRef: Ref<{ initialize: () => void } | null>
-}
+  props: CmProps;
+  cminstance: Ref<Editor | MergeView | null>;
+  presetRef: Ref<{ initialize: () => void } | null>;
+};
 
-export function useViewControl({
-  props,
-  cminstance,
-  presetRef,
-}: UseViewControlParams) {
+export function useViewControl({ props, cminstance, presetRef }: UseViewControlParams) {
   const containerWidth = ref<string>("100%");
   const containerHeight = ref<string>("100%");
 
   const realCm = computed(
-    () =>
-      (props.merge
-        ? (unref(cminstance) as MergeView)?.editor()
-        : unref(cminstance)) as Editor
+    () => (props.merge ? (unref(cminstance) as MergeView)?.editor() : unref(cminstance)) as Editor
   );
   const refresh = () => {
     nextTick(() => {
-      realCm.value?.refresh()
-    })
-  }
+      realCm.value?.refresh();
+    });
+  };
 
   const resize = (width = props.width, height = props.height) => {
     let cmWidth = "100%";
@@ -58,43 +51,41 @@ export function useViewControl({
 
   const destroy = () => {
     // garbage cleanup
-    const element = realCm.value?.getWrapperElement()
-    element?.remove()
-  }
+    const element = realCm.value?.getWrapperElement();
+    element?.remove();
+  };
 
   const reload = () => {
     // Save current values
-    const history = realCm.value?.getDoc().getHistory()
+    const history = realCm.value?.getDoc().getHistory();
     // props.options = cminstance.value.getValue()
-    presetRef.value?.initialize()
-    destroy()
+    presetRef.value?.initialize();
+    destroy();
 
     // Restore values
-    realCm.value?.getDoc().setHistory(history)
-  }
+    realCm.value?.getDoc().setHistory(history);
+  };
 
   const isStyleChaotic = () => {
-    const gutterEl: HTMLElement | null = document.querySelector(
-      ".CodeMirror-gutters"
-    );
+    const gutterEl: HTMLElement | null = document.querySelector(".CodeMirror-gutters");
     const gutterElLeft = gutterEl?.style.left.replace("px", "");
     return gutterElLeft !== "0";
   };
 
   const reviseStyle = () => {
-    refresh()
+    refresh();
 
-    if (!isStyleChaotic()) return
+    if (!isStyleChaotic()) return;
 
     const timer = setInterval(() => {
-      isStyleChaotic() ? refresh() : clearInterval(timer)
-    }, 60)
+      isStyleChaotic() ? refresh() : clearInterval(timer);
+    }, 60);
 
     const clearTimer = setTimeout(() => {
-      clearInterval(timer)
-      clearTimeout(clearTimer)
-    }, 400)
-  }
+      clearInterval(timer);
+      clearTimeout(clearTimer);
+    }, 400);
+  };
 
   return {
     reload,
@@ -103,6 +94,6 @@ export function useViewControl({
     destroy,
     containerWidth,
     containerHeight,
-    reviseStyle
-  }
+    reviseStyle,
+  };
 }

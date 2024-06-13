@@ -1,33 +1,33 @@
-import type { App } from "vue"
-import type { EditorConfiguration, Editor } from "codemirror"
-import VueCodemirror from "./src/components/index.vue"
-import "./src/style/index.css"
-import _CodeMirror from "./src/sourceLib"
+import type { App } from "vue";
+import type { EditorConfiguration, Editor } from "codemirror";
+import VueCodemirror from "./src/components/index.vue";
+import "./src/style/index.css";
+import _CodeMirror from "./src/sourceLib";
 
 interface CmComp {
-  cminstance: Editor
-  resize: (width?: string | number | null, height?: string | number | null) => void
-  refresh: () => void
-  destroy: () => void
+  cminstance: Editor;
+  resize: (width?: string | number | null, height?: string | number | null) => void;
+  refresh: () => void;
+  destroy: () => void;
 }
-export type CmComponentRef = CmComp | null
+export type CmComponentRef = CmComp | null;
 declare interface InstallConfig {
-  options: EditorConfiguration
-  componentName: string
+  options: EditorConfiguration;
+  componentName: string;
 }
 
 const install = (app: App, config?: InstallConfig) => {
   if (config) {
     if (config.options) {
-      VueCodemirror.props.globalOptions.default = () => config.options
+      VueCodemirror.props.globalOptions.default = () => config.options;
     }
   }
 
-  app.component(config?.componentName || "Codemirror", VueCodemirror)
-  return app
-}
+  app.component(config?.componentName || "Codemirror", VueCodemirror);
+  return app;
+};
 
-const CodeMirror = window.CodeMirror || _CodeMirror
+const CodeMirror = window.CodeMirror || _CodeMirror;
 /**
  * Use global components.
  * @example
@@ -35,10 +35,10 @@ const CodeMirror = window.CodeMirror || _CodeMirror
  * const app = createApp(App);
  * app.use(InstallCodemirro, { componentName: "customCodemirrorComponentName" });
  */
-const GlobalCmComponent = install
-const InstallCodemirro = install
+const GlobalCmComponent = install;
+const InstallCodemirro = install;
 
-export * from "./src/components/presetMode/log/utils"
+export * from "./src/components/presetMode/log/utils";
 
-export { CodeMirror, GlobalCmComponent, InstallCodemirro, VueCodemirror }
-export default VueCodemirror
+export { CodeMirror, GlobalCmComponent, InstallCodemirro, VueCodemirror };
+export default VueCodemirror;

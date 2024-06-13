@@ -10,34 +10,34 @@
 </template>
 
 <script>
-import { ref, defineComponent, onMounted, reactive } from "vue"
+import { ref, defineComponent, onMounted, reactive } from "vue";
 
-import Codemirror from "../../packages/index"
+import Codemirror from "../../packages/index";
 
-import "codemirror/mode/htmlmixed/htmlmixed.js"
+import "codemirror/mode/htmlmixed/htmlmixed.js";
 
 export default defineComponent({
   components: {
-    Codemirror
+    Codemirror,
   },
   setup() {
-    const isMounted = ref(false)
+    const isMounted = ref(false);
     const code = ref(`<head>
   <title>codemirror-editor-vue</title>
   <meta data-n-head="ssr" charset="utf-8">
-</head>`)
+</head>`);
     const orig2 = ref(`<head>
   <title>test title</title>
   <meta data-n-head="ssr" charset="utf-8">
-</head>`)
+</head>`);
     onMounted(() => {
-      isMounted.value = true
-    })
+      isMounted.value = true;
+    });
     return {
       isMounted,
       onChange(val, cminstance) {
-        console.log(val)
-        console.log(cminstance)
+        console.log(val);
+        console.log(cminstance);
       },
       cmOptions: reactive({
         value: code,
@@ -47,9 +47,9 @@ export default defineComponent({
         mode: "text/html",
         lineNumbers: true,
         collapseIdentical: false,
-        highlightDifferences: true
-      })
-    }
-  }
-})
+        highlightDifferences: true,
+      }),
+    };
+  },
+});
 </script>

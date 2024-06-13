@@ -1,16 +1,15 @@
 <template>
   <div class="example">
     <div class="example-showcase">
-      <slot name="config"></slot>
+      <slot name="config" />
 
       <div class="demo-container flex-center">
-
-        <slot></slot>
+        <slot />
       </div>
     </div>
     <div class="example-action">
       <IconCopy v-if="!copied" style="margin-right: 6px" @click="copy(props.raw)" />
-      <span v-else style="font-size: 12px;margin-right: 6px">Copied!</span>
+      <span v-else style="font-size: 12px; margin-right: 6px">Copied!</span>
       <IconCode @click="showCode = !showCode" />
     </div>
     <div :style="`height: ${showCode ? 'auto' : '0'};`" class="example-source">
@@ -20,9 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  ref, defineProps, computed, watch, nextTick,
-} from "vue";
+import { ref, defineProps, computed, watch, nextTick } from "vue";
 import { useClipboard } from "@vueuse/core";
 import VCodeBlock from "@wdns/vue-code-block";
 import { useData } from "vitepress";
@@ -47,24 +44,26 @@ const theme = ref("github");
 
 // const demoRef = ref<any>(null);
 
-watch(isDark, (val) => {
-  console.log(" isDark", val)
-  nextTick(() => {
-    theme.value = val ? "github-dark" : "github";
-  });
-}, { immediate: true, deep: true });
-
+watch(
+  isDark,
+  (val) => {
+    console.log(" isDark", val);
+    nextTick(() => {
+      theme.value = val ? "github-dark" : "github";
+    });
+  },
+  { immediate: true, deep: true }
+);
 </script>
 
 <style lang="less">
 .example {
-
   border: 1px solid #e8e8e8;
   border-radius: 4px;
 
   .example-showcase {
     padding: 1.5rem;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     border-bottom: 1px solid #e8e8e8;
     display: flex;
     flex-direction: column;

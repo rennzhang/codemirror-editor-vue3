@@ -1,4 +1,4 @@
 export function pathResolve(dir: string) {
-  return import.meta.glob(`.${dir}`)[dir]
+  return import.meta.glob(`.${dir}`)[dir];
 }
-export default ""
+export default "";

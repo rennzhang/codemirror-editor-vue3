@@ -149,7 +149,7 @@ gen ← {' #'[(life ⍣ ⍵) board]}
     label: "More languages are being added...",
     code: "",
     disabled: true,
-  }
+  },
 ];
 
 export const DEFAULT_LANG_OPT = LANG_OPTIONS[0];

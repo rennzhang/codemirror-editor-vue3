@@ -35,18 +35,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 const props = defineProps<{
-  deps: string[]
-}>()
+  deps: string[];
+}>();
 
 const typeCommadnMap = {
   npm: "install",
   yarn: "add",
-  pnpm: "add"
-}
-const type = ref<keyof typeof typeCommadnMap>("npm")
+  pnpm: "add",
+};
+const type = ref<keyof typeof typeCommadnMap>("npm");
 </script>
 
 <style scoped lang="less">

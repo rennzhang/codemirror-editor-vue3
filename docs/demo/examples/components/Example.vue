@@ -30,50 +30,50 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps, watch, nextTick } from "vue"
-import { useClipboard } from "@vueuse/core"
-import VCodeBlock from "@wdns/vue-code-block"
-import { useData } from "vitepress"
+import { ref, defineProps, watch, nextTick } from "vue";
+import { useClipboard } from "@vueuse/core";
+import VCodeBlock from "@wdns/vue-code-block";
+import { useData } from "vitepress";
 
-import IconCopy from "./IconCopy.vue"
-import IconCode from "./IconCode.vue"
-import BashBlock from "./BashBlock.vue"
+import IconCopy from "./IconCopy.vue";
+import IconCode from "./IconCode.vue";
+import BashBlock from "./BashBlock.vue";
 
 // theme
-import "codemirror/theme/dracula.css"
+import "codemirror/theme/dracula.css";
 
 const props = defineProps<{
   schema: {
-    describe?: string
-    lang: string
-    raw: string
-    comp: any
-    deps?: string[]
-    props: any
-  }
-}>()
+    describe?: string;
+    lang: string;
+    raw: string;
+    comp: any;
+    deps?: string[];
+    props: any;
+  };
+}>();
 
-const { isDark } = useData()
+const { isDark } = useData();
 
-const showCode = ref(false)
+const showCode = ref(false);
 
-const { copy, copied } = useClipboard()
+const { copy, copied } = useClipboard();
 
-const theme = ref("github")
+const theme = ref("github");
 
-const demoRef = ref<any>(null)
+const demoRef = ref<any>(null);
 
 watch(
   () => [isDark, demoRef],
   ([val, cmRef]) => {
-    if (!cmRef.value) return
+    if (!cmRef.value) return;
     nextTick(() => {
-      cmRef.value?.setTheme(val.value ? "dracula" : "default")
-      theme.value = val.value ? "github-dark" : "github"
-    })
+      cmRef.value?.setTheme(val.value ? "dracula" : "default");
+      theme.value = val.value ? "github-dark" : "github";
+    });
   },
   { immediate: true, deep: true }
-)
+);
 </script>
 
 <style lang="less">

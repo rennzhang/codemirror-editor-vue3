@@ -1,11 +1,16 @@
 <template>
-  <Codemirror v-model:value="store.code" :options="cmOptions" :height="store.height || '500px'" :width="store.width"
-    class="cm-component" :border="store.border" @ready="onReady" />
+  <Codemirror
+    v-model:value="store.code"
+    :options="cmOptions"
+    :height="store.height || '500px'"
+    :width="store.width"
+    class="cm-component"
+    :border="store.border"
+    @ready="onReady"
+  />
 </template>
 <script lang="ts" setup>
-import {
-  ref, reactive, computed, watch, nextTick, inject
-} from "vue";
+import { ref, reactive, computed, watch, nextTick, inject } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
 
@@ -23,7 +28,7 @@ import "codemirror/addon/search/matchesonscrollbar.css";
 import "./config/lang";
 import { useStore } from "./store";
 const store = useStore();
-const provideHeight = inject<number>('height')
+const provideHeight = inject<number>("height");
 
 store.height = String(provideHeight) || store.height || "500";
 
@@ -38,20 +43,20 @@ const cmOptions: EditorConfiguration = reactive({
   styleSelectedText: true,
 });
 
-const cminstance = ref<Editor | null>(null)
+const cminstance = ref<Editor | null>(null);
 const onReady = (cm: Editor) => {
-  cminstance.value = cm
-  console.log(cm.getValue())
-}
+  cminstance.value = cm;
+  console.log(cm.getValue());
+};
 
 const _fontSize = computed(() => store.fontSize || "13px");
 const _lineHeight = computed(() => store.lineHeight || "20px");
 
 defineExpose({
   setTheme: (theme: string) => {
-    cminstance.value?.setOption("theme", theme)
-  }
-})
+    cminstance.value?.setOption("theme", theme);
+  },
+});
 </script>
 <style lang="less" scoped>
 .cm-component {
