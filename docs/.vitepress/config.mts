@@ -125,7 +125,14 @@ export default defineConfig({
   description: "CodeMirror component for Vue3",
   lastUpdated: true,
   cleanUrls: true,
+  ignoreDeadLinks: [
+    // 自定义函数，忽略所有包含 "example "的链接
+    (url) => {
+      return url.toLowerCase().includes("/example");
+    },
+  ],
   vite: {
+    build: {},
     plugins: [
       UnoCSS(),
       AutoImport({
@@ -144,6 +151,7 @@ export default defineConfig({
       ],
     },
   },
+
   locales: {
     root: {
       label: "English",
