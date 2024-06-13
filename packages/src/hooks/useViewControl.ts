@@ -24,21 +24,24 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
     });
   };
 
+  const isStringNumber = (value?: string | number | null) => {
+    return value && isNaN(+value) ? false : true;
+  };
+
   const resize = (width = props.width, height = props.height) => {
     let cmWidth = "100%";
     let cmHeight = "100%";
-    console.log("resize", width, width);
 
-    if (typeof width === "number") {
+    if (isStringNumber(width)) {
       cmWidth = `${String(width)}px`;
     } else if (width) {
-      cmWidth = width;
+      cmWidth = width as string;
     }
 
-    if (typeof height === "number") {
+    if (isStringNumber(height)) {
       cmHeight = `${String(height)}px`;
     } else if (height) {
-      cmHeight = height;
+      cmHeight = height as string;
     }
 
     containerWidth.value = cmWidth;
