@@ -1,3 +1,18 @@
+## [2.6.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.6.0...v2.6.1) (2024-06-13)
+
+
+### Bug Fixes
+
+* 文档打包忽略特定地址 ([db91b82](https://github.com/rennzhang/codemirror-editor-vue3/commit/db91b82cc68506536eae523429b8d9d41d3776f0))
+* 修复跳转错误 ([40a6b82](https://github.com/rennzhang/codemirror-editor-vue3/commit/40a6b8246e63d1063ecb8251cc32c00a4d39b382))
+
+
+### Features
+
+* 调整文档首页样式 ([50a2df0](https://github.com/rennzhang/codemirror-editor-vue3/commit/50a2df04fa7c8b997c7ae4e5a55ee1cafd4b5828))
+
+
+
 # [2.6.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.6.0-beta.0...v2.6.0) (2024-06-11)
 
 
