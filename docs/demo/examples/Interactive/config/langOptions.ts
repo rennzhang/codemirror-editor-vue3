@@ -200,6 +200,12 @@ gen ← {' #'[(life ⍣ ⍵) board]}
     code: "",
     disabled: true,
   },
+  {
+    langPath: "",
+    value: "langConfig",
+    label: "Click to view more languages",
+    code: "",
+  },
 ];
 
 export const DEFAULT_LANG_OPT = LANG_OPTIONS[0];

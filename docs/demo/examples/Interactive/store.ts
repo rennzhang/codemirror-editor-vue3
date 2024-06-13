@@ -2,7 +2,7 @@ import { useData } from "vitepress";
 import { LANG_OPTIONS, DEFAULT_LANG_OPT } from "./config/langOptions";
 import { reactive, watch, nextTick, onMounted } from "vue";
 export const store = reactive({
-  height: "400px",
+  height: "400px" as string | number,
   width: "100%",
   lineHeight: "20px",
   fontSize: "13px",
