@@ -41,8 +41,7 @@ const store = useStore();
 
 const onLangChange = (opt: LangOption) => {
   if (opt.value === "langConfig") {
-    const isZh = window.location.href.includes("zh");
-    window.location.href = `${window.location.origin}${isZh ? "/zh-CN" : ""}/guide/lang`;
+    window.location.href = `${window.location.href}guide/lang`;
     return;
   }
   store.lang = opt.value;
