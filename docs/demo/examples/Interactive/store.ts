@@ -30,6 +30,7 @@ export const useStore = () => {
   watch(
     () => store.lang,
     (val) => {
+      if (val == "langConfig") return;
       const langOpt = LANG_OPTIONS.find((opt) => opt.value === val);
       if (langOpt) {
         store.langPath = langOpt.langPath;
