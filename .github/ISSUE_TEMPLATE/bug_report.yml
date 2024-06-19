@@ -10,8 +10,27 @@ body:
     id: bug-description
     attributes:
       label: Describe the bug
-      description: A clear and concise description of what the bug is. 
+      description: A clear and concise description of what the bug is.
       placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    id: Reproduction-steps
+    attributes:
+      label: Steps to reproduce
+      description: Please provide any reproduction steps that may need to be described. 
+      placeholder: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: package-info
+    attributes:
+      label: Package Info
+      description:
+        Output of `npm list vue typescript codemirror codemirror-editor-vue3 --depth=0 --no-color' --binaries
+        --browsers`
+      render: shell
+      placeholder: package versions
     validations:
       required: true
   - type: checkboxes
@@ -20,8 +39,15 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
+        - label: Is it the latest version?
+          required: true
         - label: Read the [docs](https://rennzhang.github.io/codemirror-editor-vue3/guide/getting-started).
           required: true
-        - label: Check that there isn't [already an issue](https://github.com/RennCheung/codemirror-editor-vue3/issues?q=) that reports the same bug to avoid creating a duplicate.
+        - label:
+            Check that there isn't [already an issue](https://github.com/RennCheung/codemirror-editor-vue3/issues?q=)
+            that reports the same bug to avoid creating a duplicate.
           required: true
-
+        - label:
+            The provided reproduction is a [minimal reproducible
+            example](https://stackoverflow.com/help/minimal-reproducible-example) of the bug.
+          required: false
