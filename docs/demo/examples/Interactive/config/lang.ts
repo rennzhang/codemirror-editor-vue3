@@ -13,3 +13,18 @@ import "codemirror/mode/ruby/ruby";
 import "codemirror/mode/sql/sql";
 // yaml
 import "codemirror/mode/yaml/yaml";
+
+// java
+import "codemirror/mode/clike/clike";
+// go
+import "codemirror/mode/go/go";
+// php
+import "codemirror/mode/php/php";
+// python
+import "codemirror/mode/python/python";
+// ruby
+import "codemirror/mode/ruby/ruby";
+// sql
+import "codemirror/mode/sql/sql";
+// shell
+import "codemirror/mode/shell/shell";

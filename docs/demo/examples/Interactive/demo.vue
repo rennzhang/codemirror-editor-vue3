@@ -10,7 +10,7 @@
   />
 </template>
 <script lang="ts" setup>
-import { ref, reactive, computed, watch, nextTick, inject } from "vue";
+import { ref, reactive, computed, watch, nextTick, inject, unref } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
 

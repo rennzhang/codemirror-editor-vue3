@@ -44,7 +44,7 @@ watch(
       .replace("%theme%", val.theme)
       .replace("%lang%", val.lang == "json" ? "javascript" : val.lang)
       .replace("%width%", val.width)
-      .replace("%height%", val.height)
+      .replace("%height%", val.height + "")
       .replace("%border%", val.border + "")
       .replace("%readOnly%", val.readOnly + "")
       .replace("%langPath%", `import "${val.langPath}"`)
