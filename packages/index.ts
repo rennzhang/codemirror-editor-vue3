@@ -33,12 +33,12 @@ const CodeMirror = window.CodeMirror || _CodeMirror;
  * @example
  * import { createApp } from "vue";
  * const app = createApp(App);
- * app.use(InstallCodemirro, { componentName: "customCodemirrorComponentName" });
+ * app.use(InstallCodeMirror, { componentName: "customCodemirrorComponentName" });
  */
 const GlobalCmComponent = install;
-const InstallCodemirro = install;
+const InstallCodeMirror = install;
 
 export * from "./src/components/presetMode/log/utils";
 
-export { CodeMirror, GlobalCmComponent, InstallCodemirro, VueCodemirror };
+export { CodeMirror, GlobalCmComponent, InstallCodeMirror, VueCodemirror };
 export default VueCodemirror;
