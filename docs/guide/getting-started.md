@@ -57,10 +57,10 @@ It is not recommended to register components globally. This will cause the type 
 ```js [main.js]
 import { createApp } from "vue"
 import App from "./App.vue"
-import { InstallCodemirro } from "codemirror-editor-vue3" // [!code ++]
+import { InstallCodeMirror } from "codemirror-editor-vue3" // [!code ++]
 
 const app = createApp(App)
-app.use(InstallCodemirro) // [!code ++]
+app.use(InstallCodeMirror) // [!code ++]
 app.mount("#app")
 ```
 
@@ -72,7 +72,7 @@ The global registered component name is Codemirror or you can customize a compon
 
 ```js [main.js]
 // ....
-app.use(InstallCodemirro, { componentName: "customName" }) // [!code ++]
+app.use(InstallCodeMirror, { componentName: "customName" }) // [!code ++]
 ```
 
 :::
