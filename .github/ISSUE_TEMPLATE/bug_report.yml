@@ -27,7 +27,7 @@ body:
     attributes:
       label: Package Info
       description:
-        Output of `npm list vue typescript codemirror codemirror-editor-vue3 --depth=0 --no-color' --binaries
+        Copy the output of the command `npm list vue typescript codemirror codemirror-editor-vue3 --depth=0 --binaries
         --browsers`
       render: shell
       placeholder: package versions
