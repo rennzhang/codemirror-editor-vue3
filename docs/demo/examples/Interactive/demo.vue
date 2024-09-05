@@ -7,6 +7,8 @@
     class="cm-component"
     :border="store.border"
     @ready="onReady"
+    @blur="onBlur"
+    @focus="onFocus"
   />
 </template>
 <script lang="ts" setup>
@@ -40,12 +42,24 @@ const cmOptions: EditorConfiguration = reactive({
   scrollbarStyle: "simple",
   showCursorWhenSelecting: true,
   styleSelectedText: true,
+  styleActiveLine: false,
 });
 
 const cminstance = ref<Editor | null>(null);
 const onReady = (cm: Editor) => {
   cminstance.value = cm;
   console.log(cm.getValue());
+};
+
+/** @description  */
+const onBlur = (cm: Editor) => {
+  console.log(" onBlur", cm);
+  cm.setOption("styleActiveLine", false);
+};
+/** @description  */
+const onFocus = (cm: Editor) => {
+  console.log(" onBlur", cm);
+  cm.setOption("styleActiveLine", true);
 };
 
 const _fontSize = computed(() => store.fontSize || "13px");
