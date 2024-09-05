@@ -1,3 +1,12 @@
+## [2.7.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.7.0...v2.7.1) (2024-09-05)
+
+
+### Bug Fixes
+
+* **#54:** handle empty value in isStringNumber function ([10cab8b](https://github.com/rennzhang/codemirror-editor-vue3/commit/10cab8ba38bc0d4637fb3619cefa87d882661b1e)), closes [#54](https://github.com/rennzhang/codemirror-editor-vue3/issues/54)
+
+
+
 # [2.7.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.6.1...v2.7.0) (2024-06-13)
 
 
