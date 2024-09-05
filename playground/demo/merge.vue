@@ -1,6 +1,13 @@
 <template>
-  <Codemirror merge :options="cmOptions" :height="300" class="cm-component" original-style @change="onChange"
-    @focus="onFocus" @ready="onReady" />
+  <Codemirror
+    merge
+    :options="cmOptions"
+    :height="300"
+    class="cm-component"
+    @change="onChange"
+    @focus="onFocus"
+    @ready="onReady"
+  />
 </template>
 <script lang="ts">
 import { ref, defineComponent } from "vue";
@@ -48,15 +55,15 @@ export default defineComponent({
         //   console.log("beforeChange", instance, obj);
         // });
       },
-      onCursorActivity(
-        instance: Editor,
-        line: number,
-        gutter: string,
-        contextMenuEvent: MouseEvent,
-      ) {
+      onCursorActivity(instance: Editor, line: number, gutter: string, contextMenuEvent: MouseEvent) {
         console.log("onGutterContextMenu", instance, line, gutter, contextMenuEvent);
       },
     };
   },
 });
 </script>
+<style>
+/* .cm-component > {
+  font-family: "Fira Code", monospace !important;
+} */
+</style>
