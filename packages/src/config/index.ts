@@ -60,6 +60,6 @@ export const DEFAULT_OPTIONS = {
   theme: "default", // Theme
   lineNumbers: true, // Display line number
   smartIndent: true, // Intelligent indentation
-  indentUnit: 2,
-  styleActiveLine: true,
+  indentUnit: 2, // Indentation unit
+  styleActiveLine: true, // Highlight the current line
 };
