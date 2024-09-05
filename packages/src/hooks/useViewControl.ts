@@ -25,6 +25,7 @@ export function useViewControl({ props, cminstance, presetRef }: UseViewControlP
   };
 
   const isStringNumber = (value?: string | number | null) => {
+    if (!value) return false;
     return value && isNaN(+value) ? false : true;
   };
 
