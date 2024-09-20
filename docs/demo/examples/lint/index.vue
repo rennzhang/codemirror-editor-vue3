@@ -28,7 +28,7 @@ const schemas = [
     comp: defineAsyncComponent(() => import("./jsonLint.vue")),
     describe: "校验 json 数据, 在任意位置输入字符尝试校验功能",
     lang: "application/json",
-    deps: ["jsonlint"],
+    deps: ["jsonlint-mod-fixed"],
   },
 ];
 

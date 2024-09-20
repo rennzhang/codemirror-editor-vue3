@@ -13,7 +13,7 @@
 import { ref, reactive } from "vue";
 import { Editor, EditorConfiguration } from "codemirror";
 import Codemirror from "codemirror-editor-vue3";
-import jsonlint from "jsonlint-mod";
+import jsonlint from "jsonlint-mod-fixed";
 // language json or js
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.css";

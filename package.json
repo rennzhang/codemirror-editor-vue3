@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rennzhang/codemirror-editor-vue3/"
+    "url": "git+https://github.com/rennzhang/codemirror-editor-vue3.git"
   },
   "keywords": [
     "codemirror-editor-vue3",
@@ -58,13 +58,8 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@unocss/transformer-directives": "^0.58.8",
-    "@wdns/vue-code-block": "^2.3.2",
     "codemirror": "^5",
-    "diff-match-patch": "^1.0.5",
-    "element-plus": "^2.6.3",
-    "jsonlint-mod": "^1.7.6",
-    "unplugin-vue-components": "^0.26.0"
+    "diff-match-patch": "^1.0.5"
   },
   "peerDependencies": {
     "codemirror": "^5",
@@ -72,6 +67,11 @@
     "vue": "^3.x"
   },
   "devDependencies": {
+    "@unocss/transformer-directives": "^0.58.8",
+    "@wdns/vue-code-block": "^2.3.2",
+    "unplugin-vue-components": "^0.26.0",
+    "element-plus": "^2.6.3",
+    "jsonlint-mod-fixed": "^1.7.7",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/codemirror": "^5.60.15",
