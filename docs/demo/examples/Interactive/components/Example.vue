@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps, computed, watch, nextTick } from "vue";
+import { ref, defineProps, watch, nextTick } from "vue";
 import { useClipboard } from "@vueuse/core";
 import VCodeBlock from "@wdns/vue-code-block";
 import { useData } from "vitepress";

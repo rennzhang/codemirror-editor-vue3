@@ -1,6 +1,7 @@
 # Component Events
 
-> The following three are only the events encapsulated by this component. Please refer to more events [Codemirror Events](./events#codemirror-events)
+> The following three are only the events encapsulated by this component. Please refer to more events
+> [Codemirror Events](./events#codemirror-events)
 
 | event name |             description             | params                                |
 | ---------- | :---------------------------------: | :------------------------------------ |
@@ -99,7 +100,9 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 
 ::: tip
 
-The following events are official events of Codemirror5. You can refer to the official documents for details [Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly through components, for example：
+The following events are official events of Codemirror5. You can refer to the official documents for details
+[Codemirror Event](https://codemirror.net/doc/manual.html#events)，You can use this component to bind events directly
+through components, for example：
 
 :::
 

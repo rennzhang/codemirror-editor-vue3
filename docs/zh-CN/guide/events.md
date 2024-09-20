@@ -95,7 +95,8 @@ const onChange = (val: string, cm: any) => {      // [!code focus]
 
 ::: tip
 
-以下事件为 Codemirror5 官方自身事件，具体内容可以查阅官方文档 [Codemirror Event](https://codemirror.net/doc/manual.html#events)，使用本插件时可以直接通过组件绑定事件，例如：
+以下事件为 Codemirror5 官方自身事件，具体内容可以查阅官方文档
+[Codemirror Event](https://codemirror.net/doc/manual.html#events)，使用本插件时可以直接通过组件绑定事件，例如：
 
 :::
 

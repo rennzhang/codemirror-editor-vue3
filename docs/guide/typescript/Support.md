@@ -1,35 +1,33 @@
 # Typescript Support
+
 ## Prepare
 
 - Make sure your project supports Typescript
-- It is recommended to install [volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) for better template prompts
+- It is recommended to install [volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) for
+  better template prompts
 - Installation dependency [@types/codemirror](https://www.npmjs.com/package/@types/codemirror)
 
 ::: code-group
+
 ```bash [npm]
 npm install @types/codemirror -D
 ```
+
 ```bash [yarn]
 yarn add @types/codemirror
 ```
+
 ```bash [pnpm]
 pnpm i @types/codemirror -D
 ```
-:::
 
+:::
 
 ## Case
 
 ```vue
 <template>
-  <Codemirror
-    v-model:value="code"
-    :options="cmOptions"
-    border
-    @change="onChange"
-    @ready="onReady"
-    @focus="onFocus"
-  >
+  <Codemirror v-model:value="code" :options="cmOptions" border @change="onChange" @ready="onReady" @focus="onFocus">
   </Codemirror>
 </template>
 

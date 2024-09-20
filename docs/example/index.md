@@ -8,8 +8,7 @@ More cases are being updated...
 
 # Interactive Example
 
-::: tip
-You can get rich examples through the following configurations.
+::: tip You can get rich examples through the following configurations.
 
 :::
 

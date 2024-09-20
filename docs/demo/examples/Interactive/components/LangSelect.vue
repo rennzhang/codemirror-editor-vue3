@@ -21,12 +21,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import "codemirror/mode/apl/apl.js";
 import { ElSelect, ElOption, ElFormItem } from "element-plus";
 import { LangOption } from "../types";
 import { LANG_OPTIONS } from "../config/langOptions";
-const value = ref("javascript");
+// const value = ref("javascript");
 import { useStore } from "../store";
 const langOptions = computed(() => {
   // LANG_OPTIONS

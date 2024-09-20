@@ -1,4 +1,5 @@
 # Typescript Support
+
 ## 前置工作
 
 - 确保你的项目支持 ts
@@ -6,30 +7,26 @@
 - 安装依赖 [@types/codemirror](https://www.npmjs.com/package/@types/codemirror)
 
 ::: code-group
+
 ```bash [npm]
 npm install @types/codemirror -D
 ```
+
 ```bash [yarn]
 yarn add @types/codemirror
 ```
+
 ```bash [pnpm]
 pnpm i @types/codemirror -D
 ```
-:::
 
+:::
 
 ## 案例
 
 ```vue
 <template>
-  <Codemirror
-    v-model:value="code"
-    :options="cmOptions"
-    border
-    @change="onChange"
-    @ready="onReady"
-    @focus="onFocus"
-  >
+  <Codemirror v-model:value="code" :options="cmOptions" border @change="onChange" @ready="onReady" @focus="onFocus">
   </Codemirror>
 </template>
 

@@ -1,6 +1,5 @@
-::: tip
-Gets an instance object of the codemirror editor to perform a series of operations on the editor content, such as select, insert, collapse, and so on.
-:::
+::: tip Gets an instance object of the codemirror editor to perform a series of operations on the editor content, such
+as select, insert, collapse, and so on. :::
 
 ## Obtained from the component ref
 

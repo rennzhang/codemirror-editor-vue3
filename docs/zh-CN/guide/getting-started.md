@@ -1,4 +1,9 @@
-[![GitHub stars](https://img.shields.io/github/stars/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/stargazers) [![npm downloads](https://img.shields.io/npm/dt/codemirror-editor-vue3)](https://www.npmjs.com/package/codemirror-editor-vue3) [![GitHub issues](https://img.shields.io/github/issues/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/issues) [![GitHub forks](https://img.shields.io/github/forks/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/network) [![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3) [![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+[![GitHub stars](https://img.shields.io/github/stars/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/stargazers)
+[![npm downloads](https://img.shields.io/npm/dt/codemirror-editor-vue3)](https://www.npmjs.com/package/codemirror-editor-vue3)
+[![GitHub issues](https://img.shields.io/github/issues/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/issues)
+[![GitHub forks](https://img.shields.io/github/forks/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3/network)
+[![GitHub last commit](https://img.shields.io/github/last-commit/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
+[![license](https://img.shields.io/github/license/RennCheung/codemirror-editor-vue3)](https://github.com/RennCheung/codemirror-editor-vue3)
 
 ## 简介
 
@@ -55,13 +60,13 @@ pnpm i @types/codemirror -D
 ::: code-group
 
 ```js [main.js]
-import { createApp } from "vue"
-import App from "./App.vue"
-import { InstallCodeMirror } from "codemirror-editor-vue3" // [!code ++]
+import { createApp } from "vue";
+import App from "./App.vue";
+import { InstallCodeMirror } from "codemirror-editor-vue3"; // [!code ++]
 
-const app = createApp(App)
-app.use(InstallCodeMirror) // [!code ++]
-app.mount("#app")
+const app = createApp(App);
+app.use(InstallCodeMirror); // [!code ++]
+app.mount("#app");
 ```
 
 :::
@@ -72,7 +77,7 @@ app.mount("#app")
 
 ```js [main.js]
 // ....
-app.use(InstallCodeMirror, { componentName: "customName" }) // [!code ++]
+app.use(InstallCodeMirror, { componentName: "customName" }); // [!code ++]
 ```
 
 :::
@@ -105,66 +110,66 @@ app.use(InstallCodeMirror, { componentName: "customName" }) // [!code ++]
   </Codemirror>
 </template>
 <script>
-  import { ref, onMounted, onUnmounted } from "vue"
-  import "codemirror/mode/javascript/javascript.js"
-  import Codemirror from "codemirror-editor-vue3"
-  export default {
-    components: { Codemirror },
-    setup() {
-      const code = ref(
-        `var i = 0;
+import { ref, onMounted, onUnmounted } from "vue";
+import "codemirror/mode/javascript/javascript.js";
+import Codemirror from "codemirror-editor-vue3";
+export default {
+  components: { Codemirror },
+  setup() {
+    const code = ref(
+      `var i = 0;
 for (; i < 9; i++) {
     console.log(i);
     // more statements
 }
 `
-      )
+    );
 
-      const cmRef = ref()
-      const cmOptions = {
-        mode: "text/javascript"
-      }
-      const onChange = (val, cm) => {
-        console.log(val)
-        console.log(cm.getValue())
-      }
+    const cmRef = ref();
+    const cmOptions = {
+      mode: "text/javascript",
+    };
+    const onChange = (val, cm) => {
+      console.log(val);
+      console.log(cm.getValue());
+    };
 
-      const onInput = (val) => {
-        console.log(val)
-      }
+    const onInput = (val) => {
+      console.log(val);
+    };
 
-      const onReady = (cm) => {
-        console.log(cm.focus())
-      }
+    const onReady = (cm) => {
+      console.log(cm.focus());
+    };
 
-      onMounted(() => {
-        setTimeout(() => {
-          cmRef.value?.refresh()
-        }, 1000)
+    onMounted(() => {
+      setTimeout(() => {
+        cmRef.value?.refresh();
+      }, 1000);
 
-        setTimeout(() => {
-          cmRef.value?.resize(300, 200)
-        }, 2000)
+      setTimeout(() => {
+        cmRef.value?.resize(300, 200);
+      }, 2000);
 
-        setTimeout(() => {
-          cmRef.value?.cminstance.isClean()
-        }, 3000)
-      })
+      setTimeout(() => {
+        cmRef.value?.cminstance.isClean();
+      }, 3000);
+    });
 
-      onUnmounted(() => {
-        cmRef.value?.destroy()
-      })
+    onUnmounted(() => {
+      cmRef.value?.destroy();
+    });
 
-      return {
-        code,
-        cmRef,
-        cmOptions,
-        onChange,
-        onInput,
-        onReady
-      }
-    }
-  }
+    return {
+      code,
+      cmRef,
+      cmOptions,
+      onChange,
+      onInput,
+      onReady,
+    };
+  },
+};
 </script>
 ```
 
@@ -184,55 +189,55 @@ for (; i < 9; i++) {
   </Codemirror>
 </template>
 <script lang="ts" setup>
-  import { ref, onMounted, onUnmounted } from "vue"
-  import "codemirror/mode/javascript/javascript.js"
-  import Codemirror from "codemirror-editor-vue3"
-  import type { CmComponentRef } from "codemirror-editor-vue3"
-  import type { Editor, EditorConfiguration } from "codemirror"
+import { ref, onMounted, onUnmounted } from "vue";
+import "codemirror/mode/javascript/javascript.js";
+import Codemirror from "codemirror-editor-vue3";
+import type { CmComponentRef } from "codemirror-editor-vue3";
+import type { Editor, EditorConfiguration } from "codemirror";
 
-  const code = ref(
-    `var i = 0;
+const code = ref(
+  `var i = 0;
 for (; i < 9; i++) {
     console.log(i);
     // more statements
 }
 `
-  )
-  const cmRef = ref<CmComponentRef>()
-  const cmOptions: EditorConfiguration = {
-    mode: "text/javascript"
-  }
+);
+const cmRef = ref<CmComponentRef>();
+const cmOptions: EditorConfiguration = {
+  mode: "text/javascript",
+};
 
-  const onChange = (val: string, cm: Editor) => {
-    console.log(val)
-    console.log(cm.getValue())
-  }
+const onChange = (val: string, cm: Editor) => {
+  console.log(val);
+  console.log(cm.getValue());
+};
 
-  const onInput = (val: string) => {
-    console.log(val)
-  }
+const onInput = (val: string) => {
+  console.log(val);
+};
 
-  const onReady = (cm: Editor) => {
-    console.log(cm.focus())
-  }
+const onReady = (cm: Editor) => {
+  console.log(cm.focus());
+};
 
-  onMounted(() => {
-    setTimeout(() => {
-      cmRef.value?.refresh()
-    }, 1000)
+onMounted(() => {
+  setTimeout(() => {
+    cmRef.value?.refresh();
+  }, 1000);
 
-    setTimeout(() => {
-      cmRef.value?.resize(300, 200)
-    }, 2000)
+  setTimeout(() => {
+    cmRef.value?.resize(300, 200);
+  }, 2000);
 
-    setTimeout(() => {
-      cmRef.value?.cminstance.isClean()
-    }, 3000)
-  })
+  setTimeout(() => {
+    cmRef.value?.cminstance.isClean();
+  }, 3000);
+});
 
-  onUnmounted(() => {
-    cmRef.value?.destroy()
-  })
+onUnmounted(() => {
+  cmRef.value?.destroy();
+});
 </script>
 ```
 

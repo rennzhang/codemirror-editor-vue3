@@ -8,7 +8,8 @@
 
 ## 说明
 
-merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-patch)插件使用（压缩后只占用 6.3k），为了更好的开箱即用，安装`codemirror-editor-vue3`时会自动引入该依赖
+merge 模式需要配合[diff-match-patch](https://github.com/JackuB/diff-match-patch)插件使用（压缩后只占用 6.3k），为了更好
+的开箱即用，安装`codemirror-editor-vue3`时会自动引入该依赖
 
 <component v-if="dynamicComponent" :is="dynamicComponent"></component>
 
@@ -37,49 +38,49 @@ export default {
 </template>
 
 <script lang="ts">
-  import { ref, defineComponent, reactive } from "vue"
-  import { MergeView } from "codemirror/addon/merge/merge"
-  import type { Editor } from "codemirror"
+import { ref, defineComponent, reactive } from "vue";
+import { MergeView } from "codemirror/addon/merge/merge";
+import type { Editor } from "codemirror";
 
-  import Codemirror from "codemirror-editor-vue3"
+import Codemirror from "codemirror-editor-vue3";
 
-  import "codemirror/mode/htmlmixed/htmlmixed.js"
+import "codemirror/mode/htmlmixed/htmlmixed.js";
 
-  export default defineComponent({
-    components: {
-      Codemirror
-    },
-    setup() {
-      const code = ref(`<head>
+export default defineComponent({
+  components: {
+    Codemirror,
+  },
+  setup() {
+    const code = ref(`<head>
   <title>codemirror-editor-vue</title>
   <meta data-n-head="ssr" charset="utf-8">
-</head>`)
+</head>`);
 
-      const orig2 = ref(`<head>
+    const orig2 = ref(`<head>
   <title>test title</title>
   <meta data-n-head="ssr" charset="utf-8">
-</head>`)
+</head>`);
 
-      return {
-        onChange(val: string, cm: any) {
-          console.log(val)
-          const cmMerge = cm as MergeView
-          const cminstance: Editor = cmMerge.editor()
-          console.log(cminstance.getValue())
-        },
-        cmOptions: reactive({
-          value: code,
-          origLeft: null,
-          orig: orig2,
-          connect: "align",
-          mode: "text/html",
-          lineNumbers: true,
-          collapseIdentical: false,
-          highlightDifferences: true
-        })
-      }
-    }
-  })
+    return {
+      onChange(val: string, cm: any) {
+        console.log(val);
+        const cmMerge = cm as MergeView;
+        const cminstance: Editor = cmMerge.editor();
+        console.log(cminstance.getValue());
+      },
+      cmOptions: reactive({
+        value: code,
+        origLeft: null,
+        orig: orig2,
+        connect: "align",
+        mode: "text/html",
+        lineNumbers: true,
+        collapseIdentical: false,
+        highlightDifferences: true,
+      }),
+    };
+  },
+});
 </script>
 ```
 

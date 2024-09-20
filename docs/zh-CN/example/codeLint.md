@@ -3,14 +3,10 @@ aside: false
 ---
 
 # 代码语法检查
-::: tip
-下面是一些代码语法检查的案例，目前支持 js、json等。
 
-可以点击下面蓝色字体查看效果
-:::
+::: tip下面是一些代码语法检查的案例，目前支持 js、json等。
 
-
-
+可以点击下面蓝色字体查看效果 :::
 
 <component v-if="CaseContainer" :is="CaseContainer"></component>
 
