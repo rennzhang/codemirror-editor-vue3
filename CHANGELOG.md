@@ -1,3 +1,7 @@
+# [2.8.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.8.0-beta.0...v2.8.0) (2024-09-20)
+
+
+
 # [2.8.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.7.1...v2.8.0-beta.0) (2024-09-20)
 
 
