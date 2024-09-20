@@ -1,3 +1,12 @@
+# [2.8.0-beta.0](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.7.1...v2.8.0-beta.0) (2024-09-20)
+
+
+### Features
+
+* 去除不必要的dependencies依赖 ([b35d6e1](https://github.com/rennzhang/codemirror-editor-vue3/commit/b35d6e16acded0729772f10fd1fc6f1487e6cd57))
+
+
+
 ## [2.7.1](https://github.com/rennzhang/codemirror-editor-vue3/compare/v2.7.0...v2.7.1) (2024-09-05)
 
 
