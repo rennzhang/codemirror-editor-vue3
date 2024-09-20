@@ -9,3 +9,5 @@ node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
 types/auto-imports.d.ts
+docs/auto-imports.d.ts
+docs/components.d.ts

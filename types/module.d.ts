@@ -18,4 +18,4 @@ declare module "*.less" {
 declare module "dedent";
 
 // jsonlint-mod
-declare module "jsonlint-mod-fixed";
+declare module "jsonlint-mod";

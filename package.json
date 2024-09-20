@@ -71,7 +71,7 @@
     "@wdns/vue-code-block": "^2.3.2",
     "unplugin-vue-components": "^0.26.0",
     "element-plus": "^2.6.3",
-    "jsonlint-mod-fixed": "^1.7.7",
+    "jsonlint-mod": "^1.7.6",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/codemirror": "^5.60.15",
