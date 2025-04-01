@@ -86,6 +86,11 @@ function getGuideSidebar(lang: "en" | "zh") {
           text: isEn ? "Get instance object" : "获取实例对象",
           link: `${route}/guide/supplementary/instance`,
         },
+        // 自定义主题
+        {
+          text: isEn ? "Custom Theme" : "自定义主题",
+          link: `${route}/guide/supplementary/custom-theme`,
+        },
       ],
     },
     {
