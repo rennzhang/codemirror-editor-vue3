@@ -71,6 +71,7 @@ watch(
     align-items: center;
 
     .demo-container {
+      width: 100%;
       z-index: 26;
       min-width: 100%;
     }
